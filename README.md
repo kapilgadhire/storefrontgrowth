@@ -7,6 +7,7 @@ Guidelines (v1.0).
 ## Files
 - `index.html` — the home page (semantic HTML, no build step, no dependencies)
 - `styles.css` — all styling, with the brand palette as CSS variables at the top
+- `assets/hero-florist.webp` — hero photo
 
 ## Run locally
 It's a plain static site — open `index.html` directly, or serve the folder:
@@ -38,13 +39,10 @@ gradients), 1.5px hairline borders (`#E5DFD0`). The awning stripe (barber-pole
 diagonal) never exceeds ~16px and is never a full background. Never put green
 text on navy.
 
-## Swapping in the hero photo
-The hero has a placeholder where a real photo goes. In `index.html`, replace the
-`.img-placeholder` div inside `.hero-frame` with:
-
-```html
-<img src="your-photo.jpg" alt="Owner at their shop door">
-```
+## Hero photo
+The hero photo lives at `assets/hero-florist.webp`. To swap it, replace that
+file (or point the `<img>` inside `.hero-frame` at a new one) — the frame crops
+with `object-fit: cover`, so any portrait-ish photo works.
 
 The offset cream block behind the frame is intentional (the brand's flat "depth
 through color blocking" look) and needs no change.
