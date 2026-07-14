@@ -1090,7 +1090,8 @@
             </select>
           </label>
         </div>
-        <div class="form-success" id="formSuccess">Thanks. Connect this form to your CRM or form endpoint before publishing.</div>
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:0;height:0;opacity:0" aria-hidden="true">
+        <div class="form-success" id="formSuccess">Thanks! We've got your details and will call you back shortly.</div>
         <button class="btn btn-primary" type="submit">Request a call back</button>
       </form>
     </div>
@@ -1278,9 +1279,83 @@
     modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
 
-    document.getElementById('contactForm').addEventListener('submit', event => {
+    // Contact form -> Supabase (store) + Web3Forms (email notification)
+    const SUPABASE_URL = 'https://zwzgfrbipmmxkqlxqzan.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_y94kDVsRrVLlyfuyPMK1Xw_fswnUQNp'; // publishable (public) key — safe in client
+    const WEB3FORMS_KEY = '09ce496c-f379-49f8-85e8-7bac592dd869';
+
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      document.getElementById('formSuccess').classList.add('show');
+      const fd = new FormData(contactForm);
+
+      // Honeypot: bots fill hidden fields; silently drop.
+      if (fd.get('botcheck')) return;
+
+      const lead = {
+        first_name: (fd.get('firstName') || '').trim(),
+        business_name: (fd.get('businessName') || '').trim(),
+        email: (fd.get('email') || '').trim(),
+        phone: (fd.get('phone') || '').trim(),
+        service: fd.get('service') || null,
+        budget: fd.get('budget') || null
+      };
+
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const originalLabel = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      formSuccess.classList.remove('show');
+
+      // Fire both in parallel so a hiccup in one never loses the lead.
+      const storeLead = fetch(`${SUPABASE_URL}/rest/v1/contact_submissions`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(lead)
+      });
+
+      const sendEmail = fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'New call-back request — StorefrontGrowth',
+          from_name: 'StorefrontGrowth Website',
+          'First name': lead.first_name,
+          'Business name': lead.business_name,
+          'Email': lead.email,
+          'Phone': lead.phone,
+          'Service needed': lead.service || '—',
+          'Monthly budget': lead.budget || '—'
+        })
+      });
+
+      const [store, email] = await Promise.allSettled([storeLead, sendEmail]);
+      const storedOk = store.status === 'fulfilled' && store.value.ok;
+      const emailedOk = email.status === 'fulfilled' && email.value.ok;
+
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+
+      if (storedOk || emailedOk) {
+        formSuccess.textContent = "Thanks! We've got your details and will call you back shortly.";
+        formSuccess.style.background = '';
+        formSuccess.style.color = '';
+        formSuccess.classList.add('show');
+        contactForm.reset();
+      } else {
+        formSuccess.textContent = 'Sorry — something went wrong. Please email hello@storefrontgrowth.com or try again.';
+        formSuccess.style.background = 'rgba(237,129,84,0.16)';
+        formSuccess.style.color = '#9a3b1c';
+        formSuccess.classList.add('show');
+      }
     });
 
     // Reveal animation
