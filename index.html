@@ -1,374 +1,1304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StorefrontGrowth — Marketing that brings more customers through the door</title>
-  <meta name="description" content="StorefrontGrowth helps small businesses — salons, gyms, convenience stores, restaurants — attract more customers and grow revenue through digital marketing, local SEO, paid ads, social media, and AI-powered automation.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StoreFrontGrowth helps small businesses attract more customers, improve local visibility, and automate marketing with practical growth systems." />
+  <title>StoreFrontGrowth | Marketing that moves your business forward</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #161714;
+      --muted: #696b62;
+      --paper: #f6f2e9;
+      --paper-2: #eee8db;
+      --white: #fffdf8;
+      --green: #4f6f52;
+      --green-dark: #29412e;
+      --lime: #dbea8b;
+      --orange: #ed8154;
+      --yellow: #f5c85d;
+      --line: rgba(22, 23, 20, 0.12);
+      --shadow: 0 20px 60px rgba(45, 42, 31, 0.12);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --container: min(1180px, calc(100% - 40px));
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 3%, rgba(219, 234, 139, 0.38), transparent 25rem),
+        radial-gradient(circle at 94% 18%, rgba(237, 129, 84, 0.18), transparent 24rem),
+        var(--paper);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.menu-open { overflow: hidden; }
+    ::selection { background: var(--lime); color: var(--ink); }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button { color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+
+    .container { width: var(--container); margin-inline: auto; }
+    .section { padding: 112px 0; }
+    .section-sm { padding: 72px 0; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 5px rgba(237, 129, 84, 0.15);
+    }
+
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1, h2, h3, h4 {
+      font-family: "Manrope", sans-serif;
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    h1 { font-size: clamp(3.2rem, 7.5vw, 7.35rem); margin-bottom: 28px; }
+    h2 { font-size: clamp(2.4rem, 5vw, 4.7rem); margin-bottom: 22px; }
+    h3 { font-size: clamp(1.35rem, 2vw, 1.85rem); margin-bottom: 12px; }
+    p { color: var(--muted); }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      align-items: end;
+      gap: 50px;
+      margin-bottom: 48px;
+    }
+
+    .section-head p { max-width: 540px; margin: 0; font-size: 1.08rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { background: var(--ink); color: var(--white); box-shadow: 0 13px 30px rgba(22, 23, 20, 0.2); }
+    .btn-primary:hover { box-shadow: 0 18px 36px rgba(22, 23, 20, 0.26); }
+    .btn-secondary { border-color: var(--line); background: rgba(255, 253, 248, 0.62); backdrop-filter: blur(14px); }
+    .btn-light { background: var(--white); color: var(--ink); }
+    .btn-arrow { width: 18px; transition: transform 0.25s ease; }
+    .btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* Header */
+    .header-wrap {
+      position: fixed;
+      inset: 18px 0 auto;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    .nav {
+      width: var(--container);
+      min-height: 70px;
+      margin-inline: auto;
+      padding: 10px 11px 10px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 22px;
+      background: rgba(246, 242, 233, 0.74);
+      box-shadow: 0 12px 40px rgba(33, 32, 26, 0.08);
+      backdrop-filter: blur(18px);
+      pointer-events: auto;
+      transition: background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .nav.scrolled { background: rgba(255, 253, 248, 0.92); box-shadow: 0 14px 45px rgba(33, 32, 26, 0.14); }
+
+    .brand { display: inline-flex; align-items: center; gap: 11px; font: 800 1.02rem "Manrope", sans-serif; letter-spacing: -0.03em; }
+    .brand-mark {
+      width: 37px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--ink);
+      color: var(--lime);
+      transform: rotate(-4deg);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .brand-mark svg { width: 23px; }
+    .nav-links { display: flex; align-items: center; gap: 31px; font-size: 0.94rem; font-weight: 600; }
+    .nav-links a { position: relative; color: #4f514a; }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -5px;
+      height: 2px;
+      background: var(--orange);
+      transition: right 0.25s ease;
+    }
+    .nav-links a:hover::after { right: 0; }
+    .menu-btn { display: none; width: 46px; height: 46px; border: 0; border-radius: 14px; background: var(--ink); color: white; cursor: pointer; }
+    .nav-mobile { display: none; }
+
+    /* Hero */
+    .hero { min-height: 100svh; padding: 165px 0 70px; display: grid; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(380px, 0.9fr); gap: 50px; align-items: center; }
+    .hero h1 span { position: relative; color: var(--green); white-space: nowrap; }
+    .hero h1 span::after {
+      content: "";
+      position: absolute;
+      left: 1%;
+      right: -2%;
+      bottom: 2%;
+      height: 0.12em;
+      border-radius: 99px;
+      background: var(--orange);
+      z-index: -1;
+      transform: rotate(-1.4deg);
+    }
+
+    .hero-copy > p { max-width: 650px; font-size: clamp(1.08rem, 1.6vw, 1.3rem); margin-bottom: 34px; }
+    .hero-actions { display: flex; align-items: center; gap: 13px; flex-wrap: wrap; }
+    .micro-proof { display: flex; align-items: center; gap: 12px; margin-top: 32px; color: #5f615a; font-size: 0.92rem; }
+    .avatar-stack { display: flex; }
+    .avatar {
+      width: 35px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      margin-left: -8px;
+      border: 3px solid var(--paper);
+      border-radius: 50%;
+      background: var(--paper-2);
+      font-weight: 700;
+      font-size: 0.72rem;
+    }
+    .avatar:first-child { margin-left: 0; background: var(--yellow); }
+    .avatar:nth-child(2) { background: var(--lime); }
+    .avatar:nth-child(3) { background: #d9c2ed; }
+    .avatar:nth-child(4) { background: var(--orange); color: white; }
+
+    .hero-visual { position: relative; min-height: 620px; }
+    .visual-shell {
+      position: absolute;
+      inset: 20px 12px 32px 30px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 42px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.88), rgba(240,235,219,0.62)),
+        var(--paper-2);
+      box-shadow: var(--shadow);
+      transform: rotate(2.5deg);
+    }
+
+    .visual-topbar { height: 62px; padding: 0 23px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
+    .window-dots { display: flex; gap: 6px; }
+    .window-dots span { width: 9px; height: 9px; border-radius: 50%; background: #cfcbc0; }
+    .window-dots span:first-child { background: var(--orange); }
+    .visual-label { padding: 7px 12px; border-radius: 99px; background: rgba(219, 234, 139, 0.45); font-size: 0.75rem; font-weight: 700; color: var(--green-dark); }
+
+    .dashboard { padding: 25px; display: grid; gap: 18px; }
+    .dash-hero {
+      min-height: 190px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 25px;
+      color: white;
+      background: var(--green-dark);
+    }
+    .dash-hero::after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      aspect-ratio: 1;
+      right: -55px;
+      bottom: -90px;
+      border-radius: 50%;
+      border: 38px solid rgba(219,234,139,0.74);
+    }
+    .dash-hero small { opacity: 0.72; }
+    .dash-hero strong { display: block; margin-top: 10px; font: 700 3.25rem "Manrope", sans-serif; letter-spacing: -0.06em; }
+    .growth-chip { display: inline-flex; gap: 6px; align-items: center; margin-top: 8px; padding: 7px 10px; border-radius: 99px; background: rgba(255,255,255,0.12); font-size: 0.78rem; }
+
+    .dash-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .dash-card { min-height: 125px; padding: 18px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,253,248,0.72); }
+    .dash-card small { color: var(--muted); }
+    .dash-value { margin: 7px 0 13px; font: 700 1.8rem "Manrope", sans-serif; }
+    .sparkline { height: 35px; display: flex; align-items: end; gap: 4px; }
+    .sparkline i { flex: 1; border-radius: 4px 4px 1px 1px; background: var(--orange); opacity: 0.75; }
+    .sparkline i:nth-child(1) { height: 22%; }
+    .sparkline i:nth-child(2) { height: 38%; }
+    .sparkline i:nth-child(3) { height: 31%; }
+    .sparkline i:nth-child(4) { height: 55%; }
+    .sparkline i:nth-child(5) { height: 47%; }
+    .sparkline i:nth-child(6) { height: 79%; }
+    .sparkline i:nth-child(7) { height: 92%; background: var(--green); }
+
+    .task-list { display: grid; gap: 9px; margin-top: 10px; }
+    .task-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 0.78rem; }
+    .task-item span:first-child { display: inline-flex; align-items: center; gap: 7px; }
+    .task-item b { width: 17px; height: 17px; display: grid; place-items: center; border-radius: 6px; background: var(--lime); font-size: 0.62rem; }
+
+    .floating-card {
+      position: absolute;
+      z-index: 4;
+      padding: 15px 17px;
+      border: 1px solid rgba(255,255,255,0.62);
+      border-radius: 18px;
+      background: rgba(255,253,248,0.86);
+      box-shadow: 0 15px 35px rgba(31,29,23,0.13);
+      backdrop-filter: blur(15px);
+      animation: float 4.4s ease-in-out infinite;
+    }
+    .floating-card strong { display: block; font: 700 1.08rem "Manrope", sans-serif; }
+    .floating-card small { color: var(--muted); }
+    .float-one { top: 55px; right: -8px; }
+    .float-two { left: -5px; bottom: 62px; animation-delay: -1.4s; }
+    .float-icon { width: 38px; height: 38px; display: grid; place-items: center; float: left; margin-right: 11px; border-radius: 12px; background: var(--lime); }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(1deg); } }
+
+    /* Marquee */
+    .marquee-wrap { overflow: hidden; border-block: 1px solid var(--line); background: rgba(255,255,255,0.32); }
+    .marquee { width: max-content; display: flex; animation: marquee 24s linear infinite; }
+    .marquee-group { display: flex; align-items: center; gap: 34px; padding: 21px 17px; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 13px; font: 700 clamp(1rem, 1.8vw, 1.35rem) "Manrope", sans-serif; white-space: nowrap; }
+    .marquee-item::before { content: "✦"; color: var(--orange); }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* Outcomes */
+    .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .outcome-card {
+      min-height: 390px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(255,253,248,0.64);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    }
+    .outcome-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); background: var(--white); }
+    .card-number { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; font-weight: 700; background: rgba(255,255,255,0.65); }
+    .outcome-card h3 { max-width: 270px; font-size: clamp(1.9rem, 3vw, 2.8rem); }
+    .outcome-card p { margin: 0; max-width: 300px; }
+    .orb {
+      position: absolute;
+      width: 210px;
+      aspect-ratio: 1;
+      right: -75px;
+      top: 55px;
+      border-radius: 50%;
+      filter: saturate(0.9);
+      transition: transform 0.5s ease;
+    }
+    .outcome-card:hover .orb { transform: scale(1.12) rotate(20deg); }
+    .outcome-card:nth-child(1) .orb { background: var(--orange); box-shadow: inset 0 0 0 34px rgba(255,255,255,0.33); }
+    .outcome-card:nth-child(2) .orb { background: var(--lime); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 94%, 50% 71%, 21% 94%, 32% 57%, 2% 35%, 39% 35%); }
+    .outcome-card:nth-child(3) .orb { background: var(--yellow); border-radius: 20px; transform: rotate(25deg); }
+    .outcome-card:nth-child(3):hover .orb { transform: scale(1.12) rotate(55deg); }
+
+    /* Services */
+    .services-section { background: var(--ink); color: var(--white); }
+    .services-section .eyebrow { color: var(--lime); }
+    .services-section p { color: #b9bbb3; }
+    .services-layout { display: grid; grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr); gap: 60px; align-items: start; }
+    .service-sticky { position: sticky; top: 130px; }
+    .service-sticky h2 { font-size: clamp(2.7rem, 5.5vw, 5rem); }
+    .service-sticky p { max-width: 430px; }
+    .service-list { border-top: 1px solid rgba(255,255,255,0.14); }
+    .service-item { border-bottom: 1px solid rgba(255,255,255,0.14); }
+    .service-trigger {
+      width: 100%;
+      padding: 28px 0;
+      display: grid;
+      grid-template-columns: 58px 1fr auto;
+      align-items: center;
+      gap: 18px;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+    .service-index { color: #777a73; font-size: 0.82rem; }
+    .service-trigger h3 { margin: 0; color: var(--white); transition: color 0.25s ease; }
+    .service-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); transition: transform 0.3s ease, background 0.3s ease; }
+    .service-item.active .service-icon { transform: rotate(45deg); background: var(--lime); color: var(--ink); }
+    .service-item.active .service-trigger h3 { color: var(--lime); }
+    .service-panel { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.45s ease, opacity 0.3s ease; }
+    .service-panel-inner { padding: 0 0 28px 76px; display: grid; grid-template-columns: 1fr auto; gap: 25px; }
+    .service-panel p { max-width: 650px; margin: 0; }
+    .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
+    .tag { padding: 7px 11px; border: 1px solid rgba(255,255,255,0.16); border-radius: 99px; color: #d6d7d2; font-size: 0.78rem; }
+    .service-item.active .service-panel { max-height: 320px; opacity: 1; }
+
+    /* Process */
+    .process-shell {
+      padding: clamp(26px, 4vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      background: rgba(255,253,248,0.66);
+      box-shadow: var(--shadow);
+    }
+    .process-tabs { display: flex; gap: 9px; flex-wrap: wrap; padding-bottom: 30px; border-bottom: 1px solid var(--line); }
+    .process-tab { padding: 11px 16px; border: 1px solid var(--line); border-radius: 99px; background: transparent; color: var(--muted); font-weight: 700; cursor: pointer; transition: 0.25s ease; }
+    .process-tab.active { background: var(--ink); color: white; border-color: var(--ink); }
+    .process-content { min-height: 330px; padding-top: 42px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 55px; align-items: center; }
+    .process-copy { animation: fadeIn 0.45s ease; }
+    .process-copy h3 { font-size: clamp(2rem, 4vw, 3.5rem); }
+    .process-copy p { max-width: 480px; font-size: 1.05rem; }
+    .process-list { display: grid; gap: 12px; margin-top: 24px; }
+    .process-list div { display: flex; align-items: center; gap: 11px; font-weight: 600; }
+    .process-list b { width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; background: var(--lime); font-size: 0.75rem; }
+    .process-visual { min-height: 280px; position: relative; border-radius: 28px; overflow: hidden; background: var(--paper-2); animation: fadeIn 0.45s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .visual-canvas { position: absolute; inset: 0; padding: 24px; }
+    .canvas-grid { height: 100%; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; }
+    .mini-card { padding: 17px; border-radius: 18px; background: var(--white); border: 1px solid var(--line); box-shadow: 0 10px 25px rgba(27,27,22,0.06); }
+    .mini-card strong { display: block; font-family: "Manrope", sans-serif; margin-bottom: 5px; }
+    .mini-card small { color: var(--muted); }
+    .mini-card.wide { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .progress { width: min(55%, 230px); height: 10px; border-radius: 99px; background: #e7e2d7; overflow: hidden; }
+    .progress span { display: block; width: 76%; height: 100%; border-radius: inherit; background: var(--green); }
+
+    /* ROI calculator */
+    .roi-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 55px; align-items: center; }
+    .roi-copy p { max-width: 520px; font-size: 1.08rem; }
+    .roi-note { margin-top: 24px; padding: 15px 17px; border-left: 3px solid var(--orange); background: rgba(255,255,255,0.4); color: var(--muted); font-size: 0.9rem; }
+    .calculator {
+      padding: clamp(25px, 4vw, 42px);
+      border-radius: 34px;
+      background: var(--green-dark);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+    .calc-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .field { display: grid; gap: 9px; }
+    .field label { color: #d5dfd5; font-size: 0.86rem; font-weight: 600; }
+    .input-wrap { display: flex; align-items: center; gap: 8px; padding: 0 15px; border: 1px solid rgba(255,255,255,0.16); border-radius: 14px; background: rgba(255,255,255,0.08); }
+    .input-wrap input { width: 100%; height: 52px; border: 0; outline: 0; background: transparent; color: white; font-weight: 700; }
+    .input-wrap span { color: var(--lime); font-weight: 700; }
+    .calc-result { margin-top: 25px; padding: 24px; display: grid; grid-template-columns: 1fr auto; gap: 25px; align-items: end; border-radius: 22px; background: var(--lime); color: var(--ink); }
+    .calc-result small { display: block; margin-bottom: 6px; color: #556044; }
+    .calc-result strong { font: 800 clamp(2.1rem, 4.5vw, 3.7rem) "Manrope", sans-serif; letter-spacing: -0.06em; }
+    .calc-result p { max-width: 180px; margin: 0; color: #556044; font-size: 0.85rem; text-align: right; }
+
+    /* Testimonials */
+    .testimonial-shell { overflow: hidden; position: relative; }
+    .testimonial-track { display: flex; transition: transform 0.55s cubic-bezier(.2,.7,.2,1); }
+    .testimonial { min-width: 100%; padding: clamp(35px, 6vw, 72px); border-radius: 38px; background: var(--paper-2); }
+    .quote-mark { font: 800 5rem/0.75 Georgia, serif; color: var(--orange); }
+    .testimonial blockquote { max-width: 930px; margin: 25px 0 35px; font: 600 clamp(1.75rem, 3.8vw, 3.4rem)/1.22 "Manrope", sans-serif; letter-spacing: -0.04em; }
+    .person { display: flex; align-items: center; gap: 13px; }
+    .person-avatar { width: 52px; aspect-ratio: 1; display: grid; place-items: center; border-radius: 17px; background: var(--ink); color: var(--lime); font-weight: 800; }
+    .person strong { display: block; }
+    .person small { color: var(--muted); }
+    .slider-controls { margin-top: 22px; display: flex; justify-content: space-between; align-items: center; }
+    .slider-dots { display: flex; gap: 8px; }
+    .slider-dot { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: #c3beb1; cursor: pointer; transition: width 0.25s ease, border-radius 0.25s ease, background 0.25s ease; }
+    .slider-dot.active { width: 28px; border-radius: 99px; background: var(--green); }
+    .slider-arrows { display: flex; gap: 8px; }
+    .slider-btn { width: 50px; height: 50px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; transition: 0.25s ease; }
+    .slider-btn:hover { background: var(--ink); color: white; }
+
+    /* FAQ */
+    .faq-grid { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 55px; }
+    .faq-intro { position: sticky; top: 130px; align-self: start; }
+    .faq-intro p { max-width: 400px; }
+    .faq-list { border-top: 1px solid var(--line); }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-question { width: 100%; padding: 25px 0; display: grid; grid-template-columns: 1fr auto; gap: 20px; border: 0; background: transparent; text-align: left; font: 700 1.08rem "Manrope", sans-serif; cursor: pointer; }
+    .faq-plus { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: var(--white); transition: transform 0.25s ease, background 0.25s ease; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-answer p { padding: 0 45px 24px 0; margin: 0; }
+    .faq-item.active .faq-answer { max-height: 220px; }
+    .faq-item.active .faq-plus { transform: rotate(45deg); background: var(--lime); }
+
+    /* CTA & Footer */
+    .cta-section { padding: 36px 0 20px; }
+    .cta-card {
+      min-height: 520px;
+      padding: clamp(38px, 7vw, 85px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 46px;
+      background: var(--orange);
+      color: var(--ink);
+    }
+    .cta-card h2 { max-width: 880px; font-size: clamp(3rem, 7vw, 6.6rem); position: relative; z-index: 2; }
+    .cta-card p { max-width: 620px; color: #4a3227; font-size: 1.12rem; position: relative; z-index: 2; }
+    .cta-card .btn { margin-top: 16px; position: relative; z-index: 2; }
+    .cta-shape { position: absolute; border-radius: 50%; border: 55px solid rgba(255,255,255,0.2); }
+    .cta-shape.one { width: 360px; aspect-ratio: 1; right: -80px; top: -105px; }
+    .cta-shape.two { width: 220px; aspect-ratio: 1; right: 21%; bottom: -115px; border-width: 38px; }
+
+    footer { padding: 65px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 1.25fr repeat(3, 0.75fr); gap: 35px; padding-bottom: 50px; border-bottom: 1px solid var(--line); }
+    .footer-brand p { max-width: 390px; margin: 20px 0 0; }
+    .footer-col h4 { margin-bottom: 18px; font-size: 0.84rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .footer-links { display: grid; gap: 10px; color: var(--muted); }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-bottom { padding-top: 23px; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 0.84rem; }
+
+    /* Modal */
+    .modal { position: fixed; inset: 0; z-index: 100; display: none; place-items: center; padding: 20px; background: rgba(18,18,15,0.64); backdrop-filter: blur(12px); }
+    .modal.open { display: grid; }
+    .modal-card { width: min(620px, 100%); max-height: 90vh; overflow-y: auto; padding: clamp(25px, 5vw, 42px); position: relative; border-radius: 30px; background: var(--white); box-shadow: 0 30px 90px rgba(0,0,0,0.28); animation: modalIn 0.3s ease; }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(16px) scale(0.97); } to { opacity: 1; transform: none; } }
+    .modal-close { position: absolute; top: 18px; right: 18px; width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--paper-2); cursor: pointer; }
+    .modal-card h3 { font-size: 2.35rem; padding-right: 35px; }
+    .contact-form { display: grid; gap: 15px; margin-top: 25px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .contact-form label { display: grid; gap: 7px; font-size: 0.82rem; font-weight: 700; }
+    .contact-form input, .contact-form select {
+      width: 100%;
+      height: 52px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      outline: none;
+      background: var(--paper);
+    }
+    .contact-form input:focus, .contact-form select:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(79,111,82,0.12); }
+    .form-success { display: none; padding: 15px; border-radius: 13px; background: rgba(219,234,139,0.5); color: var(--green-dark); font-weight: 700; }
+    .form-success.show { display: block; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .menu-btn { display: grid; place-items: center; }
+      .nav-mobile {
+        position: fixed;
+        inset: 0;
+        z-index: 45;
+        padding: 120px 25px 35px;
+        display: grid;
+        align-content: start;
+        gap: 20px;
+        background: var(--paper);
+        transform: translateY(-105%);
+        transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
+      }
+      .nav-mobile.open { transform: none; }
+      .nav-mobile a { padding: 8px 0; font: 700 2.3rem "Manrope", sans-serif; letter-spacing: -0.04em; border-bottom: 1px solid var(--line); }
+      .nav-mobile .btn { margin-top: 20px; font-size: 1rem; }
+
+      .hero-grid, .services-layout, .roi-grid, .faq-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 150px; }
+      .hero-visual { min-height: 580px; }
+      .section-head { grid-template-columns: 1fr; gap: 15px; }
+      .outcome-grid { grid-template-columns: 1fr; }
+      .outcome-card { min-height: 330px; }
+      .service-sticky, .faq-intro { position: static; }
+      .services-layout { gap: 25px; }
+      .process-content { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 680px) {
+      :root { --container: min(100% - 28px, 1180px); }
+      .section { padding: 82px 0; }
+      .header-wrap { top: 10px; }
+      .nav { min-height: 62px; padding-left: 14px; border-radius: 18px; }
+      .nav .btn { display: none; }
+      .brand-mark { width: 34px; }
+      .hero { padding: 125px 0 55px; }
+      .hero h1 { font-size: clamp(3.1rem, 16vw, 5rem); }
+      .hero h1 span { white-space: normal; }
+      .hero-actions { align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+      .micro-proof { align-items: flex-start; }
+      .hero-visual { min-height: 485px; margin-top: 5px; }
+      .visual-shell { inset: 18px 3px 25px 9px; border-radius: 30px; }
+      .dashboard { padding: 15px; gap: 11px; }
+      .dash-hero { min-height: 145px; padding: 18px; }
+      .dash-hero strong { font-size: 2.5rem; }
+      .dash-row { gap: 10px; }
+      .dash-card { min-height: 105px; padding: 13px; }
+      .dash-value { font-size: 1.35rem; margin-bottom: 8px; }
+      .float-one { right: -3px; top: 23px; }
+      .float-two { left: -3px; bottom: 25px; }
+      .floating-card { padding: 11px 13px; }
+      .floating-card small { font-size: 0.68rem; }
+      .floating-card strong { font-size: 0.88rem; }
+      .float-icon { width: 30px; height: 30px; }
+      .outcome-card { padding: 24px; border-radius: 27px; }
+      .service-trigger { grid-template-columns: 35px 1fr auto; gap: 10px; padding: 23px 0; }
+      .service-trigger h3 { font-size: 1.23rem; }
+      .service-icon { width: 37px; height: 37px; }
+      .service-panel-inner { padding-left: 45px; grid-template-columns: 1fr; }
+      .process-shell { border-radius: 28px; }
+      .process-content { padding-top: 28px; gap: 28px; }
+      .process-visual { min-height: 310px; }
+      .canvas-grid { grid-template-columns: 1fr; grid-template-rows: repeat(3, 1fr); }
+      .mini-card.wide { grid-column: auto; }
+      .calc-fields, .form-row { grid-template-columns: 1fr; }
+      .calc-result { grid-template-columns: 1fr; }
+      .calc-result p { text-align: left; max-width: none; }
+      .testimonial { padding: 31px 24px; border-radius: 27px; }
+      .testimonial blockquote { font-size: 1.65rem; }
+      .cta-card { min-height: 500px; padding: 35px 24px; border-radius: 30px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
+  <header class="header-wrap">
+    <nav class="nav" id="mainNav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="StoreFrontGrowth home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 15l5-5 4 4 7-8"/>
+            <path d="M15 6h5v5"/>
+          </svg>
+        </span>
+        StoreFrontGrowth
+      </a>
 
-  <!-- Awning stripe -->
-  <div class="stripe" aria-hidden="true"></div>
+      <div class="nav-links">
+        <a href="#outcomes">Outcomes</a>
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#results">Results</a>
+        <a href="#faq">FAQ</a>
+      </div>
 
-  <!-- ============ NAV ============ -->
-  <header class="nav">
-    <a href="#top" class="wordmark">Storefront<span class="g">Growth</span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="nav-links" id="nav-links">
-      <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
-      <a href="#process">Process</a>
-      <a href="#testimonials">Results</a>
-      <a href="#cta" class="btn btn-green btn-sm">Book a meeting</a>
+      <button class="btn btn-primary js-open-modal" type="button">
+        Get your growth plan
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
     </nav>
   </header>
 
+  <div class="nav-mobile" id="mobileMenu" aria-hidden="true">
+    <a href="#outcomes">Outcomes</a>
+    <a href="#services">Services</a>
+    <a href="#process">How it works</a>
+    <a href="#results">Results</a>
+    <a href="#faq">FAQ</a>
+    <button class="btn btn-primary js-open-modal" type="button">Get your growth plan</button>
+  </div>
+
   <main id="top">
-
-    <!-- ============ HERO ============ -->
-    <section class="hero" aria-label="Introduction">
-      <div class="hero-copy">
-        <h1>Marketing that brings more customers <span class="g">through the door.</span></h1>
-        <p class="lede">Whether you run a salon, gym, convenience store, or another growing local business, we build marketing systems designed to generate measurable growth.</p>
-        <div class="hero-cta">
-          <a href="#cta" class="btn btn-green">Book a meeting</a>
-          <div class="hero-note">Practical marketing. Clear reporting. No unnecessary complexity.</div>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Built for ambitious small businesses</div>
+          <h1>Turn your online presence into a <span>growth engine.</span></h1>
+          <p>We help local and growing businesses attract more customers, convert more leads, and save time with practical marketing systems powered by smart automation.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary js-open-modal" type="button">
+              Get a free growth plan
+              <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <a class="btn btn-secondary" href="#services">Explore services</a>
+          </div>
+          <div class="micro-proof">
+            <div class="avatar-stack" aria-hidden="true">
+              <div class="avatar">AB</div>
+              <div class="avatar">JM</div>
+              <div class="avatar">SK</div>
+              <div class="avatar">+8</div>
+            </div>
+            <span>One responsive team across strategy, creative, technology, and execution.</span>
+          </div>
         </div>
-      </div>
-      <div class="hero-media">
-        <div class="hero-frame">
-          <img src="assets/hero-florist.webp" alt="Smiling florist standing with arms crossed at the door of her flower shop, surrounded by fresh blooms" width="1124" height="1408" fetchpriority="high">
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ TRUST STRIP ============ -->
-    <section class="trust">
-      <p>Built for small businesses that want to grow — without building a large in-house marketing team.</p>
-    </section>
-
-    <!-- ============ OUTCOMES ============ -->
-    <section class="section section-flow" aria-label="What we help you achieve">
-      <div class="section-head">
-        <div class="eyebrow">What we help you achieve</div>
-        <h2>Marketing should do more than generate likes.</h2>
-        <p>StorefrontGrowth focuses on three outcomes that matter most to small businesses.</p>
-      </div>
-      <div class="grid-3">
-        <article class="card">
-          <div class="num">01</div>
-          <h3>Supercharge revenue</h3>
-          <p>Reach customers who are actively looking for your products or services — and turn more enquiries, visits, and clicks into paying customers.</p>
-        </article>
-        <article class="card">
-          <div class="num">02</div>
-          <h3>Grow your customer base</h3>
-          <p>Improve your visibility across Google, social media, local search, and paid advertising so more people discover your business.</p>
-        </article>
-        <article class="card">
-          <div class="num">03</div>
-          <h3>Build customer loyalty</h3>
-          <p>Use smarter communication, CRM systems, remarketing, and automated follow-ups to encourage repeat visits and long-term relationships.</p>
-        </article>
-      </div>
-      <div><a href="#cta" class="btn btn-navy">Let’s build your growth plan</a></div>
-    </section>
-
-    <!-- ============ SERVICES ============ -->
-    <section id="services" class="band band-cream" aria-label="How we help you grow">
-      <div class="wrap band-inner">
-        <div class="section-head">
-          <div class="eyebrow">How we help you grow</div>
-          <h2>Everything your business needs to grow online.</h2>
-          <p>From getting discovered on Google to following up with leads automatically, we help you build a connected marketing system that works across every stage of the customer journey.</p>
-        </div>
-        <div class="grid-2">
-
-          <article class="svc">
-            <h3>Digital marketing</h3>
-            <p>Build a stronger online presence with a clear strategy designed around your business, market, customers, and growth goals.</p>
-            <div class="chips">
-              <span class="chip">Strategy</span>
-              <span class="chip">Campaign planning</span>
-              <span class="chip">Conversion improvement</span>
-              <span class="chip">Lead generation</span>
-              <span class="chip">Local business marketing</span>
+        <div class="hero-visual reveal" aria-label="Marketing growth dashboard illustration">
+          <div class="visual-shell">
+            <div class="visual-topbar">
+              <div class="window-dots"><span></span><span></span><span></span></div>
+              <div class="visual-label">Growth dashboard</div>
             </div>
-            <a href="#cta" class="svc-link">Explore digital marketing →</a>
-          </article>
-
-          <article class="svc">
-            <h3>Website design &amp; development</h3>
-            <p>Get a modern, mobile-friendly website that clearly explains what you offer and makes it easy for customers to contact, visit, or buy from you.</p>
-            <div class="chips">
-              <span class="chip">Design</span>
-              <span class="chip">Development</span>
-              <span class="chip">Landing pages</span>
-              <span class="chip">Mobile optimization</span>
-              <span class="chip">Conversion-focused copy</span>
-            </div>
-            <a href="#cta" class="svc-link">Build a better website →</a>
-          </article>
-
-          <article class="svc">
-            <h3>Social media marketing</h3>
-            <p>Stay visible, build trust, and give customers more reasons to engage with your business.</p>
-            <div class="chips">
-              <span class="chip">Strategy</span>
-              <span class="chip">Content planning</span>
-              <span class="chip">Posts &amp; reels</span>
-              <span class="chip">Community engagement</span>
-              <span class="chip">Organic &amp; paid campaigns</span>
-            </div>
-            <a href="#cta" class="svc-link">Grow your social presence →</a>
-          </article>
-
-          <article class="svc">
-            <h3>SEO, AEO &amp; GEO</h3>
-            <p>Improve your visibility across Google search, local search, map results, voice assistants, and AI-powered search platforms.</p>
-            <div class="chips">
-              <span class="chip">SEO audits</span>
-              <span class="chip">On-page &amp; off-page SEO</span>
-              <span class="chip">Local SEO</span>
-              <span class="chip">Answer Engine Optimization</span>
-              <span class="chip">Generative Engine Optimization</span>
-            </div>
-            <a href="#cta" class="svc-link">Improve your search visibility →</a>
-          </article>
-
-          <article class="svc">
-            <h3>Paid advertising</h3>
-            <p>Reach the right people at the right time through Google Ads, Meta Ads, remarketing, and location-based campaigns.</p>
-            <div class="chips">
-              <span class="chip">Google Search Ads</span>
-              <span class="chip">Google Display Ads</span>
-              <span class="chip">Facebook &amp; Instagram Ads</span>
-              <span class="chip">Lead generation</span>
-              <span class="chip">Remarketing</span>
-            </div>
-            <a href="#cta" class="svc-link">Launch better ad campaigns →</a>
-          </article>
-
-          <article class="svc">
-            <h3>AI-powered workflows &amp; CRM</h3>
-            <p>Reduce repetitive work and make sure no customer enquiry gets forgotten.</p>
-            <div class="chips">
-              <span class="chip">CRM setup</span>
-              <span class="chip">Automated follow-ups</span>
-              <span class="chip">Appointment reminders</span>
-              <span class="chip">Re-engagement</span>
-              <span class="chip">Review requests</span>
-              <span class="chip">Workflow automation</span>
-            </div>
-            <a href="#cta" class="svc-link">Automate your marketing →</a>
-          </article>
-
-          <article class="feature">
-            <div class="feature-body">
-              <h3>Google Business Profile management</h3>
-              <p>Improve how your business appears in Google Search and Google Maps.</p>
-              <div class="chips" style="margin-top:14px">
-                <span class="chip">Profile setup &amp; optimization</span>
-                <span class="chip">Business info updates</span>
-                <span class="chip">Post publishing</span>
-                <span class="chip">Review management</span>
-                <span class="chip">Local keywords</span>
-                <span class="chip">Performance monitoring</span>
+            <div class="dashboard">
+              <div class="dash-hero">
+                <small>Monthly qualified leads</small>
+                <strong><span class="counter" data-count="286">0</span></strong>
+                <div class="growth-chip">↗ 34% from last month</div>
+              </div>
+              <div class="dash-row">
+                <div class="dash-card">
+                  <small>Website traffic</small>
+                  <div class="dash-value">18.4K</div>
+                  <div class="sparkline" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+                <div class="dash-card">
+                  <small>Automations live</small>
+                  <div class="task-list">
+                    <div class="task-item"><span><b>✓</b> Lead follow-up</span><small>Live</small></div>
+                    <div class="task-item"><span><b>✓</b> Review requests</span><small>Live</small></div>
+                    <div class="task-item"><span><b>✓</b> CRM routing</span><small>Live</small></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="feature-cta">
-              <a href="#cta" class="btn btn-green">Strengthen your local presence</a>
+          </div>
+
+          <div class="floating-card float-one">
+            <span class="float-icon">★</span>
+            <small>Google rating</small>
+            <strong>4.9 / 5</strong>
+          </div>
+          <div class="floating-card float-two">
+            <span class="float-icon">↗</span>
+            <small>Revenue influenced</small>
+            <strong>+$42,800</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee-wrap" aria-label="Services ticker">
+      <div class="marquee">
+        <div class="marquee-group">
+          <span class="marquee-item">Websites that convert</span>
+          <span class="marquee-item">Local SEO</span>
+          <span class="marquee-item">Paid advertising</span>
+          <span class="marquee-item">Social media</span>
+          <span class="marquee-item">CRM systems</span>
+          <span class="marquee-item">AI workflows</span>
+          <span class="marquee-item">Google Business Profile</span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span class="marquee-item">Websites that convert</span>
+          <span class="marquee-item">Local SEO</span>
+          <span class="marquee-item">Paid advertising</span>
+          <span class="marquee-item">Social media</span>
+          <span class="marquee-item">CRM systems</span>
+          <span class="marquee-item">AI workflows</span>
+          <span class="marquee-item">Google Business Profile</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="outcomes">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">What we help you achieve</div>
+            <h2>Marketing built around business outcomes.</h2>
+          </div>
+          <p>No vanity metrics and no mysterious agency theatre. Every campaign, page, and workflow should move a real business number in the right direction.</p>
+        </div>
+
+        <div class="outcome-grid">
+          <article class="outcome-card reveal">
+            <div class="card-number">01</div>
+            <div class="orb" aria-hidden="true"></div>
+            <div>
+              <h3>Supercharge revenue</h3>
+              <p>Create a clearer path from discovery to enquiry to sale, then improve it with data.</p>
+            </div>
+          </article>
+          <article class="outcome-card reveal">
+            <div class="card-number">02</div>
+            <div class="orb" aria-hidden="true"></div>
+            <div>
+              <h3>Grow your customer base</h3>
+              <p>Reach high-intent customers through search, social, paid campaigns, and local discovery.</p>
+            </div>
+          </article>
+          <article class="outcome-card reveal">
+            <div class="card-number">03</div>
+            <div class="orb" aria-hidden="true"></div>
+            <div>
+              <h3>Build lasting loyalty</h3>
+              <p>Use thoughtful communication and automation to turn first-time buyers into repeat customers.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="container services-layout">
+        <div class="service-sticky reveal">
+          <div class="eyebrow">How we do it</div>
+          <h2>A connected growth system, not scattered tactics.</h2>
+          <p>Choose the support you need today. We will make sure every channel works together instead of competing for attention.</p>
+          <button class="btn btn-light js-open-modal" type="button" style="margin-top:18px;">Build my plan</button>
+        </div>
+
+        <div class="service-list reveal">
+          <article class="service-item active">
+            <button class="service-trigger" type="button" aria-expanded="true">
+              <span class="service-index">01</span>
+              <h3>Website design and development</h3>
+              <span class="service-icon">+</span>
+            </button>
+            <div class="service-panel">
+              <div class="service-panel-inner">
+                <div>
+                  <p>Fast, mobile-first websites designed around customer intent, clear messaging, and conversion. We handle structure, copy direction, design, development, analytics, and launch support.</p>
+                  <div class="tag-row"><span class="tag">Landing pages</span><span class="tag">Service websites</span><span class="tag">Conversion UX</span><span class="tag">Analytics</span></div>
+                </div>
+              </div>
             </div>
           </article>
 
+          <article class="service-item">
+            <button class="service-trigger" type="button" aria-expanded="false">
+              <span class="service-index">02</span>
+              <h3>SEO, AEO, and local discovery</h3>
+              <span class="service-icon">+</span>
+            </button>
+            <div class="service-panel">
+              <div class="service-panel-inner">
+                <div>
+                  <p>Build visibility where customers search. This includes technical SEO, on-page improvements, local SEO, content planning, Google Business Profile management, and answer-engine optimization.</p>
+                  <div class="tag-row"><span class="tag">SEO audits</span><span class="tag">Local SEO</span><span class="tag">Google Maps</span><span class="tag">AEO / GEO</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <button class="service-trigger" type="button" aria-expanded="false">
+              <span class="service-index">03</span>
+              <h3>Paid advertising</h3>
+              <span class="service-icon">+</span>
+            </button>
+            <div class="service-panel">
+              <div class="service-panel-inner">
+                <div>
+                  <p>Launch and improve campaigns across Google, Meta, and other relevant channels, with a sharp focus on audience quality, creative testing, lead cost, and return on spend.</p>
+                  <div class="tag-row"><span class="tag">Google Ads</span><span class="tag">Meta Ads</span><span class="tag">Retargeting</span><span class="tag">Creative testing</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <button class="service-trigger" type="button" aria-expanded="false">
+              <span class="service-index">04</span>
+              <h3>Social media and content</h3>
+              <span class="service-icon">+</span>
+            </button>
+            <div class="service-panel">
+              <div class="service-panel-inner">
+                <div>
+                  <p>Build an active, credible presence with a clear content system. We create channel strategy, content pillars, post concepts, creative direction, calendars, publishing, and performance reviews.</p>
+                  <div class="tag-row"><span class="tag">Content strategy</span><span class="tag">Social management</span><span class="tag">Short-form video</span><span class="tag">Campaigns</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="service-item">
+            <button class="service-trigger" type="button" aria-expanded="false">
+              <span class="service-index">05</span>
+              <h3>CRM and AI-powered workflows</h3>
+              <span class="service-icon">+</span>
+            </button>
+            <div class="service-panel">
+              <div class="service-panel-inner">
+                <div>
+                  <p>Connect your forms, inbox, calendar, CRM, and customer communication. Automate repetitive follow-ups and routing while keeping the customer experience personal.</p>
+                  <div class="tag-row"><span class="tag">CRM setup</span><span class="tag">Lead routing</span><span class="tag">Follow-up automation</span><span class="tag">Reporting</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ WHY ============ -->
-    <section id="why" class="why" aria-label="Why StorefrontGrowth">
-      <div class="why-intro">
-        <div class="eyebrow">Why StorefrontGrowth</div>
-        <h2>Big-agency thinking, built for small businesses.</h2>
-        <p>Small businesses don’t need complicated marketing reports filled with vanity metrics. They need more enquiries, more visits, more bookings, and more sales.</p>
-        <p>We combine strategy, execution, technology, and automation to create marketing systems that support real business growth.</p>
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">A clear way of working</div>
+            <h2>From scattered marketing to a repeatable system.</h2>
+          </div>
+          <p>You always know what we are doing, why we are doing it, and how it connects to growth.</p>
+        </div>
+
+        <div class="process-shell reveal">
+          <div class="process-tabs" role="tablist" aria-label="Our process">
+            <button class="process-tab active" role="tab" aria-selected="true" data-step="0">01. Diagnose</button>
+            <button class="process-tab" role="tab" aria-selected="false" data-step="1">02. Prioritize</button>
+            <button class="process-tab" role="tab" aria-selected="false" data-step="2">03. Build</button>
+            <button class="process-tab" role="tab" aria-selected="false" data-step="3">04. Improve</button>
+          </div>
+          <div class="process-content" id="processContent"></div>
+        </div>
       </div>
-      <div class="why-list">
-        <div class="why-item">
-          <div class="why-badge">1</div>
-          <div class="txt">
-            <h3>Strategies built around your business</h3>
-            <p>We don’t force every client into the same marketing template. Your plan is based on your goals, customers, location, competition, and available budget.</p>
-          </div>
+    </section>
+
+    <section class="section-sm" id="results">
+      <div class="container roi-grid">
+        <div class="roi-copy reveal">
+          <div class="eyebrow">Simple growth calculator</div>
+          <h2>Small improvements compound quickly.</h2>
+          <p>See how increasing qualified website traffic and conversion rate can change your monthly sales opportunity.</p>
+          <div class="roi-note">This is an illustrative estimate, not a promise of results. Your actual numbers depend on your market, offer, sales cycle, and execution.</div>
         </div>
-        <div class="why-item">
-          <div class="why-badge">2</div>
-          <div class="txt">
-            <h3>One connected growth partner</h3>
-            <p>Your website, ads, SEO, social media, CRM, and automation should work together. We help connect the pieces.</p>
+
+        <div class="calculator reveal">
+          <div class="calc-fields">
+            <div class="field">
+              <label for="traffic">Monthly website visitors</label>
+              <div class="input-wrap"><input id="traffic" type="number" min="0" value="2500" inputmode="numeric"><span>visits</span></div>
+            </div>
+            <div class="field">
+              <label for="conversion">Lead conversion rate</label>
+              <div class="input-wrap"><input id="conversion" type="number" min="0" max="100" step="0.1" value="3.2" inputmode="decimal"><span>%</span></div>
+            </div>
+            <div class="field">
+              <label for="closeRate">Lead-to-customer rate</label>
+              <div class="input-wrap"><input id="closeRate" type="number" min="0" max="100" step="0.1" value="24" inputmode="decimal"><span>%</span></div>
+            </div>
+            <div class="field">
+              <label for="saleValue">Average customer value</label>
+              <div class="input-wrap"><span>$</span><input id="saleValue" type="number" min="0" value="850" inputmode="numeric"></div>
+            </div>
           </div>
-        </div>
-        <div class="why-item">
-          <div class="why-badge">3</div>
-          <div class="txt">
-            <h3>Clear communication</h3>
-            <p>You will know what we are working on, why it matters, and what results it is generating.</p>
-          </div>
-        </div>
-        <div class="why-item">
-          <div class="why-badge">4</div>
-          <div class="txt">
-            <h3>Flexible support</h3>
-            <p>Start with one service or build a complete marketing system as your business grows.</p>
+          <div class="calc-result">
+            <div>
+              <small>Estimated monthly revenue opportunity</small>
+              <strong id="revenueResult">$16,320</strong>
+            </div>
+            <p id="calcBreakdown">80 leads · 19 customers</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ PROCESS ============ -->
-    <section id="process" class="band band-navy" aria-label="Our process">
-      <div class="wrap band-inner">
-        <div class="section-head">
-          <div class="eyebrow">Our process</div>
-          <h2>A simple path to better marketing.</h2>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">What clients value</div>
+            <h2>Clear thinking. Reliable execution. Less chaos.</h2>
+          </div>
+          <p>Replace these example testimonials with verified client quotes before publishing the website.</p>
         </div>
-        <div class="grid-4">
-          <div class="step">
-            <div class="label">Step 1</div>
-            <h3>Understand</h3>
-            <p>We learn about your business, customers, competition, current marketing, and growth goals.</p>
-          </div>
-          <div class="step">
-            <div class="label">Step 2</div>
-            <h3>Plan</h3>
-            <p>We identify the biggest growth opportunities and create a practical marketing roadmap.</p>
-          </div>
-          <div class="step">
-            <div class="label">Step 3</div>
-            <h3>Build</h3>
-            <p>We develop the campaigns, content, website, CRM, advertising, or automation your business needs.</p>
-          </div>
-          <div class="step">
-            <div class="label">Step 4</div>
-            <h3>Improve</h3>
-            <p>We monitor performance, identify what is working, and continuously improve your marketing.</p>
-          </div>
-        </div>
-        <div><a href="#cta" class="btn btn-green">Start with a free growth consultation</a></div>
-      </div>
-    </section>
 
-    <!-- ============ TESTIMONIALS ============ -->
-    <section id="testimonials" class="section section-flow" aria-label="Testimonials">
-      <div class="section-head">
-        <div class="eyebrow">Testimonials</div>
-        <h2>What small business owners say about us.</h2>
-        <div class="flag">Placeholder copy — publish real testimonials only.</div>
-      </div>
-      <div class="grid-3">
-        <blockquote class="quote">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>“StorefrontGrowth helped us bring structure to our marketing. We now have a better website, stronger local visibility, and a much clearer way of following up with enquiries.”</p>
-          <div class="who">
-            <div class="name">Client Name</div>
-            <div class="meta">Business Name, City</div>
+        <div class="testimonial-shell reveal">
+          <div class="testimonial-track" id="testimonialTrack">
+            <article class="testimonial">
+              <div class="quote-mark">“</div>
+              <blockquote>StoreFrontGrowth helped us stop treating marketing as ten unrelated tasks and turn it into one focused system.</blockquote>
+              <div class="person"><div class="person-avatar">AR</div><div><strong>Alex Rivera</strong><small>Owner, Local Services Business</small></div></div>
+            </article>
+            <article class="testimonial">
+              <div class="quote-mark">“</div>
+              <blockquote>We finally have a website that explains what we do clearly, and a follow-up process that does not depend on memory.</blockquote>
+              <div class="person"><div class="person-avatar">MP</div><div><strong>Maya Patel</strong><small>Founder, Boutique Retail Brand</small></div></div>
+            </article>
+            <article class="testimonial">
+              <div class="quote-mark">“</div>
+              <blockquote>The team is practical, responsive, and refreshingly honest about what is working and what needs to change.</blockquote>
+              <div class="person"><div class="person-avatar">JL</div><div><strong>Jordan Lee</strong><small>Managing Partner, Professional Services</small></div></div>
+            </article>
           </div>
-        </blockquote>
-        <blockquote class="quote">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>“We finally understand where our marketing budget is going and what is generating results. The team is responsive, practical, and easy to work with.”</p>
-          <div class="who">
-            <div class="name">Client Name</div>
-            <div class="meta">Business Name, City</div>
+          <div class="slider-controls">
+            <div class="slider-dots" id="sliderDots" aria-label="Choose testimonial"></div>
+            <div class="slider-arrows">
+              <button class="slider-btn" id="prevTestimonial" type="button" aria-label="Previous testimonial">←</button>
+              <button class="slider-btn" id="nextTestimonial" type="button" aria-label="Next testimonial">→</button>
+            </div>
           </div>
-        </blockquote>
-        <blockquote class="quote">
-          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p>“The automated follow-up system alone has saved our team hours every week and helped us respond to customers much faster.”</p>
-          <div class="who">
-            <div class="name">Client Name</div>
-            <div class="meta">Business Name, City</div>
-          </div>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- ============ FINAL CTA ============ -->
-    <section id="cta" class="final" aria-label="Get started">
-      <div class="stripe-alt" aria-hidden="true"></div>
-      <div class="final-inner">
-        <h2>Your next customer is already searching.</h2>
-        <p>Let’s make sure they find your business, understand why they should choose you, and have an easy way to take the next step.</p>
-        <div class="final-actions">
-          <a href="#cta" class="btn btn-green">Get your free growth plan</a>
-          <a href="#cta" class="btn btn-outline">Talk to our team</a>
         </div>
       </div>
     </section>
 
+    <section class="section" id="faq">
+      <div class="container faq-grid">
+        <div class="faq-intro reveal">
+          <div class="eyebrow">Frequently asked</div>
+          <h2>Good questions before we begin.</h2>
+          <p>Still unsure where to start? A short discovery call is usually enough to identify the highest-priority opportunities.</p>
+        </div>
+
+        <div class="faq-list reveal">
+          <article class="faq-item active">
+            <button class="faq-question" type="button" aria-expanded="true"><span>Do I need every service at once?</span><span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>No. We start with the work that removes the biggest bottleneck or creates the clearest near-term opportunity. Your plan can expand as the business grows.</p></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Do you work with very small businesses?</span><span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>Yes. StoreFrontGrowth is designed for small and growing businesses that need experienced marketing support without building a full in-house team.</p></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Can you improve our existing website and campaigns?</span><span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>Yes. We can audit what you already have, retain what works, fix the weak points, and create a practical improvement roadmap.</p></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>How soon can we expect results?</span><span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>Paid campaigns and conversion improvements can create signals quickly. SEO, brand building, and customer loyalty usually compound over a longer period. We set realistic milestones for each channel.</p></div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false"><span>Will we own the website, accounts, and data?</span><span class="faq-plus">+</span></button>
+            <div class="faq-answer"><p>Yes. Your business should own its core digital assets, account access, and customer data. We build with long-term control and portability in mind.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-shape one" aria-hidden="true"></div>
+          <div class="cta-shape two" aria-hidden="true"></div>
+          <h2>Your next customer is already looking.</h2>
+          <p>Let’s make your business easier to discover, easier to choose, and easier to buy from.</p>
+          <button class="btn btn-primary js-open-modal" type="button">
+            Get your free growth plan
+            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <div class="wordmark">Storefront<span class="g">Growth</span></div>
-        <p>Helping small businesses grow through digital marketing, websites, SEO, social media, paid advertising, CRM, and automation.</p>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l5-5 4 4 7-8"/><path d="M15 6h5v5"/></svg>
+            </span>
+            StoreFrontGrowth
+          </a>
+          <p>Practical marketing, technology, and automation for small businesses ready to grow.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <div class="footer-links"><a href="#services">Websites</a><a href="#services">SEO and AEO</a><a href="#services">Paid advertising</a><a href="#services">CRM and automation</a></div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links"><a href="#outcomes">About</a><a href="#process">Our process</a><a href="#results">Results</a><a href="#faq">FAQ</a></div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-links"><a href="mailto:hello@storefrontgrowth.com">hello@storefrontgrowth.com</a><a href="#">LinkedIn</a><a href="#">Instagram</a><button class="btn btn-secondary js-open-modal" type="button" style="margin-top:8px;min-height:44px;padding:0 14px;">Book a call</button></div>
+        </div>
       </div>
-      <div class="footer-col">
-        <div class="col-title">Services</div>
-        <a href="#services">Digital Marketing</a>
-        <a href="#services">Website Design &amp; Development</a>
-        <a href="#services">Social Media Marketing</a>
-        <a href="#services">SEO, AEO &amp; GEO</a>
-        <a href="#services">Paid Advertising</a>
-        <a href="#services">CRM &amp; Automation</a>
-      </div>
-      <div class="footer-col">
-        <div class="col-title">Industries</div>
-        <a href="#cta">Salons &amp; Spas</a>
-        <a href="#cta">Gyms &amp; Fitness Centers</a>
-        <a href="#cta">Convenience Stores</a>
-      </div>
-      <div class="footer-col">
-        <div class="col-title">Company</div>
-        <a href="#cta">About Us</a>
-        <a href="#cta">Contact Us</a>
-        <a href="#cta">Privacy Policy</a>
-        <a href="#cta">Terms of Service</a>
-      </div>
-      <div class="footer-card">
-        <h3>Ready to grow your business?</h3>
-        <p>Get a practical marketing plan built around your goals.</p>
-        <a href="#cta" class="btn btn-green">Get your free growth plan</a>
-      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> StoreFrontGrowth. All rights reserved.</span><span>Built for small businesses with big plans.</span></div>
     </div>
-    <div class="footer-legal">© StorefrontGrowth. All rights reserved.</div>
   </footer>
 
+  <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      <div class="eyebrow">Free growth consultation</div>
+      <h3 id="modalTitle">Tell us what you are trying to grow.</h3>
+      <p>Share a few details and we will identify the most useful next step for your business.</p>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <label>First name<input name="firstName" type="text" placeholder="Jordan" required></label>
+          <label>Business name<input name="businessName" type="text" placeholder="Your business" required></label>
+        </div>
+        <label>Work email<input name="email" type="email" placeholder="you@company.com" required></label>
+        <div class="form-row">
+          <label>What do you need help with?
+            <select name="service" required>
+              <option value="">Choose a service</option>
+              <option>Website design and development</option>
+              <option>SEO and local visibility</option>
+              <option>Paid advertising</option>
+              <option>Social media and content</option>
+              <option>CRM and automation</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label>Approximate monthly budget
+            <select name="budget" required>
+              <option value="">Choose a range</option>
+              <option>Under $1,000</option>
+              <option>$1,000 to $2,500</option>
+              <option>$2,500 to $5,000</option>
+              <option>$5,000+</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-success" id="formSuccess">Thanks. Connect this form to your CRM or form endpoint before publishing.</div>
+        <button class="btn btn-primary" type="submit">Request my growth plan</button>
+      </form>
+    </div>
+  </div>
+
   <script>
-    // Mobile nav toggle
-    (function () {
-      var btn = document.querySelector('.nav-toggle');
-      var links = document.getElementById('nav-links');
-      if (!btn || !links) return;
-      btn.addEventListener('click', function () {
-        var open = links.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      links.addEventListener('click', function (e) {
-        if (e.target.tagName === 'A') {
-          links.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
+    // Navigation
+    const nav = document.getElementById('mainNav');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+
+    function toggleMenu(forceClose = false) {
+      const shouldOpen = forceClose ? false : !mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open', shouldOpen);
+      document.body.classList.toggle('menu-open', shouldOpen);
+      menuBtn.setAttribute('aria-expanded', String(shouldOpen));
+      mobileMenu.setAttribute('aria-hidden', String(!shouldOpen));
+      menuBtn.innerHTML = shouldOpen
+        ? '<svg width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+        : '<svg width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>';
+    }
+
+    menuBtn.addEventListener('click', () => toggleMenu());
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(true)));
+
+    // Services accordion
+    document.querySelectorAll('.service-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.service-item');
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.service-item').forEach(service => {
+          service.classList.remove('active');
+          service.querySelector('.service-trigger').setAttribute('aria-expanded', 'false');
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
         }
       });
-    })();
+    });
+
+    // Interactive process tabs
+    const processSteps = [
+      {
+        title: 'Find the real growth constraint.',
+        text: 'We review your offer, website, visibility, lead flow, customer journey, and existing tools before recommending more activity.',
+        points: ['Business and customer discovery', 'Channel and conversion audit', 'Tracking and data review'],
+        cards: [['Visibility audit', 'Where customers find you'], ['Lead journey', 'What happens after a click'], ['Priority score', 'Impact, effort, and urgency']]
+      },
+      {
+        title: 'Focus resources where they can matter most.',
+        text: 'We turn the findings into a practical roadmap, with clear priorities, owners, milestones, and the metrics that will define progress.',
+        points: ['90-day growth roadmap', 'Channel and budget priorities', 'Clear success metrics'],
+        cards: [['90-day roadmap', 'Ordered by business impact'], ['Budget plan', 'Spend with a clear purpose'], ['Growth scorecard', 'A simple view of progress']]
+      },
+      {
+        title: 'Create the assets and systems.',
+        text: 'Our team builds the pages, campaigns, content, CRM structure, and automations needed to move from plan to execution.',
+        points: ['Design and implementation', 'Campaign setup and launch', 'CRM and workflow connections'],
+        cards: [['Pages shipped', 'Built to convert'], ['Campaigns live', 'Tracked from day one'], ['Systems connected', 'Less manual follow-up']]
+      },
+      {
+        title: 'Learn quickly and improve continuously.',
+        text: 'We review performance, test meaningful changes, and keep improving the system instead of letting marketing drift into autopilot.',
+        points: ['Monthly performance review', 'Creative and conversion tests', 'Next-best-action planning'],
+        cards: [['Monthly learnings', 'What changed and why'], ['Tests completed', 'Evidence over opinions'], ['Next actions', 'Focused and accountable']]
+      }
+    ];
+
+    const processContent = document.getElementById('processContent');
+    function renderProcess(index) {
+      const step = processSteps[index];
+      processContent.innerHTML = `
+        <div class="process-copy">
+          <h3>${step.title}</h3>
+          <p>${step.text}</p>
+          <div class="process-list">${step.points.map(point => `<div><b>✓</b>${point}</div>`).join('')}</div>
+        </div>
+        <div class="process-visual">
+          <div class="visual-canvas">
+            <div class="canvas-grid">
+              <div class="mini-card"><strong>${step.cards[0][0]}</strong><small>${step.cards[0][1]}</small></div>
+              <div class="mini-card"><strong>${step.cards[1][0]}</strong><small>${step.cards[1][1]}</small></div>
+              <div class="mini-card wide"><div><strong>${step.cards[2][0]}</strong><small>${step.cards[2][1]}</small></div><div class="progress"><span style="width:${58 + index * 10}%"></span></div></div>
+            </div>
+          </div>
+        </div>`;
+    }
+    renderProcess(0);
+
+    document.querySelectorAll('.process-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.process-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        renderProcess(Number(tab.dataset.step));
+      });
+    });
+
+    // ROI calculator
+    const calcInputs = ['traffic', 'conversion', 'closeRate', 'saleValue'].map(id => document.getElementById(id));
+    function updateCalculator() {
+      const traffic = Math.max(0, Number(document.getElementById('traffic').value) || 0);
+      const conversion = Math.max(0, Number(document.getElementById('conversion').value) || 0) / 100;
+      const closeRate = Math.max(0, Number(document.getElementById('closeRate').value) || 0) / 100;
+      const saleValue = Math.max(0, Number(document.getElementById('saleValue').value) || 0);
+      const leads = traffic * conversion;
+      const customers = leads * closeRate;
+      const revenue = customers * saleValue;
+      document.getElementById('revenueResult').textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(revenue);
+      document.getElementById('calcBreakdown').textContent = `${Math.round(leads)} leads · ${Math.round(customers)} customers`;
+    }
+    calcInputs.forEach(input => input.addEventListener('input', updateCalculator));
+    updateCalculator();
+
+    // Testimonials
+    const track = document.getElementById('testimonialTrack');
+    const testimonials = [...track.children];
+    const dotsContainer = document.getElementById('sliderDots');
+    let currentTestimonial = 0;
+    let testimonialTimer;
+
+    testimonials.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (index === 0 ? ' active' : '');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Show testimonial ${index + 1}`);
+      dot.addEventListener('click', () => goToTestimonial(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goToTestimonial(index) {
+      currentTestimonial = (index + testimonials.length) % testimonials.length;
+      track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+      [...dotsContainer.children].forEach((dot, i) => dot.classList.toggle('active', i === currentTestimonial));
+      resetTestimonialTimer();
+    }
+
+    function resetTestimonialTimer() {
+      clearInterval(testimonialTimer);
+      testimonialTimer = setInterval(() => goToTestimonial(currentTestimonial + 1), 6500);
+    }
+
+    document.getElementById('prevTestimonial').addEventListener('click', () => goToTestimonial(currentTestimonial - 1));
+    document.getElementById('nextTestimonial').addEventListener('click', () => goToTestimonial(currentTestimonial + 1));
+    resetTestimonialTimer();
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(faq => {
+          faq.classList.remove('active');
+          faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Modal and form demo
+    const modal = document.getElementById('contactModal');
+    const modalClose = document.getElementById('modalClose');
+    const openButtons = document.querySelectorAll('.js-open-modal');
+
+    function openModal() {
+      toggleMenu(true);
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => modal.querySelector('input')?.focus(), 100);
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    openButtons.forEach(button => button.addEventListener('click', openModal));
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
+
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      document.getElementById('formSuccess').classList.add('show');
+    });
+
+    // Reveal animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Hero number animation
+    const counter = document.querySelector('.counter');
+    const counterObserver = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      const target = Number(counter.dataset.count);
+      const start = performance.now();
+      const duration = 1300;
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        counter.textContent = Math.round(target * eased).toLocaleString();
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      counterObserver.disconnect();
+    }, { threshold: 0.5 });
+    counterObserver.observe(counter);
+
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

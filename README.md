@@ -1,55 +1,35 @@
-# StorefrontGrowth — Home Page
+# StorefrontGrowth
 
-Static implementation of the **StorefrontGrowth Home Page**, built to the
-**"Main Street Classic" (3a)** brand system from the StoreFrontGrowth Brand
-Guidelines (v1.0).
+Marketing site for StorefrontGrowth — helping small and growing businesses
+attract more customers, convert more leads, and automate follow-up.
 
-## Files
-- `index.html` — the home page (semantic HTML, no build step, no dependencies)
-- `styles.css` — all styling, with the brand palette as CSS variables at the top
-- `assets/hero-florist.webp` — hero photo
+**Live:** https://storefrontgrowth.com · https://kapilgadhire.github.io/storefrontgrowth/
 
-## Run locally
-It's a plain static site — open `index.html` directly, or serve the folder:
+## Stack
+A single self-contained `index.html` — all CSS and JavaScript are inline, no
+build step and no dependencies (fonts load from Google Fonts). Deployed via
+GitHub Pages from `main`; the custom domain is set in `CNAME`.
 
+## What's on the page
+- Sticky glass **nav** with a mobile slide-down menu
+- **Hero** with an animated dashboard mockup, floating stat cards, and a count-up figure
+- Scrolling **services marquee**
+- **Outcomes** cards, an accordion **services** list, and tabbed **process** section
+- Interactive **ROI calculator** (traffic → leads → customers → revenue)
+- **Testimonials** slider, **FAQ** accordion, and a **contact modal** form
+- Scroll-reveal animations (respects `prefers-reduced-motion`)
+
+## Before going fully live
+- **Testimonials** are placeholder examples — replace with verified client quotes.
+- The **contact form** only shows a success message; wire it to a real CRM or
+  form endpoint (the `#contactForm` submit handler in the inline script).
+
+## Local preview
 ```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
+python3 -m http.server 8787   # then open http://localhost:8787
 ```
 
-Deploy anywhere that serves static files (e.g. `vercel deploy`).
-
-## Brand system (from the guidelines)
-
-**Colors**
-| Token | Hex | Use |
-|-------|-----|-----|
-| Navy | `#1E3250` | brand base |
-| Growth green | `#31B665` | actions & wins (earned, not decorative) |
-| Brick | `#B3402E` | awning stripe & alerts |
-| Brass | `#D9A441` | ratings only |
-| Cream | `#F7F2E7` | warm surface |
-| White | `#FFFFFF` | page base |
-
-**Type** — Zilla Slab (500/600/700) for headlines, Nunito (400/600/700/800) for
-body & UI, loaded from Google Fonts.
-
-**Style rules** — 0px corners everywhere, flat color (no drop shadows, no
-gradients), 1.5px hairline borders (`#E5DFD0`). The awning stripe (barber-pole
-diagonal) never exceeds ~16px and is never a full background. Never put green
-text on navy.
-
-## Hero photo
-The hero photo lives at `assets/hero-florist.webp`. To swap it, replace that
-file (or point the `<img>` inside `.hero-frame` at a new one) — the frame crops
-with `object-fit: cover`, so any portrait-ish photo works.
-
-The offset cream block behind the frame is intentional (the brand's flat "depth
-through color blocking" look) and needs no change.
-
-## Notes
-- Copy is reproduced verbatim from the design. The testimonials are flagged
-  **placeholder** — replace with real, attributable quotes before publishing
-  (per the brand's "publish real testimonials only" rule).
-- Fully responsive: multi-column grids collapse to a single column and the nav
-  becomes a hamburger toggle at ≤640px.
+## Publishing
+```bash
+git add -A && git commit -m "..." && git push   # Pages redeploys in ~1 min
+```
