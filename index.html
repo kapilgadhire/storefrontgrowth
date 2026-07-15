@@ -10,8 +10,8 @@
   <link rel="canonical" href="https://storefrontgrowth.com/" />
 
   <!-- Favicons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <!-- Geo targeting -->
@@ -302,8 +302,10 @@
     .nav.scrolled { background: rgba(255, 253, 248, 0.92); box-shadow: 0 14px 45px rgba(33, 32, 26, 0.14); }
 
     .brand { display: inline-flex; align-items: center; gap: 11px; font: 800 1.02rem "Manrope", sans-serif; letter-spacing: -0.03em; }
-    .brand-logo { height: 50px; width: auto; display: block; }
-    .footer-brand .brand-logo { height: 76px; }
+    .brand-icon { height: 34px; width: auto; display: block; }
+    .brand-text { font: 800 1.2rem "Manrope", sans-serif; letter-spacing: -0.03em; color: var(--ink); white-space: nowrap; }
+    .footer-brand .brand-icon { height: 42px; }
+    .footer-brand .brand-text { font-size: 1.4rem; }
     .brand-mark {
       width: 37px;
       aspect-ratio: 1;
@@ -758,7 +760,7 @@
   <header class="header-wrap">
     <nav class="nav" id="mainNav" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="StorefrontGrowth home">
-        <img src="assets/logo.png" alt="StorefrontGrowth" class="brand-logo" width="480" height="120" />
+        <img src="assets/icon.png" alt="" class="brand-icon" width="512" height="512" /><span class="brand-text">StorefrontGrowth</span>
       </a>
 
       <div class="nav-links">
@@ -1183,7 +1185,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="brand" href="#top" aria-label="StorefrontGrowth home">
-            <img src="assets/logo.png" alt="StorefrontGrowth" class="brand-logo" width="480" height="120" />
+            <img src="assets/icon.png" alt="" class="brand-icon" width="512" height="512" /><span class="brand-text">StorefrontGrowth</span>
           </a>
           <p>A marketing agency in Houston, TX — practical marketing, technology, and automation for small &amp; medium businesses ready to grow. Serving Houston, nearby areas, and clients across the US.</p>
         </div>
