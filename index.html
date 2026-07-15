@@ -9,6 +9,11 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <link rel="canonical" href="https://storefrontgrowth.com/" />
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
   <!-- Geo targeting -->
   <meta name="geo.region" content="US-TX" />
   <meta name="geo.placename" content="Houston, Texas" />
@@ -297,6 +302,8 @@
     .nav.scrolled { background: rgba(255, 253, 248, 0.92); box-shadow: 0 14px 45px rgba(33, 32, 26, 0.14); }
 
     .brand { display: inline-flex; align-items: center; gap: 11px; font: 800 1.02rem "Manrope", sans-serif; letter-spacing: -0.03em; }
+    .brand-logo { height: 30px; width: auto; display: block; }
+    .footer-brand .brand-logo { height: 34px; }
     .brand-mark {
       width: 37px;
       aspect-ratio: 1;
@@ -750,14 +757,8 @@
 <body>
   <header class="header-wrap">
     <nav class="nav" id="mainNav" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="StoreFrontGrowth home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 15l5-5 4 4 7-8"/>
-            <path d="M15 6h5v5"/>
-          </svg>
-        </span>
-        StoreFrontGrowth
+      <a class="brand" href="#top" aria-label="StorefrontGrowth home">
+        <img src="assets/logo.png" alt="StorefrontGrowth" class="brand-logo" width="480" height="120" />
       </a>
 
       <div class="nav-links">
@@ -1181,11 +1182,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="#top">
-            <span class="brand-mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l5-5 4 4 7-8"/><path d="M15 6h5v5"/></svg>
-            </span>
-            StoreFrontGrowth
+          <a class="brand" href="#top" aria-label="StorefrontGrowth home">
+            <img src="assets/logo.png" alt="StorefrontGrowth" class="brand-logo" width="480" height="120" />
           </a>
           <p>A marketing agency in Houston, TX — practical marketing, technology, and automation for small &amp; medium businesses ready to grow. Serving Houston, nearby areas, and clients across the US.</p>
         </div>
