@@ -37,20 +37,77 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "SEO & AI Search",
-  "serviceType": "SEO & AI Search",
-  "description": "Improve visibility across Google, local search and AI-powered search with SEO, AEO and generative search optimization for small businesses.",
-  "url": "https://storefrontgrowth.com/services/seo-aeo/",
-  "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-  },
-  "provider": {
-    "@type": "Organization",
-    "name": "StorefrontGrowth",
-    "url": "https://storefrontgrowth.com/"
-  }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "SEO & AI Search",
+      "serviceType": "SEO & AI Search",
+      "description": "Improve visibility across Google, local search and AI-powered search with SEO, AEO and generative search optimization for small businesses.",
+      "url": "https://storefrontgrowth.com/services/seo-aeo/",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "StorefrontGrowth",
+        "url": "https://storefrontgrowth.com/",
+        "logo": "https://storefrontgrowth.com/assets/logo.svg"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://storefrontgrowth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://storefrontgrowth.com/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SEO & AI Search",
+          "item": "https://storefrontgrowth.com/services/seo-aeo/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's the difference between SEO and AEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEO improves your visibility in traditional search like Google. AEO (Answer Engine Optimization) and GEO help you show up in AI-powered and generative search experiences."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does SEO take to work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SEO compounds over time. Local and technical improvements can show sooner, while authority and rankings usually build over months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you handle local search and Google Maps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Local SEO and Google Business Profile visibility are part of our search work."
+          }
+        }
+      ]
+    }
+  ]
 }
   </script>
 </head>
@@ -176,6 +233,20 @@
         <p>A great business that search engines can&#x27;t understand is still difficult to discover.</p>
         <p>Competitors may appear simply because their digital presence gives clearer signals to search engines and AI systems.</p>
         <p class="pull">You don&#x27;t need to be the biggest business. You need to be findable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="reveal" style="max-width:820px;margin-bottom:34px">
+          <div class="eyebrow">FAQ</div>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faqs reveal">
+          <details open><summary>What&#x27;s the difference between SEO and AEO?</summary><p>SEO improves your visibility in traditional search like Google. AEO (Answer Engine Optimization) and GEO help you show up in AI-powered and generative search experiences.</p></details>
+          <details><summary>How long does SEO take to work?</summary><p>SEO compounds over time. Local and technical improvements can show sooner, while authority and rankings usually build over months.</p></details>
+          <details><summary>Do you handle local search and Google Maps?</summary><p>Yes. Local SEO and Google Business Profile visibility are part of our search work.</p></details>
         </div>
       </div>
     </section>

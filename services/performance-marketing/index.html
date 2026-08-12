@@ -37,20 +37,77 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Performance Marketing",
-  "serviceType": "Performance Marketing",
-  "description": "Grow with Google Ads, Meta Ads, remarketing and conversion-focused paid campaigns built around measurable business results.",
-  "url": "https://storefrontgrowth.com/services/performance-marketing/",
-  "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-  },
-  "provider": {
-    "@type": "Organization",
-    "name": "StorefrontGrowth",
-    "url": "https://storefrontgrowth.com/"
-  }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Performance Marketing",
+      "serviceType": "Performance Marketing",
+      "description": "Grow with Google Ads, Meta Ads, remarketing and conversion-focused paid campaigns built around measurable business results.",
+      "url": "https://storefrontgrowth.com/services/performance-marketing/",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "StorefrontGrowth",
+        "url": "https://storefrontgrowth.com/",
+        "logo": "https://storefrontgrowth.com/assets/logo.svg"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://storefrontgrowth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://storefrontgrowth.com/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Performance Marketing",
+          "item": "https://storefrontgrowth.com/services/performance-marketing/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which ad platforms do you manage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Primarily Google Ads and Meta (Facebook and Instagram) Ads, including search, remarketing and lead-generation campaigns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you measure success?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Around real actions \u2014 calls, forms, leads, bookings and purchases \u2014 with proper conversion tracking, not just clicks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What budget do I need to start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on your market and goals. We help you set a sensible budget and optimize it continuously."
+          }
+        }
+      ]
+    }
+  ]
 }
   </script>
 </head>
@@ -179,6 +236,20 @@
         <p>Organic marketing takes time to build.</p>
         <p>Without paid acquisition, you may lose customers who are ready to buy right now to competitors who appear first.</p>
         <p>And poorly managed paid advertising can waste a significant budget just as quickly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="reveal" style="max-width:820px;margin-bottom:34px">
+          <div class="eyebrow">FAQ</div>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faqs reveal">
+          <details open><summary>Which ad platforms do you manage?</summary><p>Primarily Google Ads and Meta (Facebook and Instagram) Ads, including search, remarketing and lead-generation campaigns.</p></details>
+          <details><summary>How do you measure success?</summary><p>Around real actions — calls, forms, leads, bookings and purchases — with proper conversion tracking, not just clicks.</p></details>
+          <details><summary>What budget do I need to start?</summary><p>It depends on your market and goals. We help you set a sensible budget and optimize it continuously.</p></details>
         </div>
       </div>
     </section>

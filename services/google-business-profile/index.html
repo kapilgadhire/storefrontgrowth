@@ -37,20 +37,77 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Google Business Profile",
-  "serviceType": "Google Business Profile",
-  "description": "Improve your visibility across Google Search and Maps with professional Google Business Profile optimization and management.",
-  "url": "https://storefrontgrowth.com/services/google-business-profile/",
-  "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-  },
-  "provider": {
-    "@type": "Organization",
-    "name": "StorefrontGrowth",
-    "url": "https://storefrontgrowth.com/"
-  }
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Google Business Profile",
+      "serviceType": "Google Business Profile",
+      "description": "Improve your visibility across Google Search and Maps with professional Google Business Profile optimization and management.",
+      "url": "https://storefrontgrowth.com/services/google-business-profile/",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "StorefrontGrowth",
+        "url": "https://storefrontgrowth.com/",
+        "logo": "https://storefrontgrowth.com/assets/logo.svg"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://storefrontgrowth.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://storefrontgrowth.com/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Google Business Profile",
+          "item": "https://storefrontgrowth.com/services/google-business-profile/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my Google Business Profile matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For local searches it's often the first thing customers see \u2014 before your website \u2014 and it directly influences calls, visits and direction requests."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do you manage on the profile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Setup, optimization, categories, services, descriptions, photos, hours, posts, Q&A, reviews and performance monitoring."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you help with reviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We monitor and help respond to reviews, and can pair this with our online reputation management service."
+          }
+        }
+      ]
+    }
+  ]
 }
   </script>
 </head>
@@ -178,6 +235,20 @@
           <h2>The quiet cost of skipping it</h2>
         <p>Incorrect hours, outdated photos, incomplete information or unanswered reviews can lose customers at the exact moment they&#x27;re deciding where to go.</p>
         <p class="pull">Your profile may be free. Ignoring it isn&#x27;t.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="reveal" style="max-width:820px;margin-bottom:34px">
+          <div class="eyebrow">FAQ</div>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faqs reveal">
+          <details open><summary>Why does my Google Business Profile matter?</summary><p>For local searches it&#x27;s often the first thing customers see — before your website — and it directly influences calls, visits and direction requests.</p></details>
+          <details><summary>What do you manage on the profile?</summary><p>Setup, optimization, categories, services, descriptions, photos, hours, posts, Q&amp;A, reviews and performance monitoring.</p></details>
+          <details><summary>Can you help with reviews?</summary><p>Yes. We monitor and help respond to reviews, and can pair this with our online reputation management service.</p></details>
         </div>
       </div>
     </section>
