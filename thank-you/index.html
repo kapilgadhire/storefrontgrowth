@@ -183,7 +183,7 @@
     (function () {
       // 1. Your Calendly event link, e.g. 'https://calendly.com/storefrontgrowth/free-call'.
       //    Leave empty and the page shows a friendly fallback instead of a broken widget.
-      var CALENDLY_URL = 'https://calendly.com/kapil-storefrontgrowth/30min';
+      var CALENDLY_URL = 'https://calendly.com/kapil-storefrontgrowth/30min?hide_event_type_details=1&hide_gdpr_banner=1';
 
       // 2. Lead context handed over by the form (sessionStorage, never the URL, so no personal data is logged).
       var lead = {};
@@ -204,7 +204,8 @@
         var url = new URL(CALENDLY_URL);
         if (lead.first_name) url.searchParams.set('name', lead.first_name + (lead.business_name ? ' (' + lead.business_name + ')' : ''));
         if (lead.email) url.searchParams.set('email', lead.email);
-        url.searchParams.set('hide_gdpr_banner', '1');
+        // Brand colours (hex without #): page background, body text, buttons and links.
+        url.searchParams.set('background_color', 'fffdf8'); url.searchParams.set('text_color', '161714'); url.searchParams.set('primary_color', '29412e');
         url.searchParams.set('utm_source', 'website'); url.searchParams.set('utm_medium', 'thank-you-page');
         document.getElementById('calendly').setAttribute('data-url', url.toString());
         wrap.hidden = false; fb.hidden = true;
