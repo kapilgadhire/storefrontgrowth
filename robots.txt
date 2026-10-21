@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /thank-you/
 
 # Answer engines & AI crawlers welcome (AEO/GEO)
 User-agent: GPTBot

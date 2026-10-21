@@ -84,8 +84,11 @@
       var ok = (r[0].status === 'fulfilled' && r[0].value.ok) || (r[1].status === 'fulfilled' && r[1].value.ok);
       btn.disabled = false; btn.textContent = label;
       if (ok) {
-        success.textContent = "Thanks! We've got your details and will call you back shortly.";
-        success.style.background = ''; success.style.color = ''; success.classList.add('show'); form.reset();
+        // Hand the lead to the thank-you page (sessionStorage, not the URL) and redirect.
+        // The thank-you page fires the GA4 "generate_lead" event and offers a Calendly slot.
+        try { sessionStorage.setItem('sfg_lead', JSON.stringify({ first_name: lead.first_name, business_name: lead.business_name, email: lead.email, service: lead.service, page: location.pathname })); } catch (err) {}
+        form.reset();
+        location.assign('/thank-you/?service=' + encodeURIComponent(lead.service || '') + '&src=' + encodeURIComponent(location.pathname));
       } else {
         success.textContent = 'Sorry — something went wrong. Please email hello@storefrontgrowth.com or try again.';
         success.style.background = 'rgba(237,129,84,0.16)'; success.style.color = '#9a3b1c'; success.classList.add('show');
