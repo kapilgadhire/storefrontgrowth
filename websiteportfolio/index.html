@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Selected websites and brands built by StorefrontGrowth for SaaS, AI and education companies." />
+  <link rel="canonical" href="https://storefrontgrowth.com/websiteportfolio/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <title>Website Portfolio | StorefrontGrowth</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZE871RS3W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RZE871RS3W');</script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="StorefrontGrowth" />
+  <meta property="og:title" content="Website Portfolio | StorefrontGrowth" />
+  <meta property="og:description" content="Selected websites and brands built by StorefrontGrowth for SaaS, AI and education companies." />
+  <meta property="og:url" content="https://storefrontgrowth.com/websiteportfolio/" />
+  <meta property="og:image" content="https://storefrontgrowth.com/websiteportfolio/img/sfg-wip.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:opsz,wght@9..40,400..700&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  /* Layout: one-screen intro, then a responsive grid of project cards; every card opens its site in a new tab. */
+  :root{
+    --bg:#f2f0e8; --card:#fbfaf6; --fg:#161714; --muted:#62655c; --line:rgba(22,23,20,.12);
+    --forest:#29412e; --lime:#dbea8b; --orange:#ed8154;
+    --display:"Bricolage Grotesque","DM Sans",system-ui,sans-serif; --body:"DM Sans",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --bg:#141613; --card:#1d201b; --fg:#eef0e8; --muted:#a3a89a; --line:rgba(255,255,255,.12); --forest:#9fd0b9; color-scheme:dark } }
+  :root[data-theme="dark"]{ --bg:#141613; --card:#1d201b; --fg:#eef0e8; --muted:#a3a89a; --line:rgba(255,255,255,.12); --forest:#9fd0b9; color-scheme:dark }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{width:min(1240px,100%);margin-inline:auto;padding-inline:20px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+  .brand{display:inline-flex;align-items:center;gap:10px;font:800 1.1rem var(--display);letter-spacing:-.02em;color:var(--fg);text-decoration:none}
+  .brand i{width:26px;height:26px;border-radius:8px;background:var(--forest);display:grid;place-items:center}
+  .brand svg{width:15px;stroke:var(--lime)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--fg);color:var(--bg);border-radius:999px;padding:11px 18px;font:700 .9rem var(--body);text-decoration:none}
+  .intro{padding-block:clamp(28px,6vw,70px) clamp(24px,4vw,40px);max-width:60ch}
+  .eyebrow{font:600 .7rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--forest)}
+  h1{font:800 clamp(2.4rem,6vw,4.6rem)/.98 var(--display);letter-spacing:-.045em;margin:14px 0 16px;text-wrap:balance}
+  .lede{color:var(--muted);font-size:clamp(1rem,1.3vw,1.15rem);margin:0}
+  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-bottom:70px}
+  .card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;color:var(--fg);text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+  .card:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(20,22,16,.16)}
+  .card:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+  .thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#dcdad0;border-bottom:1px solid var(--line)}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+  .card:hover .thumb img{transform:scale(1.03)}
+  .kind{position:absolute;left:12px;top:12px;background:rgba(22,23,20,.82);color:#fff;font:600 .64rem var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+  .body{padding:18px 20px 20px;display:grid;gap:6px}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  h2{font:800 1.25rem/1.15 var(--display);letter-spacing:-.025em;margin:0}
+  .go{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--fg);display:grid;place-items:center;flex:none;transition:background .2s,color .2s,transform .25s}
+  .card:hover .go{background:var(--lime);color:#161714;border-color:var(--lime);transform:rotate(45deg)}
+  .client{margin:0;font:600 .74rem var(--mono);color:var(--muted)}
+  .blurb{margin:4px 0 6px;color:var(--muted);font-size:.92rem}
+  .tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+  .tags li{font-size:.74rem;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+  footer{border-top:1px solid var(--line);padding-block:20px 40px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.84rem}
+  footer a{color:var(--fg);font-weight:700;text-decoration:none}
+  @media (max-width:960px){.grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:600px){.grid{grid-template-columns:1fr}.btn{display:none}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://storefrontgrowth.com" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l6-6 4 4 6-7"/><path d="M15 7h5v5"/></svg></i>StorefrontGrowth</a>
+    <a class="btn" href="mailto:hello@storefrontgrowth.com">hello@storefrontgrowth.com</a>
+  </header>
+  <section class="intro">
+    <div class="eyebrow">Selected work</div>
+    <h1>Websites and brands we've built.</h1>
+    <p class="lede">A few recent projects across SaaS, AI and education. Click any card to open the live site, case study or prototype in a new tab.</p>
+  </section>
+  <main class="grid">
+      <a class="card" href="https://www.ratl.ai/" target="_blank" rel="noopener">
+        <div class="thumb"><img src="/websiteportfolio/img/ratl.jpg" alt="ratl.ai screenshot" loading="lazy" style="object-position:50% top"><span class="kind">Live website</span></div>
+        <div class="body">
+          <div class="row"><h2>ratl.ai</h2><span class="go" aria-hidden="true">↗</span></div>
+          <p class="client">ratl.ai · AI-agentic testing workspace</p>
+          <p class="blurb">Marketing site for an AI testing platform: product story, pricing and sign-up flow.</p>
+          <ul class="tags"><li>Website design</li><li>Development</li><li>SaaS</li></ul>
+        </div>
+      </a>
+      <a class="card" href="https://teachvibecoding.app/" target="_blank" rel="noopener">
+        <div class="thumb"><img src="/websiteportfolio/img/teachvibecoding.jpg" alt="Teach Vibe Coding screenshot" loading="lazy" style="object-position:50% top"><span class="kind">Live website</span></div>
+        <div class="body">
+          <div class="row"><h2>Teach Vibe Coding</h2><span class="go" aria-hidden="true">↗</span></div>
+          <p class="client">teachvibecoding.app · EdTech</p>
+          <p class="blurb">A controlled vibe-coding platform for faculty, built from the ground up with a chat-led hero.</p>
+          <ul class="tags"><li>Website design</li><li>Development</li><li>SEO setup</li></ul>
+        </div>
+      </a>
+      <a class="card" href="https://opendotscx.com/" target="_blank" rel="noopener">
+        <div class="thumb"><img src="/websiteportfolio/img/opendots-live.jpg" alt="OpenDots screenshot" loading="lazy" style="object-position:50% top"><span class="kind">Live website</span></div>
+        <div class="body">
+          <div class="row"><h2>OpenDots</h2><span class="go" aria-hidden="true">↗</span></div>
+          <p class="client">opendotscx.com · AI customer experience</p>
+          <p class="blurb">Conversion-first website for an AI review-reply and customer-insight product.</p>
+          <ul class="tags"><li>Messaging</li><li>Website design</li><li>Development</li></ul>
+        </div>
+      </a>
+      <a class="card" href="https://claude.ai/artifact/6b7ueqEZZi2PcWJ9QDuNhb" target="_blank" rel="noopener">
+        <div class="thumb"><img src="/websiteportfolio/img/opendots-proto.jpg" alt="OpenDots · Concept screenshot" loading="lazy" style="object-position:50% bottom"><span class="kind">Design prototype</span></div>
+        <div class="body">
+          <div class="row"><h2>OpenDots · Concept</h2><span class="go" aria-hidden="true">↗</span></div>
+          <p class="client">Interactive website concept</p>
+          <p class="blurb">An alternative direction for OpenDots with scroll-driven motion and a full brand system.</p>
+          <ul class="tags"><li>UX & UI</li><li>Motion</li><li>Prototype</li></ul>
+        </div>
+      </a>
+      <a class="card" href="https://www.behance.net/gallery/198456719/Website-Design-Fynd-Academy" target="_blank" rel="noopener">
+        <div class="thumb"><img src="/websiteportfolio/img/behance.jpg" alt="Fynd Academy screenshot" loading="lazy" style="object-position:50% top"><span class="kind">Case study on Behance</span></div>
+        <div class="body">
+          <div class="row"><h2>Fynd Academy</h2><span class="go" aria-hidden="true">↗</span></div>
+          <p class="client">Fynd · Education</p>
+          <p class="blurb">Website design for Fynd Academy, presented as a full case study.</p>
+          <ul class="tags"><li>Website design</li><li>UX & UI</li><li>Case study</li></ul>
+        </div>
+      </a>
+      <a class="card" href="https://claude.ai/artifact/L1uV3f9xfXuj291YFQmJky" target="_blank" rel="noopener">
+        <div class="thumb"><img src="/websiteportfolio/img/sfg-wip.jpg" alt="StorefrontGrowth · New site screenshot" loading="lazy" style="object-position:50% top"><span class="kind">Work in progress</span></div>
+        <div class="body">
+          <div class="row"><h2>StorefrontGrowth · New site</h2><span class="go" aria-hidden="true">↗</span></div>
+          <p class="client">Our own brand · B2B marketing</p>
+          <p class="blurb">Our new homepage: every marketing function is a building in one connected brick town.</p>
+          <ul class="tags"><li>Brand</li><li>Interactive</li><li>Website design</li></ul>
+        </div>
+      </a>
+  </main>
+  <footer><span>© 2026 StorefrontGrowth</span><a href="https://storefrontgrowth.com" target="_blank" rel="noopener">storefrontgrowth.com ↗</a></footer>
+</div>
+</body>
+</html>
