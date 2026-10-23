@@ -81,7 +81,7 @@
     .proposal-body > section[id] { min-height:calc(100svh - 110px); box-sizing:border-box; }
     @media (max-width:940px) { main > .section-sm, .cta-band, footer { scroll-margin-top:150px; } .proposal-body > section[id] { min-height:calc(100svh - 150px); } }
     @media (prefers-reduced-motion:reduce) { html { scroll-snap-type:none; } }
-    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); margin-top:36px; }
+    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); }
     .scope-table { width:100%; min-width:720px; border-collapse:collapse; font-size:0.95rem; }
     .scope-table th, .scope-table td { padding:14px 18px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
     .scope-table th { font-size:0.74rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--green-dark); background:var(--paper-2); }
@@ -130,6 +130,35 @@
     .show-arrow.prev { left:-24px; } .show-arrow.next { right:-24px; }
     @media (max-width:940px) { .show-arrow { display:none; } }
     @media (max-width:680px) { .showcase { --frame-w:960px; } .show-frame { aspect-ratio:4/3; } .show-frame iframe { height:calc(var(--frame-w) * 3 / 4); } .show-caption { flex-direction:column; } .show-caption .btn { width:100%; } }
+    .scope-toggle { display:flex; gap:8px; margin:36px 0 16px; }
+    .scope-toggle button { padding:9px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,253,248,0.7); font-weight:600; font-size:0.88rem; color:var(--muted); cursor:pointer; transition:0.2s ease; }
+    .scope-toggle button:hover { color:var(--ink); background:var(--white); }
+    .scope-toggle button[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:var(--white); }
+    .scope-toggle button:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
+    .scope-view[hidden] { display:none; }
+    #scope-chart { display:grid; grid-template-columns:1fr 1.35fr; gap:16px; --c-pages:#2e7d46; --c-tpl:#2e7d46; --c-sec:#2f6fb3; --c-des:#d9641f; }
+    .fig { margin:0; padding:22px 22px 18px; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); display:flex; flex-direction:column; gap:12px; min-width:0; }
+    .fig figcaption { display:flex; flex-direction:column; gap:2px; margin-bottom:4px; }
+    .fig figcaption strong { font-family:"Manrope",sans-serif; font-size:1.05rem; letter-spacing:-0.02em; }
+    .fig figcaption span { font-size:0.82rem; color:var(--muted); }
+    .legend { display:flex; flex-wrap:wrap; gap:6px 16px; font-size:0.78rem; color:var(--muted); }
+    .legend span { display:inline-flex; align-items:center; gap:6px; }
+    .legend i { width:10px; height:10px; border-radius:3px; }
+    .c-pages { background:var(--c-pages); } .c-tpl { background:var(--c-tpl); } .c-sec { background:var(--c-sec); } .c-des { background:var(--c-des); }
+    .axis { display:flex; justify-content:space-between; margin-left:52px; margin-right:48px; font-size:0.68rem; color:var(--muted); font-variant-numeric:tabular-nums; border-bottom:1px solid var(--line); padding-bottom:4px; }
+    .bar-row { display:grid; grid-template-columns:52px 1fr; align-items:center; gap:0; }
+    .bar-key { display:flex; }
+    .bar-track { position:relative; display:flex; align-items:center; gap:8px; min-height:26px; padding-right:48px; box-sizing:border-box; background:repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px 25%) no-repeat; background-size:calc(100% - 48px) 100%; }
+    .bar-track em { margin-right:-48px; font-style:normal; font-size:0.82rem; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
+    .bar { position:relative; display:block; height:14px; width:var(--w); min-width:3px; border-radius:0 4px 4px 0; flex:none; outline:none; }
+    .bar:hover, .bar:focus-visible { filter:brightness(1.12); }
+    .bar::after { content:attr(data-tip); position:absolute; left:0; bottom:calc(100% + 8px); z-index:5; padding:6px 10px; border-radius:8px; background:var(--ink); color:var(--white); font-size:0.75rem; font-weight:500; white-space:nowrap; opacity:0; visibility:hidden; transition:opacity 0.15s ease; pointer-events:none; }
+    .bar:hover::after, .bar:focus-visible::after { opacity:1; visibility:visible; }
+    .bar-row.group { align-items:start; padding:6px 0; }
+    .bar-row.group .bar-key { padding-top:14px; }
+    .bar-row.group .bar-track { flex-direction:column; align-items:stretch; gap:2px; padding:8px 0; }
+    .bar-row.group .bar-track > div { display:flex; align-items:center; gap:8px; }
+    @media (max-width:940px) { #scope-chart { grid-template-columns:1fr; } }
     .phases { display:grid; gap:12px; max-width:860px; }
     .phase { display:grid; grid-template-columns:140px 1fr; gap:20px; padding:22px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); }
     .phase .when { font:700 0.95rem "Manrope",sans-serif; color:var(--green-dark); display:flex; flex-direction:column; gap:2px; }
@@ -173,9 +202,7 @@
     .tl-toggle button { padding:9px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,253,248,0.7); font-weight:600; font-size:0.88rem; color:var(--muted); cursor:pointer; transition:0.2s ease; }
     .tl-toggle button:hover { color:var(--ink); background:var(--white); }
     .tl-toggle button[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:var(--white); }
-    .tl-toggle button:focus-visible, .tl-kickoff input:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
-    .tl-kickoff { margin-left:auto; display:inline-flex; align-items:center; gap:8px; font-size:0.82rem; font-weight:600; color:var(--muted); }
-    .tl-kickoff input { height:38px; padding:0 10px; border:1px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); font-size:0.85rem; }
+    .tl-toggle button:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
     .tl-view[hidden] { display:none; }
     .gantt-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); }
     .gantt { min-width:720px; display:grid; grid-template-columns:230px 1fr; font-size:0.85rem; }
@@ -202,7 +229,7 @@
     .cal-phase.alt { background:var(--green); }
     .cal-review { font-size:0.74rem; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:0.08em; }
     @media (max-width:940px) { .cal { grid-template-columns:repeat(3,1fr); } }
-    @media (max-width:680px) { .cal { grid-template-columns:1fr 1fr; } .tl-kickoff { margin-left:0; width:100%; } }
+    @media (max-width:680px) { .cal { grid-template-columns:1fr 1fr; } }
     @media print {
       @page { margin:14mm; }
       body { background:#fff; }
@@ -220,7 +247,9 @@
       .show-frame.is-static { display:block; }
       .show-caption .btn { display:none; }
       .show-text::after { content:attr(data-url); font-size:0.8rem; color:var(--green-dark); }
-      .tl-view[hidden] { display:block !important; }
+      .tl-view[hidden], .scope-view[hidden] { display:block !important; }
+      .scope-toggle, .bar::after { display:none !important; }
+      .bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
       .gantt-wrap { overflow:visible; }
       .gantt { min-width:0; }
       .benefits, .totals > div, .g-bar, .cal-phase, .show-tabs button { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
@@ -512,7 +541,40 @@
           <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><strong>Developer handoff</strong><small>Figma files with components, specs and assets ready for build.</small></div>
         </div>
 
-        <div class="table-wrap reveal">
+        <div class="scope-toggle reveal" role="group" aria-label="Scope view">
+          <button type="button" data-view="chart" aria-pressed="true">Chart</button>
+          <button type="button" data-view="table" aria-pressed="false">Table</button>
+        </div>
+        <div class="scope-view reveal" id="scope-chart">
+          <figure class="fig">
+            <figcaption><strong>Pages per tier</strong><span>Number of pages on quantiphi.com in each tier</span></figcaption>
+            <div class="axis" aria-hidden="true"><span>0</span><span>100</span><span>200</span><span>300</span><span>400</span></div>
+          <div class="bar-row"><div class="bar-key"><span class="tier">L1</span></div><div class="bar-track"><span class="bar c-pages" style="--w:1.50%" data-tip="L1: 6 pages" tabindex="0"></span><em>6</em></div></div>
+          <div class="bar-row"><div class="bar-key"><span class="tier">L2</span></div><div class="bar-track"><span class="bar c-pages" style="--w:10.00%" data-tip="L2: 40+ pages" tabindex="0"></span><em>40+</em></div></div>
+          <div class="bar-row"><div class="bar-key"><span class="tier">L3</span></div><div class="bar-track"><span class="bar c-pages" style="--w:100.00%" data-tip="L3: 400+ pages" tabindex="0"></span><em>400+</em></div></div>
+          </figure>
+          <figure class="fig">
+            <figcaption><strong>Design work per tier</strong><span>What we design for each tier</span></figcaption>
+            <div class="legend" aria-hidden="true"><span><i class="c-tpl"></i>Unique templates</span><span><i class="c-sec"></i>Unique sections per page</span><span><i class="c-des"></i>Total designs</span></div>
+            <div class="axis" aria-hidden="true"><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span></div>
+          <div class="bar-row group"><div class="bar-key"><span class="tier">L1</span></div><div class="bar-track">
+            <div><span class="bar c-tpl" style="--w:30%" data-tip="L1: 6 unique templates" tabindex="0"></span><em>6</em></div>
+            <div><span class="bar c-sec" style="--w:50%" data-tip="L1: 10 unique sections per page" tabindex="0"></span><em>10</em></div>
+            <div><span class="bar c-des" style="--w:80%" data-tip="L1: 16 total designs" tabindex="0"></span><em>16</em></div>
+          </div></div>
+          <div class="bar-row group"><div class="bar-key"><span class="tier">L2</span></div><div class="bar-track">
+            <div><span class="bar c-tpl" style="--w:35%" data-tip="L2: 7 unique templates" tabindex="0"></span><em>7</em></div>
+            <div><span class="bar c-sec" style="--w:50%" data-tip="L2: 10 unique sections per page" tabindex="0"></span><em>10</em></div>
+            <div><span class="bar c-des" style="--w:85%" data-tip="L2: 17 total designs" tabindex="0"></span><em>17</em></div>
+          </div></div>
+          <div class="bar-row group"><div class="bar-key"><span class="tier">L3</span></div><div class="bar-track">
+            <div><span class="bar c-tpl" style="--w:30%" data-tip="L3: 6 unique templates" tabindex="0"></span><em>6</em></div>
+            <div><span class="bar c-sec" style="--w:25%" data-tip="L3: 5 unique sections per page" tabindex="0"></span><em>5</em></div>
+            <div><span class="bar c-des" style="--w:55%" data-tip="L3: 11 total designs" tabindex="0"></span><em>11</em></div>
+          </div></div>
+          </figure>
+        </div>
+        <div class="scope-view table-wrap reveal" id="scope-table" hidden>
           <table class="scope-table">
             <thead>
               <tr><th>Tier</th><th>Pages</th><th>No. of pages</th><th>Unique templates</th><th>Unique sections / page</th><th>Total designs</th></tr>
@@ -541,7 +603,6 @@
           <button type="button" data-view="gantt" aria-pressed="true">Gantt</button>
           <button type="button" data-view="calendar" aria-pressed="false">Calendar</button>
           <button type="button" data-view="list" aria-pressed="false">List</button>
-          <label class="tl-kickoff">Kickoff date <input type="date" id="kickoff"></label>
         </div>
         <div class="tl-view reveal" id="tl-gantt"></div>
         <div class="tl-view reveal" id="tl-calendar" hidden></div>
@@ -761,14 +822,8 @@
         { name: 'L3 templates and SEO framework', start: 8, end: 10 },
         { name: 'Final review and handoff', start: 11, end: 12 }
       ];
-      var WEEKS = 12, kickoff = document.getElementById('kickoff');
-      function weekDates(n) {
-        if (!kickoff.value) return '';
-        var d = new Date(kickoff.value + 'T00:00:00'); if (isNaN(d)) return '';
-        var a = new Date(d); a.setDate(a.getDate() + (n - 1) * 7); var b = new Date(a); b.setDate(b.getDate() + 6);
-        var f = function (x) { return x.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); };
-        return f(a) + ' – ' + f(b);
-      }
+      var WEEKS = 12;
+      function weekDates() { return ''; }
       function renderGantt() {
         var h = '<div class="gantt-wrap"><div class="gantt" style="--weeks:' + WEEKS + '"><div class="g-head"><div>Phase</div><div class="g-weeks">';
         for (var w = 1; w <= WEEKS; w++) h += '<span>W' + w + (weekDates(w) ? '<small>' + weekDates(w).split(' – ')[0] + '</small>' : '') + '</span>';
@@ -792,8 +847,15 @@
         document.getElementById('tl-calendar').innerHTML = h + '</div>';
       }
       function render() { renderGantt(); renderCalendar(); }
-      kickoff.addEventListener('change', render);
       render();
+      document.querySelectorAll('.scope-toggle button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var v = b.getAttribute('data-view');
+          document.querySelectorAll('.scope-toggle button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+          document.getElementById('scope-chart').hidden = v !== 'chart';
+          document.getElementById('scope-table').hidden = v !== 'table';
+        });
+      });
       var views = { gantt: document.getElementById('tl-gantt'), calendar: document.getElementById('tl-calendar'), list: document.getElementById('tl-list') };
       document.querySelectorAll('.tl-toggle button').forEach(function (b) {
         b.addEventListener('click', function () {
