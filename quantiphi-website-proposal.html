@@ -80,10 +80,15 @@
     .team-card .av { width:52px; height:52px; border-radius:50%; display:grid; place-items:center; background:var(--lime); color:var(--green-dark); font:800 1rem "Manrope",sans-serif; margin-bottom:14px; }
     .team-card strong { display:block; font-family:"Manrope",sans-serif; font-size:1.08rem; letter-spacing:-0.02em; }
     .team-card .role { font-size:0.88rem; color:var(--green-dark); font-weight:600; margin-bottom:8px; }
+    .team-card { display:flex; flex-direction:column; gap:4px; }
+    .team-card .av { margin-bottom:10px; }
     .team-card p { margin:0; font-size:0.92rem; }
+    .team-card p.off { margin-top:auto; padding-top:12px; border-top:1px solid var(--line); font-size:0.86rem; font-style:italic; }
+    .team-card p + p.off { margin-top:auto; }
+    .team-card .role + p { margin-top:2px; margin-bottom:12px; }
     .sign-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
     .btn:focus-visible, .toc a:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
-    @media (max-width:940px) { .toc { grid-template-columns:1fr 1fr; } .price-grid, .team-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:940px) { .toc { grid-template-columns:1fr 1fr; } .price-grid { grid-template-columns:1fr 1fr; } }
     @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals, .work-grid { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
   </style>
   <script type="application/ld+json">
@@ -358,12 +363,9 @@
           <p>One team from first workshop to final file.</p>
         </div>
         <div class="team-grid reveal">
-          <div class="team-card"><div class="av">KG</div><strong>Kapil Gadhire</strong><div class="role"><span class="ph">[Role]</span></div><p><span class="ph">[Short bio]</span></p></div>
-          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. UX lead]</span></div><p><span class="ph">[Short bio]</span></p></div>
-          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. Visual designer]</span></div><p><span class="ph">[Short bio]</span></p></div>
-          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. Motion designer]</span></div><p><span class="ph">[Short bio]</span></p></div>
-          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. SEO lead]</span></div><p><span class="ph">[Short bio]</span></p></div>
-          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. Brand strategist]</span></div><p><span class="ph">[Short bio]</span></p></div>
+          <div class="team-card"><div class="av">KG</div><strong>Kapil Gadhire</strong><div class="role">SPOC, account manager and strategist</div><p>14+ years across marketing, analytics, design and product. Your single point of contact from kickoff to handoff.</p><p class="off">Off the clock: photographer, dancer and professional padel coach.</p></div>
+          <div class="team-card"><div class="av">SK</div><strong>Shubhangi Kamble</strong><div class="role">UI/UX head</div><p>9+ years designing websites, SaaS products, digital experiences and brand identities. Leads the information architecture and design.</p><p class="off">Off the clock: travels widely and collects new experiences.</p></div>
+          <div class="team-card"><div class="av">CM</div><strong>Chirag Mahbubani</strong><div class="role">SEO expert and digital marketing ninja</div><p>Leads SEO strategy and compliance, so every design is ready for Google and AI search. Writes the copy that ranks.</p><p class="off">Off the clock: writes good PJs and has acted professionally.</p></div>
         </div>
       </div>
     </section>
