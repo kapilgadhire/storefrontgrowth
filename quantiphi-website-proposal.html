@@ -92,16 +92,44 @@
     .totals div { padding:22px; border-radius:var(--radius-md); background:var(--green-dark); color:var(--white); }
     .totals b { display:block; font:800 2.2rem/1 "Manrope",sans-serif; color:var(--lime); letter-spacing:-0.04em; font-variant-numeric:tabular-nums; }
     .totals span { font-size:0.88rem; color:#c9d6c4; }
-    .work-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-    .work-card { padding:26px 24px; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); display:flex; flex-direction:column; gap:10px; transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; }
-    .work-card:hover, .work-card:focus-visible { transform:translateY(-6px); box-shadow:var(--shadow); background:var(--white); }
-    .work-card:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
     .work-tag { align-self:flex-start; padding:3px 10px; border-radius:999px; background:var(--lime); color:var(--green-dark); font-size:0.75rem; font-weight:700; }
-    .work-card strong { font-family:"Manrope",sans-serif; font-size:1.3rem; letter-spacing:-0.03em; }
-    .work-card small { color:var(--muted); font-size:0.95rem; line-height:1.55; }
-    .work-link { margin-top:auto; padding-top:6px; display:inline-flex; align-items:center; gap:8px; font-weight:700; color:var(--green-dark); font-size:0.92rem; }
-    .work-link svg { width:16px; color:var(--orange); transition:transform 0.25s ease; }
-    .work-card:hover .work-link svg { transform:translateX(4px); }
+    .showcase { --frame-w:1280px; }
+    .show-tabs { display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; padding-bottom:4px; margin-bottom:18px; }
+    .show-tabs::-webkit-scrollbar { display:none; }
+    .show-tabs button { flex:none; display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,253,248,0.7); font-weight:600; font-size:0.9rem; color:var(--muted); cursor:pointer; transition:0.2s ease; }
+    .show-tabs button span { font:800 0.7rem "Manrope",sans-serif; color:var(--orange); letter-spacing:0.06em; }
+    .show-tabs button:hover { color:var(--ink); background:var(--white); }
+    .show-tabs button[aria-selected="true"] { background:var(--ink); border-color:var(--ink); color:var(--white); }
+    .show-tabs button[aria-selected="true"] span { color:var(--lime); }
+    .show-tabs button:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
+    .show-stage { position:relative; }
+    .show-track { display:grid; }
+    .show-slide { grid-area:1/1; display:flex; flex-direction:column; gap:18px; }
+    .show-slide[hidden] { display:none; }
+    .show-slide.is-in { animation:showIn 0.45s ease; }
+    @keyframes showIn { from { opacity:0; transform:translateX(24px); } to { opacity:1; transform:none; } }
+    .show-browser { border:1px solid var(--line); border-radius:var(--radius-lg); background:var(--white); box-shadow:var(--shadow); overflow:hidden; }
+    .show-bar { display:flex; align-items:center; gap:7px; padding:12px 16px; background:var(--paper-2); border-bottom:1px solid var(--line); }
+    .show-bar i { width:11px; height:11px; border-radius:50%; background:rgba(22,23,20,0.18); }
+    .show-bar em { flex:1; margin-left:10px; padding:5px 12px; border-radius:8px; background:rgba(255,253,248,0.9); font-style:normal; font-size:0.78rem; font-weight:600; color:var(--muted); }
+    .show-frame { position:relative; aspect-ratio:16/9; overflow:hidden; background:#fff; }
+    .show-frame iframe { position:absolute; left:0; top:0; width:var(--frame-w); height:calc(var(--frame-w) * 9 / 16); border:0; transform:scale(var(--s,0.5)); transform-origin:0 0; }
+    .show-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; }
+    .show-frame::before { content:"Loading live site\2026"; position:absolute; inset:0; display:grid; place-items:center; font-size:0.9rem; font-weight:600; color:var(--muted); background:var(--paper); }
+    .show-frame.is-static::before, .show-frame.is-loaded::before { display:none; }
+    .show-caption { display:flex; align-items:flex-start; justify-content:space-between; gap:24px; }
+    .show-text { display:flex; flex-direction:column; gap:8px; min-width:0; max-width:640px; }
+    .show-text strong { font-family:"Manrope",sans-serif; font-size:1.4rem; letter-spacing:-0.03em; }
+    .show-text p { margin:0; font-size:0.95rem; }
+    .show-note { color:var(--green-dark); font-size:0.82rem; font-weight:600; }
+    .show-caption .btn { flex:none; }
+    .show-arrow { position:absolute; top:calc((100% - 110px) / 2); z-index:2; width:48px; height:48px; border:1px solid var(--line); border-radius:50%; background:var(--white); color:var(--ink); display:grid; place-items:center; cursor:pointer; box-shadow:0 10px 24px rgba(45,42,31,0.16); transition:0.2s ease; }
+    .show-arrow svg { width:20px; }
+    .show-arrow:hover { background:var(--ink); color:var(--white); }
+    .show-arrow:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
+    .show-arrow.prev { left:-24px; } .show-arrow.next { right:-24px; }
+    @media (max-width:940px) { .show-arrow { display:none; } }
+    @media (max-width:680px) { .showcase { --frame-w:960px; } .show-frame { aspect-ratio:4/3; } .show-frame iframe { height:calc(var(--frame-w) * 3 / 4); } .show-caption { flex-direction:column; } .show-caption .btn { width:100%; } }
     .phases { display:grid; gap:12px; max-width:860px; }
     .phase { display:grid; grid-template-columns:140px 1fr; gap:20px; padding:22px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); }
     .phase .when { font:700 0.85rem "Manrope",sans-serif; color:var(--green-dark); }
@@ -129,7 +157,7 @@
     .sign-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
     .btn:focus-visible, .toc a:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
     @media (max-width:940px) { .toc, .totals { grid-template-columns:1fr 1fr; } .price-grid { grid-template-columns:1fr 1fr; } }
-    @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals, .work-grid { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
+    @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
   </style>
   <script type="application/ld+json">
 {
@@ -291,33 +319,81 @@
         <div class="sec-head reveal">
           <div class="eyebrow">02 · Our work</div>
           <h2>Websites we've designed and built</h2>
-          <p>Recent websites for AI and SaaS products. Each one explains a technical product to the people who buy it.</p>
+          <p>Recent websites for AI and SaaS products, shown live. Pick a project, scroll inside the preview, or open it in a new tab.</p>
         </div>
-        <div class="work-grid reveal">
-          <a class="work-card" href="https://claude.ai/artifact/6b7ueqEZZi2PcWJ9QDuNhb" target="_blank" rel="noopener">
-            <span class="work-tag">Website redesign concept</span>
-            <strong>OpenDots</strong>
-            <small>A scroll-led redesign for an AI customer experience platform that answers reviews, comments and DMs for consumer brands. Motion carries the story from public feedback through to resolution, case studies and blog.</small>
-            <span class="work-link">View the concept <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="work-card" href="https://ratl.ai" target="_blank" rel="noopener">
-            <span class="work-tag">AI testing platform</span>
-            <strong>ratl.ai</strong>
-            <small>Website for an AI-agentic testing workspace used by quality engineers, product managers and developers. The page tailors itself to each role and shows prompt-driven tests running in the browser.</small>
-            <span class="work-link">Visit ratl.ai <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="work-card" href="https://opendotscx.com/" target="_blank" rel="noopener">
-            <span class="work-tag">AI customer experience</span>
-            <strong>OpenDots live site</strong>
-            <small>The live OpenDots website. It shows how one platform answers customers across six channels, resolves what it can and turns every conversation into insight.</small>
-            <span class="work-link">Visit opendotscx.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="work-card" href="https://teachvibecoding.app" target="_blank" rel="noopener">
-            <span class="work-tag">AI education platform</span>
-            <strong>Teach Vibe Coding</strong>
-            <small>Website for a controlled vibe coding platform built for faculty. The page is written as a conversation that answers the questions instructors ask, from setup to cost.</small>
-            <span class="work-link">Visit teachvibecoding.app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
+        <div class="showcase reveal" id="showcase">
+          <div class="show-tabs" role="tablist" aria-label="Projects">
+          <button type="button" role="tab" id="show-tab-0" aria-selected="true" aria-controls="show-panel-0" tabindex="0"><span>01</span>OpenDots concept</button>
+          <button type="button" role="tab" id="show-tab-1" aria-selected="false" aria-controls="show-panel-1" tabindex="-1"><span>02</span>ratl.ai</button>
+          <button type="button" role="tab" id="show-tab-2" aria-selected="false" aria-controls="show-panel-2" tabindex="-1"><span>03</span>OpenDots live</button>
+          <button type="button" role="tab" id="show-tab-3" aria-selected="false" aria-controls="show-panel-3" tabindex="-1"><span>04</span>Teach Vibe Coding</button>
+          </div>
+          <div class="show-stage">
+            <button type="button" class="show-arrow prev" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <div class="show-track">
+            <article class="show-slide" id="show-panel-0" role="tabpanel" aria-labelledby="show-tab-0">
+              <div class="show-browser">
+                <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>claude.ai</em></div>
+                <div class="show-frame is-static"><img src="/assets/work/opendots-concept.jpg" alt="OpenDots website concept: hero section" width="800" height="476" loading="lazy" /></div>
+              </div>
+              <div class="show-caption">
+                <div class="show-text">
+                  <span class="work-tag">Website redesign concept</span>
+                  <strong>OpenDots</strong>
+                  <p>A scroll-led redesign for an AI customer experience platform that answers reviews, comments and DMs for consumer brands. Motion carries the story from public feedback through to resolution, case studies and blog.</p>
+                  <small class="show-note">Static preview. Open the site to see it in motion.</small>
+                </div>
+                <a class="btn btn-primary" href="https://claude.ai/artifact/6b7ueqEZZi2PcWJ9QDuNhb" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="show-slide" id="show-panel-1" role="tabpanel" aria-labelledby="show-tab-1" hidden>
+              <div class="show-browser">
+                <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>ratl.ai</em></div>
+                <div class="show-frame"><iframe data-src="https://ratl.ai" title="ratl.ai live website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+              </div>
+              <div class="show-caption">
+                <div class="show-text">
+                  <span class="work-tag">AI testing platform</span>
+                  <strong>ratl.ai</strong>
+                  <p>Website for an AI-agentic testing workspace used by quality engineers, product managers and developers. The page tailors itself to each role and shows prompt-driven tests running in the browser.</p>
+                  
+                </div>
+                <a class="btn btn-primary" href="https://ratl.ai" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="show-slide" id="show-panel-2" role="tabpanel" aria-labelledby="show-tab-2" hidden>
+              <div class="show-browser">
+                <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>opendotscx.com</em></div>
+                <div class="show-frame"><iframe data-src="https://opendotscx.com/" title="OpenDots live site live website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+              </div>
+              <div class="show-caption">
+                <div class="show-text">
+                  <span class="work-tag">AI customer experience</span>
+                  <strong>OpenDots live site</strong>
+                  <p>The live OpenDots website. It shows how one platform answers customers across six channels, resolves what it can and turns every conversation into insight.</p>
+                  
+                </div>
+                <a class="btn btn-primary" href="https://opendotscx.com/" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="show-slide" id="show-panel-3" role="tabpanel" aria-labelledby="show-tab-3" hidden>
+              <div class="show-browser">
+                <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>teachvibecoding.app</em></div>
+                <div class="show-frame"><iframe data-src="https://teachvibecoding.app" title="Teach Vibe Coding live website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+              </div>
+              <div class="show-caption">
+                <div class="show-text">
+                  <span class="work-tag">AI education platform</span>
+                  <strong>Teach Vibe Coding</strong>
+                  <p>Website for a controlled vibe coding platform built for faculty. The page is written as a conversation that answers the questions instructors ask, from setup to cost.</p>
+                  
+                </div>
+                <a class="btn btn-primary" href="https://teachvibecoding.app" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            </div>
+            <button type="button" class="show-arrow next" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
         </div>
         <div class="reveal" style="margin-top:28px">
           <a class="btn btn-secondary" href="/websiteportfolio/">Explore our website portfolio <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -523,6 +599,56 @@
       </form>
     </div>
   </div>
+  <script>
+    (function () {
+      var root = document.getElementById('showcase'); if (!root) return;
+      var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+      var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+      var current = 0;
+      function fit() {
+        panels.forEach(function (p) {
+          var f = p.querySelector('.show-frame'), w = parseFloat(getComputedStyle(root).getPropertyValue('--frame-w'));
+          if (f && f.clientWidth) f.style.setProperty('--s', (f.clientWidth / w).toFixed(4));
+        });
+      }
+      function load(panel) {
+        var frame = panel.querySelector('iframe[data-src]'); if (!frame) return;
+        frame.addEventListener('load', function () { frame.parentNode.classList.add('is-loaded'); });
+        frame.src = frame.getAttribute('data-src'); frame.removeAttribute('data-src');
+      }
+      if ('IntersectionObserver' in window) {
+        var pre = new IntersectionObserver(function (en) {
+          if (en[0].isIntersecting) { panels.forEach(load); pre.disconnect(); }
+        }, { rootMargin: '600px 0px' });
+        pre.observe(root);
+      }
+      function show(i) {
+        i = (i + panels.length) % panels.length;
+        tabs.forEach(function (t, k) { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+        panels.forEach(function (p, k) { p.hidden = k !== i; p.classList.toggle('is-in', k === i); });
+        load(panels[i]);
+        current = i; fit();
+        var t = tabs[i]; if (t.scrollIntoView) t.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () { show(i); });
+        t.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); tabs[current].focus(); }
+          if (e.key === 'ArrowLeft') { e.preventDefault(); show(i - 1); tabs[current].focus(); }
+        });
+      });
+      root.querySelector('.show-arrow.prev').addEventListener('click', function () { show(current - 1); });
+      root.querySelector('.show-arrow.next').addEventListener('click', function () { show(current + 1); });
+      var x0 = null, stage = root.querySelector('.show-stage');
+      stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend', function (e) {
+        if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+        if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+      window.addEventListener('resize', fit);
+      fit();
+    })();
+  </script>
   <script src="/assets/site.js"></script>
   <script>
     (function () {
