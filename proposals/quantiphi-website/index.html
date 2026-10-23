@@ -72,6 +72,20 @@
       .side-links a span { display:none; }
       section[id] { scroll-margin-top:150px; }
     }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+    .about-card { padding:26px 24px; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); }
+    .about-card .eyebrow { margin-bottom:14px; }
+    .lens, .expect { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+    .lens li { font-family:"Manrope",sans-serif; font-weight:700; font-size:1.15rem; letter-spacing:-0.02em; color:var(--ink); padding-left:18px; position:relative; }
+    .lens li::before { content:""; position:absolute; left:0; top:0.55em; width:8px; height:8px; border-radius:50%; background:var(--orange); }
+    .expect li { display:flex; align-items:center; gap:12px; font-weight:600; color:var(--ink); }
+    .expect .tick { width:26px; height:26px; flex:none; display:grid; place-items:center; border-radius:50%; background:var(--lime); color:var(--green-dark); }
+    .expect .tick svg { width:15px; }
+    .brief { padding:clamp(26px,4vw,40px); border:1px solid var(--line); border-left:4px solid var(--orange); border-radius:var(--radius-lg); background:rgba(255,255,255,0.5); margin-bottom:16px; }
+    .brief h3 { font-size:clamp(1.3rem,2.2vw,1.7rem); max-width:760px; margin-bottom:12px; }
+    .brief p { margin:0; font-size:1.05rem; max-width:760px; color:#55534b; }
+    .benefits .sub { margin-bottom:0; max-width:760px; }
+    @media (max-width:680px) { .about-grid { grid-template-columns:1fr; } }
     .sec-head { max-width:720px; margin-bottom:36px; }
     .sec-head p { font-size:1.08rem; }
     section[id] { scroll-margin-top:170px; }
@@ -441,19 +455,41 @@
       <div class="container">
         <div class="sec-head reveal">
           <div class="eyebrow">01 · About us</div>
-          <h2>Strategy and execution, under one roof.</h2>
-          <p>StorefrontGrowth is a full-service, AI-powered B2B marketing agency, not a design studio. We help B2B companies deliver growth-oriented marketing: demand generation, account-based marketing, content marketing, product launches, brand building and brand guidelines, website design and development, UI/UX design, events and exhibitions, PR and digital marketing.</p>
-          <p>That matters for a site the size of quantiphi.com. The people planning the information architecture are the same people designing the pages, writing the SEO framework and updating the brand guidelines, and they know what the site has to do for pipeline. Nothing is handed between agencies.</p>
+          <h2>We build marketing that moves B2B businesses forward.</h2>
+          <p>StorefrontGrowth is an AI-powered B2B marketing agency bringing strategy and execution together across demand generation, ABM, content, brand, digital, websites, product launches, events and PR.</p>
+          <p>We've worked inside global AI technology companies, on the teams responsible for taking complex products to market. That experience gives us a closer understanding of how these businesses sell, grow and earn trust, and helps us build marketing around the realities of the business, not just the brief.</p>
         </div>
-        <div class="benefits reveal">
-          <div class="eyebrow" style="color:var(--lime)">Why this matters for Quantiphi</div>
-          <h2>Built for an AI company's buyers</h2>
-          <div class="benefit-grid">
-            <div class="benefit-item"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><span>Structure that helps enterprise buyers find solutions, products and industries quickly</span></div>
-            <div class="benefit-item"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><span>Templates that let 400+ resource pages stay consistent as the library grows</span></div>
-            <div class="benefit-item"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><span>SEO and AEO built into every design, so pages are ready for Google and AI search</span></div>
-            <div class="benefit-item"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><span>Motion and micro-animations that support the story instead of slowing the page</span></div>
+
+        <div class="about-grid reveal">
+          <div class="about-card">
+            <div class="eyebrow">Our lens</div>
+            <ul class="lens">
+              <li>Does it make the value clear?</li>
+              <li>Does it reach the right buyers?</li>
+              <li>Does it create momentum for growth?</li>
+            </ul>
           </div>
+          <div class="about-card">
+            <div class="eyebrow">What to expect</div>
+            <ul class="expect">
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>Commercial understanding.</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>Integrated marketing.</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>Focused execution.</li>
+              <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span>Built around outcomes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="brief reveal">
+          <div class="eyebrow">The brief</div>
+          <h3>Make Quantiphi's expertise easier to understand, its solutions easier to explore and its value easier for enterprise buyers to act on.</h3>
+          <p>The website should connect brand, content, search, user experience and conversion around a clear purpose: helping the right audiences discover Quantiphi, understand its value and move closer to a conversation.</p>
+        </div>
+
+        <div class="benefits reveal">
+          <div class="eyebrow" style="color:var(--lime)">The StorefrontGrowth difference</div>
+          <h2>We understand the business behind the marketing.</h2>
+          <p class="sub">Our experience inside global AI technology companies gives us a first-hand view of the products, buyers and growth challenges shaping the category. We bring that perspective to the work: connecting strategy, information architecture, messaging, SEO, content, design and development to Quantiphi's brand and pipeline goals.</p>
         </div>
       </div>
     </section>
