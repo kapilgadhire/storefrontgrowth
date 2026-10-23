@@ -175,6 +175,20 @@
     .price-card ul { margin:6px 0 0; padding-left:18px; color:var(--muted); }
     .price-card li { margin:5px 0; }
     .note { margin-top:20px; font-size:0.92rem; }
+    .price-single { border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); overflow:hidden; }
+    .price-head { padding:28px 28px 22px; border-bottom:1px solid var(--line); background:var(--white); }
+    .price-head .tag { display:inline-block; padding:3px 10px; border-radius:999px; background:var(--lime); color:var(--green-dark); font-size:0.75rem; font-weight:700; margin-bottom:10px; }
+    .price-head .amt { font:800 clamp(2.2rem,4vw,3rem) "Manrope",sans-serif; letter-spacing:-0.04em; line-height:1; margin-bottom:8px; font-variant-numeric:tabular-nums; }
+    .price-sub { color:var(--muted); font-size:0.95rem; }
+    .price-lines { display:grid; }
+    .price-line { display:grid; grid-template-columns:1fr auto; gap:24px; padding:22px 28px; border-bottom:1px solid var(--line); align-items:start; }
+    .price-line:last-child { border-bottom:0; }
+    .price-line strong { display:block; font-family:"Manrope",sans-serif; font-size:1.08rem; letter-spacing:-0.02em; margin-bottom:6px; }
+    .price-line p { margin:0; font-size:0.92rem; }
+    .price-line-amt { font:800 1.35rem "Manrope",sans-serif; letter-spacing:-0.03em; white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .caps { display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:12px 0 0; padding:0; }
+    .caps li { padding:5px 11px; border:1px solid var(--line); border-radius:999px; background:var(--paper); font-size:0.8rem; font-weight:600; color:var(--green-dark); }
+    @media (max-width:680px) { .price-line { grid-template-columns:1fr; gap:10px; } .price-head, .price-line { padding-left:20px; padding-right:20px; } }
     .terms { margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
     .terms > div { padding:16px 18px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); font-size:0.88rem; color:var(--muted); line-height:1.55; }
     .terms b { display:block; margin-bottom:4px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-dark); }
@@ -647,48 +661,36 @@
           <h2>Investment</h2>
           <p>Fixed project fee for the full scope above, paid in four milestones. Final figures are confirmed in the statement of work.</p>
         </div>
-        <div class="price-grid reveal">
-          <div class="price-card">
-            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem">Design only</strong>
-            <div class="amt">₹9,50,000</div>
-            <ul>
-              <li>Information architecture for L1, L2 and L3</li>
-              <li>Design strategy and concepts</li>
-              <li>Low- and high-fidelity designs for all 19 templates (44+ designs)</li>
-              <li>Updated brand guidelines</li>
-              <li>Figma handoff with components and specs</li>
-              <li>Two revision rounds per phase</li>
-            </ul>
+        <div class="price-single reveal">
+          <div class="price-head">
+            <div>
+              <span class="tag">Fixed project fee</span>
+              <div class="amt">₹15,00,000</div>
+              <div class="price-sub">Covers all eight deliverables in Quantiphi's brief across L1, L2 and L3.</div>
+            </div>
           </div>
-          <div class="price-card rec">
-            <span class="tag">Recommended</span>
-            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem">Design and motion</strong>
-            <div class="amt">₹14,00,000</div>
-            <ul>
-              <li>Everything in Design only</li>
-              <li>Motion graphics for key L1 pages</li>
-              <li>Micro-animation library across components</li>
-              <li>Images, GIFs and videos for each template</li>
-              <li>SEO and AEO compliance built into every design</li>
-              <li>Covers all eight deliverables in Quantiphi's brief</li>
-            </ul>
-          </div>
-          <div class="price-card">
-            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem">Design, motion and launch</strong>
-            <div class="amt">₹20,00,000</div>
-            <ul>
-              <li>Everything in Design and motion</li>
-              <li>SEO content framework for the 400+ L3 pages</li>
-              <li>Brand guidelines as a full published document</li>
-              <li>Front-end support for Quantiphi's developers during the build</li>
-              <li>30 days of post-launch design support</li>
-            </ul>
+          <div class="price-lines">
+            <div class="price-line">
+              <div>
+                <strong>UI/UX design</strong>
+                <p>Information architecture, design strategy, low- and high-fidelity designs for the 19 unique templates (44+ designs), updated brand guidelines and Figma handoff.</p>
+              </div>
+              <div class="price-line-amt">₹11,00,000</div>
+            </div>
+            <div class="price-line">
+              <div>
+                <strong>Motion graphics and graphics</strong>
+                <p>Motion graphics for key pages, illustrations and graphic assets for the templates, with micro-animation specs.</p>
+                <ul class="caps"><li>Up to 5 motion graphics</li><li>Up to 15 illustrations</li><li>Up to 50 graphics</li></ul>
+              </div>
+              <div class="price-line-amt">₹4,00,000</div>
+            </div>
           </div>
         </div>
         <div class="terms reveal">
-          <div><b>Payment</b>Four payments: 30% advance on signing (₹4,20,000), 40% on approval of the L1 and L2 templates at week 7 (₹5,60,000), 25% on approval of the L3 templates at week 10 (₹3,50,000), 5% on final delivery at week 12 (₹70,000). Amounts shown for the recommended option.</div>
+          <div><b>Payment</b>Four payments: 30% advance on signing (₹4,50,000), 40% on approval of the L1 and L2 templates at week 7 (₹6,00,000), 25% on approval of the L3 templates at week 10 (₹3,75,000), 5% on final delivery at week 12 (₹75,000).</div>
           <div><b>Currency and tax</b>All figures in INR. GST, where applicable, will be charged in addition.</div>
-          <div><b>Revisions</b>Two rounds per phase. Further rounds and work beyond the 19 templates and 25 sections are quoted before we start.</div>
+          <div><b>Revisions and scope</b>Two rounds per phase. Further rounds, templates beyond the 19, or assets beyond the caps above are quoted before we start.</div>
           <div><b>Assumptions</b>Quantiphi provides content, brand assets and one decision-maker per review, with reviews returned within five business days.</div>
         </div>
       </div>
