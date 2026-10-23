@@ -35,6 +35,5 @@ Disallow: /quantiphi-website-proposal
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /quantiphi-website-proposal
-Disallow: /quantiphi-website-proposal
 
 Sitemap: https://storefrontgrowth.com/sitemap.xml
