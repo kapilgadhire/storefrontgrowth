@@ -75,6 +75,12 @@
     .sec-head { max-width:720px; margin-bottom:36px; }
     .sec-head p { font-size:1.08rem; }
     section[id] { scroll-margin-top:110px; }
+    html { scroll-snap-type:y mandatory; }
+    .page-hero, main > .section-sm, .proposal-body > section, footer { scroll-snap-align:start; scroll-snap-stop:always; }
+    main > .section-sm, .cta-band, footer { scroll-margin-top:110px; }
+    .proposal-body > section[id] { min-height:calc(100svh - 110px); box-sizing:border-box; }
+    @media (max-width:940px) { main > .section-sm, .cta-band, footer { scroll-margin-top:150px; } .proposal-body > section[id] { min-height:calc(100svh - 150px); } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-snap-type:none; } }
     .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); margin-top:36px; }
     .scope-table { width:100%; min-width:720px; border-collapse:collapse; font-size:0.95rem; }
     .scope-table th, .scope-table td { padding:14px 18px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
