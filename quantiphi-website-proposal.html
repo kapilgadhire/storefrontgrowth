@@ -159,6 +159,74 @@
     .btn:focus-visible, .toc a:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
     @media (max-width:940px) { .toc, .totals { grid-template-columns:1fr 1fr; } .price-grid { grid-template-columns:1fr 1fr; } }
     @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
+    .pdf-bar { position:fixed; top:96px; right:20px; z-index:48; display:flex; gap:4px; padding:6px; border:1px solid rgba(255,255,255,0.7); border-radius:999px; background:rgba(255,253,248,0.9); backdrop-filter:blur(14px); box-shadow:0 12px 40px rgba(33,32,26,0.12); }
+    .pdf-bar button { display:inline-flex; align-items:center; gap:7px; padding:8px 12px; border:0; border-radius:999px; background:transparent; font-size:0.82rem; font-weight:600; color:var(--ink); cursor:pointer; transition:background 0.2s ease; }
+    .pdf-bar button:hover { background:var(--paper-2); }
+    .pdf-bar button:focus-visible { outline:3px solid var(--green); outline-offset:1px; }
+    .pdf-bar svg { width:17px; }
+    .pdf-bar .i-exit { display:none; }
+    .pdf-bar button[aria-pressed="true"] .i-enter { display:none; }
+    .pdf-bar button[aria-pressed="true"] .i-exit { display:block; }
+    .toast { position:fixed; left:50%; bottom:24px; z-index:60; transform:translate(-50%,16px); max-width:min(92vw,460px); padding:12px 18px; border-radius:14px; background:var(--ink); color:var(--white); font-size:0.88rem; font-weight:500; box-shadow:0 16px 40px rgba(0,0,0,0.25); opacity:0; visibility:hidden; transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; }
+    .toast.show { opacity:1; visibility:visible; transform:translate(-50%,0); transition:opacity 0.25s ease, transform 0.25s ease; }
+    @media (max-width:940px) { .pdf-bar { top:auto; bottom:18px; right:14px; } .pdf-bar span { display:none; } .pdf-bar button { padding:10px; } .pdf-bar svg { width:19px; } .toast { bottom:78px; } }
+    .tl-toggle { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:22px; }
+    .tl-toggle button { padding:9px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,253,248,0.7); font-weight:600; font-size:0.88rem; color:var(--muted); cursor:pointer; transition:0.2s ease; }
+    .tl-toggle button:hover { color:var(--ink); background:var(--white); }
+    .tl-toggle button[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:var(--white); }
+    .tl-toggle button:focus-visible, .tl-kickoff input:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
+    .tl-kickoff { margin-left:auto; display:inline-flex; align-items:center; gap:8px; font-size:0.82rem; font-weight:600; color:var(--muted); }
+    .tl-kickoff input { height:38px; padding:0 10px; border:1px solid var(--line); border-radius:10px; background:var(--paper); color:var(--ink); font-size:0.85rem; }
+    .tl-view[hidden] { display:none; }
+    .gantt-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); }
+    .gantt { min-width:720px; display:grid; grid-template-columns:230px 1fr; font-size:0.85rem; }
+    .g-head { display:contents; }
+    .g-head > div { padding:12px 16px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-dark); background:var(--paper-2); border-bottom:1px solid var(--line); }
+    .g-weeks { display:grid; grid-template-columns:repeat(var(--weeks),1fr); padding:0 !important; }
+    .g-weeks span { padding:12px 0; text-align:center; border-left:1px solid var(--line); }
+    .g-weeks span small { display:block; font-size:0.62rem; letter-spacing:0; text-transform:none; color:var(--muted); }
+    .g-row { display:contents; }
+    .g-label { padding:14px 16px; border-bottom:1px solid var(--line); font-weight:600; color:var(--ink); display:flex; flex-direction:column; gap:2px; }
+    .g-label small { font-weight:500; color:var(--muted); font-size:0.78rem; }
+    .g-track { position:relative; display:grid; grid-template-columns:repeat(var(--weeks),1fr); align-items:center; border-bottom:1px solid var(--line); background:repeating-linear-gradient(90deg, var(--line) 0 1px, transparent 1px calc(100% / var(--weeks))); min-height:56px; }
+    .g-bar { grid-column:var(--s) / span var(--n); margin:10px 4px; height:34px; display:flex; align-items:center; padding:0 12px; border-radius:10px; background:var(--green-dark); color:var(--white); font-size:0.78rem; font-weight:600; white-space:nowrap; position:relative; }
+    .g-bar.alt { background:var(--green); }
+    .g-bar::after { content:""; position:absolute; right:-7px; top:50%; width:12px; height:12px; transform:translateY(-50%) rotate(45deg); border-radius:2px; background:var(--orange); box-shadow:0 0 0 3px var(--paper); }
+    .g-foot { grid-column:1 / -1; padding:10px 16px; font-size:0.78rem; color:var(--muted); display:flex; align-items:center; gap:8px; }
+    .g-foot i { width:10px; height:10px; transform:rotate(45deg); border-radius:2px; background:var(--orange); }
+    .cal { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .cal-cell { padding:16px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); display:flex; flex-direction:column; gap:8px; min-height:132px; }
+    .cal-cell.review { border-color:var(--orange); }
+    .cal-week { font:800 0.95rem "Manrope",sans-serif; letter-spacing:-0.02em; }
+    .cal-date { font-size:0.78rem; color:var(--muted); }
+    .cal-phase { margin-top:auto; padding:7px 10px; border-radius:9px; background:var(--green-dark); color:var(--white); font-size:0.8rem; font-weight:600; line-height:1.3; }
+    .cal-phase.alt { background:var(--green); }
+    .cal-review { font-size:0.74rem; font-weight:700; color:var(--orange); text-transform:uppercase; letter-spacing:0.08em; }
+    @media (max-width:940px) { .cal { grid-template-columns:repeat(3,1fr); } }
+    @media (max-width:680px) { .cal { grid-template-columns:1fr 1fr; } .tl-kickoff { margin-left:0; width:100%; } }
+    @media print {
+      @page { margin:14mm; }
+      body { background:#fff; }
+      .header-wrap, .nav-mobile, .side-index, .modal, .pdf-bar, .toast, .show-arrow, .show-tabs, .cta-band, .tl-toggle, #tl-calendar, .sign-row, .footer-col .btn, main > .section-sm { display:none !important; }
+      html { scroll-snap-type:none; }
+      .reveal { opacity:1 !important; transform:none !important; }
+      .page-hero { padding:0 0 30px; }
+      .proposal-layout { display:block; }
+      .proposal-body > section[id] { min-height:0; padding:28px 0; break-before:page; }
+      .proposal-body > section[id]:first-child { break-before:auto; }
+      .covered-card, .team-card, .price-card, .phase, .cal-cell, .totals > div, .toc a { break-inside:avoid; }
+      .show-slide[hidden] { display:flex !important; }
+      .show-slide { break-inside:avoid; border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:12px; animation:none !important; }
+      .show-browser, .show-frame::before { display:none; }
+      .show-frame.is-static { display:block; }
+      .show-caption .btn { display:none; }
+      .show-text::after { content:attr(data-url); font-size:0.8rem; color:var(--green-dark); }
+      .tl-view[hidden] { display:block !important; }
+      .gantt-wrap { overflow:visible; }
+      .gantt { min-width:0; }
+      .benefits, .totals > div, .g-bar, .cal-phase, .show-tabs button { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .ph { border-color:#999; background:#f3f3f3; color:#444; }
+    }
   </style>
   <script type="application/ld+json">
 {
@@ -240,6 +308,13 @@
     <a href="/#faq">FAQ</a>
     <button class="btn btn-primary js-open-modal" type="button">Book a Free Call</button>
   </div>
+
+  <div class="pdf-bar" role="toolbar" aria-label="Page tools">
+    <button type="button" id="toolPrint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg><span>Print</span></button>
+    <button type="button" id="toolPdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span>Download PDF</span></button>
+    <button type="button" id="toolFull" aria-pressed="false"><svg class="i-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 00-2 2v3M21 8V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3M16 21h3a2 2 0 002-2v-3"/></svg><svg class="i-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v3a2 2 0 01-2 2H3M21 8h-3a2 2 0 01-2-2V3M3 16h3a2 2 0 012 2v3M16 21v-3a2 2 0 012-2h3"/></svg><span>Full screen</span></button>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <main id="top">
     <section class="page-hero">
@@ -339,7 +414,7 @@
                 <div class="show-frame is-static"><img src="/assets/work/fynd.jpg" alt="Fynd website: hero section" width="800" height="500" loading="lazy" /></div>
               </div>
               <div class="show-caption">
-                <div class="show-text">
+                <div class="show-text" data-url="https://www.fynd.com/">
                   <span class="work-tag">AI commerce platform</span>
                   <strong>Fynd</strong>
                   <p>Website for an AI-native unified commerce platform that helps brands build storefronts, sell on marketplaces, run stores and automate operations. The page leads with outcomes and customer case studies.</p>
@@ -354,7 +429,7 @@
                 <div class="show-frame"><iframe data-src="https://ratl.ai" title="ratl.ai live website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
               </div>
               <div class="show-caption">
-                <div class="show-text">
+                <div class="show-text" data-url="https://ratl.ai">
                   <span class="work-tag">AI testing platform</span>
                   <strong>ratl.ai</strong>
                   <p>Website for an AI-agentic testing workspace used by quality engineers, product managers and developers. The page tailors itself to each role and shows prompt-driven tests running in the browser.</p>
@@ -368,7 +443,7 @@
                 <div class="show-frame"><iframe data-src="https://teachvibecoding.app" title="Teach Vibe Coding live website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
               </div>
               <div class="show-caption">
-                <div class="show-text">
+                <div class="show-text" data-url="https://teachvibecoding.app">
                   <span class="work-tag">AI education platform</span>
                   <strong>Teach Vibe Coding</strong>
                   <p>Website for a controlled vibe coding platform built for faculty. The page is written as a conversation that answers the questions instructors ask, from setup to cost.</p>
@@ -382,7 +457,7 @@
                 <div class="show-frame is-static"><img src="/assets/work/opendots-concept.jpg" alt="OpenDots website concept: hero section" width="800" height="476" loading="lazy" /></div>
               </div>
               <div class="show-caption">
-                <div class="show-text">
+                <div class="show-text" data-url="https://claude.ai/artifact/6b7ueqEZZi2PcWJ9QDuNhb">
                   <span class="work-tag">Website redesign concept</span>
                   <strong>OpenDots concept 1</strong>
                   <p>A scroll-led redesign for an AI customer experience platform that answers reviews, comments and DMs for consumer brands. Motion carries the story from public feedback through to resolution, case studies and blog.</p>
@@ -397,7 +472,7 @@
                 <div class="show-frame"><iframe data-src="https://opendotscx.com/" title="OpenDots concept 2 live website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
               </div>
               <div class="show-caption">
-                <div class="show-text">
+                <div class="show-text" data-url="https://opendotscx.com/">
                   <span class="work-tag">AI customer experience</span>
                   <strong>OpenDots concept 2</strong>
                   <p>The live OpenDots website. It shows how one platform answers customers across six channels, resolves what it can and turns every conversation into insight.</p>
@@ -465,7 +540,15 @@
           <h2>From kickoff to handoff</h2>
           <p>Each phase ends with a review, so Quantiphi signs off before we move to the next tier. Total duration: 12 weeks.</p>
         </div>
-        <div class="phases reveal">
+        <div class="tl-toggle reveal" role="group" aria-label="Timeline view">
+          <button type="button" data-view="gantt" aria-pressed="true">Gantt</button>
+          <button type="button" data-view="calendar" aria-pressed="false">Calendar</button>
+          <button type="button" data-view="list" aria-pressed="false">List</button>
+          <label class="tl-kickoff">Kickoff date <input type="date" id="kickoff"></label>
+        </div>
+        <div class="tl-view reveal" id="tl-gantt"></div>
+        <div class="tl-view reveal" id="tl-calendar" hidden></div>
+        <div class="tl-view phases reveal" id="tl-list" hidden>
           <div class="phase"><div class="when">Week 1<small>1 week</small></div><div><h3>Discovery and information architecture</h3><p>Stakeholder interviews, current-site and SEO audit, sitemap and navigation.</p></div></div>
           <div class="phase"><div class="when">Weeks 2–4<small>3 weeks</small></div><div><h3>Design strategy and concepts</h3><p>Design directions, brand guideline updates and motion principles.</p></div></div>
           <div class="phase"><div class="when">Week 5<small>1 week</small></div><div><h3>L1 pages</h3><p>Low- and high-fidelity designs for the 6 L1 templates, with motion for key heroes.</p></div></div>
@@ -661,6 +744,80 @@
       }, { passive: true });
       window.addEventListener('resize', fit);
       fit();
+    })();
+  </script>
+  <script>
+    (function () {
+      var toast = document.getElementById('toast'), timer;
+      function say(msg) { toast.textContent = msg; toast.classList.add('show'); clearTimeout(timer); timer = setTimeout(function () { toast.classList.remove('show'); }, 6000); }
+      document.getElementById('toolPrint').addEventListener('click', function () { window.print(); });
+      document.getElementById('toolPdf').addEventListener('click', function () {
+        say('In the print dialog, choose "Save as PDF" as the destination, then save.');
+        setTimeout(function () { window.print(); }, 400);
+      });
+      var full = document.getElementById('toolFull');
+      full.addEventListener('click', function () {
+        if (!document.fullscreenElement) {
+          var el = document.documentElement;
+          var req = el.requestFullscreen || el.webkitRequestFullscreen;
+          if (req) req.call(el); else say('Full screen is not available in this browser. Press F11 or use the browser menu.');
+        } else {
+          (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        }
+      });
+      function syncFull() { var on = !!document.fullscreenElement; full.setAttribute('aria-pressed', String(on)); full.querySelector('span').textContent = on ? 'Exit full screen' : 'Full screen'; }
+      document.addEventListener('fullscreenchange', syncFull);
+      document.addEventListener('webkitfullscreenchange', syncFull);
+
+      var phases = [
+        { name: 'Discovery and information architecture', start: 1, end: 1 },
+        { name: 'Design strategy and concepts', start: 2, end: 4 },
+        { name: 'L1 pages', start: 5, end: 5 },
+        { name: 'L2 templates', start: 6, end: 7 },
+        { name: 'L3 templates and SEO framework', start: 8, end: 10 },
+        { name: 'Final review and handoff', start: 11, end: 12 }
+      ];
+      var WEEKS = 12, kickoff = document.getElementById('kickoff');
+      function weekDates(n) {
+        if (!kickoff.value) return '';
+        var d = new Date(kickoff.value + 'T00:00:00'); if (isNaN(d)) return '';
+        var a = new Date(d); a.setDate(a.getDate() + (n - 1) * 7); var b = new Date(a); b.setDate(b.getDate() + 6);
+        var f = function (x) { return x.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); };
+        return f(a) + ' – ' + f(b);
+      }
+      function renderGantt() {
+        var h = '<div class="gantt-wrap"><div class="gantt" style="--weeks:' + WEEKS + '"><div class="g-head"><div>Phase</div><div class="g-weeks">';
+        for (var w = 1; w <= WEEKS; w++) h += '<span>W' + w + (weekDates(w) ? '<small>' + weekDates(w).split(' – ')[0] + '</small>' : '') + '</span>';
+        h += '</div></div>';
+        phases.forEach(function (p, i) {
+          var n = p.end - p.start + 1;
+          h += '<div class="g-row"><div class="g-label">' + p.name + '<small>' + (p.start === p.end ? 'Week ' + p.start : 'Weeks ' + p.start + '–' + p.end) + ' · ' + n + (n > 1 ? ' weeks' : ' week') + '</small></div>' +
+               '<div class="g-track" style="--weeks:' + WEEKS + '"><span class="g-bar' + (i % 2 ? ' alt' : '') + '" style="--s:' + p.start + ';--n:' + n + '" title="' + p.name + '">' + n + (n > 1 ? ' wks' : ' wk') + '</span></div></div>';
+        });
+        h += '<div class="g-foot"><i></i> Review and sign-off with Quantiphi at the end of each phase</div></div></div>';
+        document.getElementById('tl-gantt').innerHTML = h;
+      }
+      function renderCalendar() {
+        var h = '<div class="cal">';
+        for (var w = 1; w <= WEEKS; w++) {
+          var p = null, idx = 0; phases.forEach(function (x, i) { if (w >= x.start && w <= x.end) { p = x; idx = i; } });
+          var review = p && w === p.end;
+          h += '<div class="cal-cell' + (review ? ' review' : '') + '"><div class="cal-week">Week ' + w + '</div>' + (weekDates(w) ? '<div class="cal-date">' + weekDates(w) + '</div>' : '') +
+               (p ? '<div class="cal-phase' + (idx % 2 ? ' alt' : '') + '">' + p.name + '</div>' : '') + (review ? '<div class="cal-review">Review and sign-off</div>' : '') + '</div>';
+        }
+        document.getElementById('tl-calendar').innerHTML = h + '</div>';
+      }
+      function render() { renderGantt(); renderCalendar(); }
+      kickoff.addEventListener('change', render);
+      render();
+      var views = { gantt: document.getElementById('tl-gantt'), calendar: document.getElementById('tl-calendar'), list: document.getElementById('tl-list') };
+      document.querySelectorAll('.tl-toggle button').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var v = b.getAttribute('data-view');
+          document.querySelectorAll('.tl-toggle button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+          Object.keys(views).forEach(function (k) { views[k].hidden = k !== v; });
+        });
+      });
     })();
   </script>
   <script src="/assets/site.js"></script>
