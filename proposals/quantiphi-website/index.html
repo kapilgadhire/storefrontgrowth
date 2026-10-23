@@ -175,6 +175,11 @@
     .price-card ul { margin:6px 0 0; padding-left:18px; color:var(--muted); }
     .price-card li { margin:5px 0; }
     .note { margin-top:20px; font-size:0.92rem; }
+    .terms { margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .terms > div { padding:16px 18px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); font-size:0.88rem; color:var(--muted); line-height:1.55; }
+    .terms b { display:block; margin-bottom:4px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--green-dark); }
+    @media (max-width:680px) { .terms { grid-template-columns:1fr; } }
+
     .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
     .team-card { padding:24px; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); }
     .team-card .av { width:52px; height:52px; border-radius:50%; display:grid; place-items:center; background:var(--lime); color:var(--green-dark); font:800 1rem "Manrope",sans-serif; margin-bottom:14px; }
@@ -640,27 +645,52 @@
         <div class="sec-head reveal">
           <div class="eyebrow">05 · Commercials</div>
           <h2>Investment</h2>
-          <p>Pricing covers the full scope above. Final figures are confirmed in the statement of work.</p>
+          <p>Fixed project fee for the full scope above, paid in three milestones. Final figures are confirmed in the statement of work.</p>
         </div>
         <div class="price-grid reveal">
           <div class="price-card">
-            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem"><span class="ph">[Option A name]</span></strong>
-            <div class="amt"><span class="ph">[Amount]</span></div>
-            <ul><li><span class="ph">[What's included]</span></li></ul>
+            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem">Design only</strong>
+            <div class="amt">₹9,50,000</div>
+            <ul>
+              <li>Information architecture for L1, L2 and L3</li>
+              <li>Design strategy and concepts</li>
+              <li>Low- and high-fidelity designs for all 19 templates (44+ designs)</li>
+              <li>Updated brand guidelines</li>
+              <li>Figma handoff with components and specs</li>
+              <li>Two revision rounds per phase</li>
+            </ul>
           </div>
           <div class="price-card rec">
             <span class="tag">Recommended</span>
-            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem"><span class="ph">[Option B name]</span></strong>
-            <div class="amt"><span class="ph">[Amount]</span></div>
-            <ul><li><span class="ph">[What's included]</span></li></ul>
+            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem">Design and motion</strong>
+            <div class="amt">₹14,00,000</div>
+            <ul>
+              <li>Everything in Design only</li>
+              <li>Motion graphics for key L1 pages</li>
+              <li>Micro-animation library across components</li>
+              <li>Images, GIFs and videos for each template</li>
+              <li>SEO and AEO compliance built into every design</li>
+              <li>Covers all eight deliverables in Quantiphi's brief</li>
+            </ul>
           </div>
           <div class="price-card">
-            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem"><span class="ph">[Option C name]</span></strong>
-            <div class="amt"><span class="ph">[Amount]</span></div>
-            <ul><li><span class="ph">[What's included]</span></li></ul>
+            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem">Design, motion and launch</strong>
+            <div class="amt">₹20,00,000</div>
+            <ul>
+              <li>Everything in Design and motion</li>
+              <li>SEO content framework for the 400+ L3 pages</li>
+              <li>Brand guidelines as a full published document</li>
+              <li>Front-end support for Quantiphi's developers during the build</li>
+              <li>30 days of post-launch design support</li>
+            </ul>
           </div>
         </div>
-        <p class="note reveal">Payment terms: <span class="ph">[e.g. milestone split]</span> · Currency and taxes: <span class="ph">[Currency, GST/VAT]</span> · Revisions included: <span class="ph">[Number of rounds]</span></p>
+        <div class="terms reveal">
+          <div><b>Payment</b>Three payments: 40% on signing (₹5,60,000), 30% on approval of the L1 and L2 templates at week 7 (₹4,20,000), 30% on final handoff at week 12 (₹4,20,000). Amounts shown for the recommended option.</div>
+          <div><b>Currency and tax</b>All figures in INR, excluding GST.</div>
+          <div><b>Revisions</b>Two rounds per phase. Further rounds and work beyond the 19 templates and 25 sections are quoted before we start.</div>
+          <div><b>Assumptions</b>Quantiphi provides content, brand assets and one decision-maker per review, with reviews returned within five business days.</div>
+        </div>
       </div>
     </section>
 
