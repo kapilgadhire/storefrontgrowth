@@ -132,7 +132,8 @@
     @media (max-width:680px) { .showcase { --frame-w:960px; } .show-frame { aspect-ratio:4/3; } .show-frame iframe { height:calc(var(--frame-w) * 3 / 4); } .show-caption { flex-direction:column; } .show-caption .btn { width:100%; } }
     .phases { display:grid; gap:12px; max-width:860px; }
     .phase { display:grid; grid-template-columns:140px 1fr; gap:20px; padding:22px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); }
-    .phase .when { font:700 0.85rem "Manrope",sans-serif; color:var(--green-dark); }
+    .phase .when { font:700 0.95rem "Manrope",sans-serif; color:var(--green-dark); display:flex; flex-direction:column; gap:2px; }
+    .phase .when small { font:500 0.8rem "DM Sans",sans-serif; color:var(--muted); }
     .phase h3 { margin-bottom:6px; }
     .phase p { margin:0; }
     .price-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
@@ -462,15 +463,15 @@
         <div class="sec-head reveal">
           <div class="eyebrow">04 · Timeline</div>
           <h2>From kickoff to handoff</h2>
-          <p>Each phase ends with a review, so Quantiphi signs off before we move to the next tier. Total duration: <span class="ph">[X weeks]</span>.</p>
+          <p>Each phase ends with a review, so Quantiphi signs off before we move to the next tier. Total duration: 12 weeks.</p>
         </div>
         <div class="phases reveal">
-          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>Discovery and information architecture</h3><p>Stakeholder interviews, current-site and SEO audit, sitemap and navigation.</p></div></div>
-          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>Design strategy and concepts</h3><p>Design directions, brand guideline updates and motion principles.</p></div></div>
-          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>L1 pages</h3><p>Low- and high-fidelity designs for the 6 L1 templates, with motion for key heroes.</p></div></div>
-          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>L2 templates</h3><p>The 7 L2 templates and the shared component library.</p></div></div>
-          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>L3 templates and SEO framework</h3><p>The 6 L3 templates, SEO and AEO requirements, and asset production.</p></div></div>
-          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>Final review and handoff</h3><p>Final files, brand guidelines and specs delivered to Quantiphi's team.</p></div></div>
+          <div class="phase"><div class="when">Week 1<small>1 week</small></div><div><h3>Discovery and information architecture</h3><p>Stakeholder interviews, current-site and SEO audit, sitemap and navigation.</p></div></div>
+          <div class="phase"><div class="when">Weeks 2–4<small>3 weeks</small></div><div><h3>Design strategy and concepts</h3><p>Design directions, brand guideline updates and motion principles.</p></div></div>
+          <div class="phase"><div class="when">Week 5<small>1 week</small></div><div><h3>L1 pages</h3><p>Low- and high-fidelity designs for the 6 L1 templates, with motion for key heroes.</p></div></div>
+          <div class="phase"><div class="when">Weeks 6–7<small>2 weeks</small></div><div><h3>L2 templates</h3><p>The 7 L2 templates and the shared component library.</p></div></div>
+          <div class="phase"><div class="when">Weeks 8–10<small>3 weeks</small></div><div><h3>L3 templates and SEO framework</h3><p>The 6 L3 templates, SEO and AEO requirements, and asset production.</p></div></div>
+          <div class="phase"><div class="when">Weeks 11–12<small>2 weeks</small></div><div><h3>Final review and handoff</h3><p>Final files, brand guidelines and specs delivered to Quantiphi's team.</p></div></div>
         </div>
       </div>
     </section>
@@ -513,8 +514,8 @@
         </div>
         <div class="team-grid reveal">
           <div class="team-card"><img class="av" src="/assets/team/kapil-gadhire.jpg" alt="Kapil" width="400" height="400" loading="lazy" /><strong>Kapil</strong><div class="role">Project Head &amp; POC, Marketing Wizard</div><p>14+ years across marketing, analytics, design and product. Worked with Quantiphi, Fractal, Fynd and Magnifi, and with 50+ brands at Fynd. Your single point of contact from kickoff to handoff.</p><p class="off">Off the clock: photographer, dancer and professional padel coach.</p></div>
-          <div class="team-card"><img class="av" src="/assets/team/shubhangi-kamble.jpg" alt="Shubhangi" width="400" height="400" loading="lazy" /><strong>Shubhangi</strong><div class="role">Head Designer, Design Witch</div><p>9+ years designing websites, SaaS products, digital experiences and brand identities. Leads the information architecture and design.</p><p class="off">Off the clock: travels widely and collects new experiences.</p></div>
-          <div class="team-card"><img class="av" src="/assets/team/chirag-mahbubani.jpg" alt="Chirag" width="400" height="400" loading="lazy" /><strong>Chirag</strong><div class="role">Digital &amp; SEO Manager</div><p>Leads SEO strategy and compliance, so every design is ready for Google and AI search. Writes the copy that ranks. Has been a start-up founder.</p><p class="off">Off the clock: writes good PJs and has acted professionally.</p></div>
+          <div class="team-card"><img class="av" src="/assets/team/shubhangi-kamble.jpg" alt="Shubhangi" width="400" height="400" loading="lazy" /><strong>Shubhangi</strong><div class="role">Head Designer, Visual Alchemist</div><p>9+ years designing websites, SaaS products, digital experiences and brand identities. Leads the information architecture and design.</p><p class="off">Off the clock: travels widely and collects new experiences.</p></div>
+          <div class="team-card"><img class="av" src="/assets/team/chirag-mahbubani.jpg" alt="Chirag" width="400" height="400" loading="lazy" /><strong>Chirag</strong><div class="role">Digital &amp; SEO Manager, Digital Marketing Connoisseur</div><p>Leads SEO strategy and compliance, so every design is ready for Google and AI search. Writes the copy that ranks. Has been a start-up founder.</p><p class="off">Off the clock: writes good PJs and has acted professionally.</p></div>
         </div>
       </div>
     </section>
