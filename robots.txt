@@ -1,39 +1,39 @@
 User-agent: *
 Allow: /
 Disallow: /thank-you/
-Disallow: /quantiphi-website-proposal
+Disallow: /proposals/
 
 # Answer engines & AI crawlers welcome (AEO/GEO)
 User-agent: GPTBot
 Allow: /
-Disallow: /quantiphi-website-proposal
+Disallow: /proposals/
 
 User-agent: OAI-SearchBot
 Allow: /
-Disallow: /quantiphi-website-proposal
+Disallow: /proposals/
 
 User-agent: ChatGPT-User
 Allow: /
-Disallow: /quantiphi-website-proposal
+Disallow: /proposals/
 
 User-agent: PerplexityBot
 Allow: /
-Disallow: /quantiphi-website-proposal
+Disallow: /proposals/
 
 User-agent: ClaudeBot
 Allow: /
-Disallow: /quantiphi-website-proposal
+Disallow: /proposals/
 
 User-agent: Claude-Web
 Allow: /
-Disallow: /quantiphi-website-proposal
+Disallow: /proposals/
 
 User-agent: Google-Extended
 Allow: /
-Disallow: /quantiphi-website-proposal
+Disallow: /proposals/
 
 User-agent: Applebot-Extended
 Allow: /
-Disallow: /quantiphi-website-proposal
+Disallow: /proposals/
 
 Sitemap: https://storefrontgrowth.com/sitemap.xml
