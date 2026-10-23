@@ -187,7 +187,7 @@
     .btn:focus-visible, .toc a:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
     @media (max-width:940px) { .toc, .totals { grid-template-columns:1fr 1fr; } .price-grid { grid-template-columns:1fr 1fr; } }
     @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
-    .pdf-bar { position:fixed; top:96px; right:20px; z-index:48; display:flex; gap:6px; opacity:0; visibility:hidden; transform:translateY(-8px); transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; }
+    .pdf-bar { position:fixed; top:96px; right:max(20px, calc((100% - 1180px) / 2)); z-index:48; display:flex; gap:6px; opacity:0; visibility:hidden; transform:translateY(-8px); transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; }
     .pdf-bar.show { opacity:1; visibility:visible; transform:none; transition:opacity 0.25s ease, transform 0.25s ease; }
     .pdf-bar button { display:inline-flex; align-items:center; gap:7px; padding:8px 12px; border:0; border-radius:999px; background:transparent; font-size:0.82rem; font-weight:600; color:var(--ink); cursor:pointer; transition:background 0.2s ease, color 0.2s ease; }
     .pdf-bar button:hover { background:rgba(255,253,248,0.85); color:var(--green-dark); }
