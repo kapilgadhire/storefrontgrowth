@@ -103,7 +103,7 @@
     .show-tabs button[aria-selected="true"] span { color:var(--lime); }
     .show-tabs button:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
     .show-stage { position:relative; }
-    .show-track { display:grid; }
+    .show-track { display:grid; overflow:hidden; }
     .show-slide { grid-area:1/1; display:flex; flex-direction:column; gap:18px; }
     .show-slide[hidden] { display:none; }
     .show-slide.is-in { animation:showIn 0.45s ease; }
@@ -323,27 +323,28 @@
         </div>
         <div class="showcase reveal" id="showcase">
           <div class="show-tabs" role="tablist" aria-label="Projects">
-          <button type="button" role="tab" id="show-tab-0" aria-selected="true" aria-controls="show-panel-0" tabindex="0"><span>01</span>OpenDots concept</button>
+          <button type="button" role="tab" id="show-tab-0" aria-selected="true" aria-controls="show-panel-0" tabindex="0"><span>01</span>Fynd</button>
           <button type="button" role="tab" id="show-tab-1" aria-selected="false" aria-controls="show-panel-1" tabindex="-1"><span>02</span>ratl.ai</button>
-          <button type="button" role="tab" id="show-tab-2" aria-selected="false" aria-controls="show-panel-2" tabindex="-1"><span>03</span>OpenDots live</button>
-          <button type="button" role="tab" id="show-tab-3" aria-selected="false" aria-controls="show-panel-3" tabindex="-1"><span>04</span>Teach Vibe Coding</button>
+          <button type="button" role="tab" id="show-tab-2" aria-selected="false" aria-controls="show-panel-2" tabindex="-1"><span>03</span>Teach Vibe Coding</button>
+          <button type="button" role="tab" id="show-tab-3" aria-selected="false" aria-controls="show-panel-3" tabindex="-1"><span>04</span>OpenDots concept 1</button>
+          <button type="button" role="tab" id="show-tab-4" aria-selected="false" aria-controls="show-panel-4" tabindex="-1"><span>05</span>OpenDots concept 2</button>
           </div>
           <div class="show-stage">
             <button type="button" class="show-arrow prev" aria-label="Previous project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
             <div class="show-track">
             <article class="show-slide" id="show-panel-0" role="tabpanel" aria-labelledby="show-tab-0">
               <div class="show-browser">
-                <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>claude.ai</em></div>
-                <div class="show-frame is-static"><img src="/assets/work/opendots-concept.jpg" alt="OpenDots website concept: hero section" width="800" height="476" loading="lazy" /></div>
+                <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>fynd.com</em></div>
+                <div class="show-frame is-static"><img src="/assets/work/fynd.jpg" alt="Fynd website: hero section" width="800" height="500" loading="lazy" /></div>
               </div>
               <div class="show-caption">
                 <div class="show-text">
-                  <span class="work-tag">Website redesign concept</span>
-                  <strong>OpenDots</strong>
-                  <p>A scroll-led redesign for an AI customer experience platform that answers reviews, comments and DMs for consumer brands. Motion carries the story from public feedback through to resolution, case studies and blog.</p>
-                  <small class="show-note">Static preview. Open the site to see it in motion.</small>
+                  <span class="work-tag">AI commerce platform</span>
+                  <strong>Fynd</strong>
+                  <p>Website for an AI-native unified commerce platform that helps brands build storefronts, sell on marketplaces, run stores and automate operations. The page leads with outcomes and customer case studies.</p>
+                  <small class="show-note">Static preview. Open the site to see it live.</small>
                 </div>
-                <a class="btn btn-primary" href="https://claude.ai/artifact/6b7ueqEZZi2PcWJ9QDuNhb" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a class="btn btn-primary" href="https://www.fynd.com/" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </div>
             </article>
             <article class="show-slide" id="show-panel-1" role="tabpanel" aria-labelledby="show-tab-1" hidden>
@@ -356,27 +357,11 @@
                   <span class="work-tag">AI testing platform</span>
                   <strong>ratl.ai</strong>
                   <p>Website for an AI-agentic testing workspace used by quality engineers, product managers and developers. The page tailors itself to each role and shows prompt-driven tests running in the browser.</p>
-                  
                 </div>
                 <a class="btn btn-primary" href="https://ratl.ai" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </div>
             </article>
             <article class="show-slide" id="show-panel-2" role="tabpanel" aria-labelledby="show-tab-2" hidden>
-              <div class="show-browser">
-                <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>opendotscx.com</em></div>
-                <div class="show-frame"><iframe data-src="https://opendotscx.com/" title="OpenDots live site live website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
-              </div>
-              <div class="show-caption">
-                <div class="show-text">
-                  <span class="work-tag">AI customer experience</span>
-                  <strong>OpenDots live site</strong>
-                  <p>The live OpenDots website. It shows how one platform answers customers across six channels, resolves what it can and turns every conversation into insight.</p>
-                  
-                </div>
-                <a class="btn btn-primary" href="https://opendotscx.com/" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              </div>
-            </article>
-            <article class="show-slide" id="show-panel-3" role="tabpanel" aria-labelledby="show-tab-3" hidden>
               <div class="show-browser">
                 <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>teachvibecoding.app</em></div>
                 <div class="show-frame"><iframe data-src="https://teachvibecoding.app" title="Teach Vibe Coding live website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
@@ -386,9 +371,37 @@
                   <span class="work-tag">AI education platform</span>
                   <strong>Teach Vibe Coding</strong>
                   <p>Website for a controlled vibe coding platform built for faculty. The page is written as a conversation that answers the questions instructors ask, from setup to cost.</p>
-                  
                 </div>
                 <a class="btn btn-primary" href="https://teachvibecoding.app" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="show-slide" id="show-panel-3" role="tabpanel" aria-labelledby="show-tab-3" hidden>
+              <div class="show-browser">
+                <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>claude.ai</em></div>
+                <div class="show-frame is-static"><img src="/assets/work/opendots-concept.jpg" alt="OpenDots website concept: hero section" width="800" height="476" loading="lazy" /></div>
+              </div>
+              <div class="show-caption">
+                <div class="show-text">
+                  <span class="work-tag">Website redesign concept</span>
+                  <strong>OpenDots concept 1</strong>
+                  <p>A scroll-led redesign for an AI customer experience platform that answers reviews, comments and DMs for consumer brands. Motion carries the story from public feedback through to resolution, case studies and blog.</p>
+                  <small class="show-note">Static preview. Open the site to see it live.</small>
+                </div>
+                <a class="btn btn-primary" href="https://claude.ai/artifact/6b7ueqEZZi2PcWJ9QDuNhb" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+            <article class="show-slide" id="show-panel-4" role="tabpanel" aria-labelledby="show-tab-4" hidden>
+              <div class="show-browser">
+                <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>opendotscx.com</em></div>
+                <div class="show-frame"><iframe data-src="https://opendotscx.com/" title="OpenDots concept 2 live website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+              </div>
+              <div class="show-caption">
+                <div class="show-text">
+                  <span class="work-tag">AI customer experience</span>
+                  <strong>OpenDots concept 2</strong>
+                  <p>The live OpenDots website. It shows how one platform answers customers across six channels, resolves what it can and turns every conversation into insight.</p>
+                </div>
+                <a class="btn btn-primary" href="https://opendotscx.com/" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </div>
             </article>
             </div>
