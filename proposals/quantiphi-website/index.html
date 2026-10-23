@@ -161,6 +161,17 @@
     .bar-row.group .bar-track { flex-direction:column; align-items:stretch; gap:2px; padding:8px 0; }
     .bar-row.group .bar-track > div { display:flex; align-items:center; gap:8px; }
     @media (max-width:940px) { #scope-chart { grid-template-columns:1fr; } }
+    .clients { margin-top:36px; padding-top:28px; border-top:1px solid var(--line); }
+    .clients-label { font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:18px; }
+    .clients-row { display:flex; flex-wrap:wrap; align-items:center; gap:18px 44px; }
+    .client { display:inline-flex; align-items:center; gap:8px; height:40px; filter:grayscale(1); opacity:0.72; transition:filter 0.25s ease, opacity 0.25s ease; }
+    .client:hover, .client:focus-visible { filter:none; opacity:1; }
+    .client:focus-visible { outline:3px solid var(--green); outline-offset:4px; border-radius:6px; }
+    .client img { height:100%; width:auto; max-height:40px; object-fit:contain; }
+    .client img[alt="Teach Vibe Coding"] { max-width:220px; height:auto; }
+    .client-opendots img { height:26px; }
+    .client-opendots span { font:800 1.15rem "Manrope",sans-serif; letter-spacing:-0.02em; color:#2c2836; }
+    @media (max-width:680px) { .clients-row { gap:16px 28px; } .client { height:32px; } .client img { max-height:32px; } .client-opendots img { height:22px; } .client-opendots span { font-size:1rem; } }
     .phases { display:grid; gap:12px; max-width:860px; }
     .phase { display:grid; grid-template-columns:140px 1fr; gap:20px; padding:22px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); }
     .phase .when { font:700 0.95rem "Manrope",sans-serif; color:var(--green-dark); display:flex; flex-direction:column; gap:2px; }
@@ -458,14 +469,14 @@
             <article class="show-slide" id="show-panel-1" role="tabpanel" aria-labelledby="show-tab-1" hidden>
               <div class="show-browser">
                 <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>fynd.com</em></div>
-                <div class="show-frame is-static"><img src="/assets/work/fynd.jpg" alt="Fynd website: hero section" width="800" height="500" loading="lazy" /></div>
+                <div class="show-frame is-static is-scroll"><img src="/assets/work/fynd-site.jpg" alt="Fynd website, full page" width="1000" height="7654" loading="lazy" /></div>
               </div>
               <div class="show-caption">
                 <div class="show-text" data-url="https://www.fynd.com/">
                   <span class="work-tag">AI commerce platform</span>
                   <strong>Fynd</strong>
                   <p>Website for an AI-native unified commerce platform that helps brands build storefronts, sell on marketplaces, run stores and automate operations. The page leads with outcomes and customer case studies.</p>
-                  <small class="show-note">Static preview. Open the site to see it live.</small>
+                  <small class="show-note">Full-page capture of the live site. Scroll inside the preview, or open the site.</small>
                 </div>
                 <a class="btn btn-primary" href="https://www.fynd.com/" target="_blank" rel="noopener" aria-label="View site in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </div>
@@ -530,6 +541,15 @@
             </article>
             </div>
             <button type="button" class="show-arrow next" aria-label="Next project"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+        <div class="clients reveal" aria-label="Brands we have worked with">
+          <div class="clients-label">Brands we've worked with</div>
+          <div class="clients-row">
+            <a class="client" href="https://www.tirabeauty.com/" target="_blank" rel="noopener"><img src="/assets/clients/tira-logo.webp" alt="Tira Beauty" width="736" height="320" loading="lazy" /></a>
+            <a class="client" href="https://www.fynd.com/" target="_blank" rel="noopener"><img src="/assets/clients/fynd-logo.jpg" alt="Fynd" width="756" height="378" loading="lazy" /></a>
+            <a class="client" href="https://teachvibecoding.app" target="_blank" rel="noopener"><img src="/assets/clients/teachvibecoding-logo.svg" alt="Teach Vibe Coding" width="230" height="28" loading="lazy" /></a>
+            <a class="client client-opendots" href="https://opendotscx.com/" target="_blank" rel="noopener"><img src="/assets/clients/opendots-mark.svg" alt="" width="26" height="26" loading="lazy" /><span>OpenDots</span></a>
           </div>
         </div>
         <div class="reveal" style="margin-top:28px">
