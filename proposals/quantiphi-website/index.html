@@ -180,12 +180,23 @@
     .price-head .tag { display:inline-block; padding:3px 10px; border-radius:999px; background:var(--lime); color:var(--green-dark); font-size:0.75rem; font-weight:700; margin-bottom:10px; }
     .price-head .amt { font:800 clamp(2.2rem,4vw,3rem) "Manrope",sans-serif; letter-spacing:-0.04em; line-height:1; margin-bottom:8px; font-variant-numeric:tabular-nums; }
     .price-sub { color:var(--muted); font-size:0.95rem; }
-    .price-lines { display:grid; }
-    .price-line { display:grid; grid-template-columns:1fr auto; gap:24px; padding:22px 28px; border-bottom:1px solid var(--line); align-items:start; }
-    .price-line:last-child { border-bottom:0; }
-    .price-line strong { display:block; font-family:"Manrope",sans-serif; font-size:1.08rem; letter-spacing:-0.02em; margin-bottom:6px; }
-    .price-line p { margin:0; font-size:0.92rem; }
-    .price-line-amt { font:800 1.35rem "Manrope",sans-serif; letter-spacing:-0.03em; white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .split { padding:24px 28px 26px; --c-ux:#2e7d46; --c-mg:#d9641f; }
+    .split-bar { display:flex; gap:2px; height:44px; border-radius:10px; overflow:hidden; background:var(--paper-2); }
+    .seg { display:flex; align-items:center; justify-content:flex-end; width:var(--w); padding:0 12px; }
+    .seg em { font-style:normal; font:800 0.85rem "Manrope",sans-serif; color:#fff; }
+    .seg-ux { background:var(--c-ux); } .seg-mg { background:var(--c-mg); }
+    .split-legend { display:grid; grid-template-columns:73.33fr 26.67fr; gap:2px; margin-top:14px; }
+    .split-item { padding:14px 12px 0 0; border-top:3px solid transparent; display:flex; flex-direction:column; gap:6px; min-width:0; }
+    .split-item:first-child { border-top-color:var(--c-ux); }
+    .split-item:last-child { border-top-color:var(--c-mg); padding-right:0; }
+    .split-top { display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 10px; }
+    .split-top i { width:10px; height:10px; border-radius:3px; align-self:center; }
+    .split-top b { font:800 1.35rem "Manrope",sans-serif; letter-spacing:-0.03em; font-variant-numeric:tabular-nums; }
+    .split-top span { font-size:0.8rem; font-weight:600; color:var(--muted); }
+    .split-item strong { font-family:"Manrope",sans-serif; font-size:1.05rem; letter-spacing:-0.02em; }
+    .split-item p { margin:0; font-size:0.9rem; }
+    @media (max-width:940px) { .split-legend { grid-template-columns:1fr; gap:18px; } .split-item:last-child { border-top-color:var(--c-mg); } }
+    @media (max-width:680px) { .split { padding:18px 20px 22px; } .split-bar { height:38px; } .seg em { font-size:0.75rem; } }
     .caps { display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:12px 0 0; padding:0; }
     .caps li { padding:5px 11px; border:1px solid var(--line); border-radius:999px; background:var(--paper); font-size:0.8rem; font-weight:600; color:var(--green-dark); }
     @media (max-width:680px) { .price-line { grid-template-columns:1fr; gap:10px; } .price-head, .price-line { padding-left:20px; padding-right:20px; } }
@@ -287,7 +298,7 @@
       .bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
       .gantt-wrap { overflow:visible; }
       .gantt { min-width:0; }
-      .benefits, .totals > div, .g-bar, .cal-phase, .show-tabs button, .pay-step { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+      .benefits, .totals > div, .g-bar, .cal-phase, .show-tabs button, .pay-step, .seg { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
       .ph { border-color:#999; background:#f3f3f3; color:#444; }
     }
   </style>
@@ -680,21 +691,22 @@
               <div class="price-sub">Covers all eight deliverables in Quantiphi's brief across L1, L2 and L3.</div>
             </div>
           </div>
-          <div class="price-lines">
-            <div class="price-line">
-              <div>
+          <div class="split">
+            <div class="split-bar" role="img" aria-label="Fee split: UI/UX design ₹11,00,000, 73%; motion graphics and graphics ₹4,00,000, 27%">
+              <span class="seg seg-ux" style="--w:73.33%"><em>73%</em></span><span class="seg seg-mg" style="--w:26.67%"><em>27%</em></span>
+            </div>
+            <div class="split-legend">
+              <div class="split-item">
+                <div class="split-top"><i class="seg-ux"></i><b>₹11,00,000</b><span>73% of fee</span></div>
                 <strong>UI/UX design</strong>
                 <p>Information architecture, design strategy, low- and high-fidelity designs for the 19 unique templates (44+ designs), updated brand guidelines and Figma handoff.</p>
               </div>
-              <div class="price-line-amt">₹11,00,000</div>
-            </div>
-            <div class="price-line">
-              <div>
+              <div class="split-item">
+                <div class="split-top"><i class="seg-mg"></i><b>₹4,00,000</b><span>27% of fee</span></div>
                 <strong>Motion graphics and graphics</strong>
                 <p>Motion graphics for key pages, illustrations and graphic assets for the templates, with micro-animation specs.</p>
                 <ul class="caps"><li>Up to 5 motion graphics</li><li>Up to 15 illustrations</li><li>Up to 50 graphics</li></ul>
               </div>
-              <div class="price-line-amt">₹4,00,000</div>
             </div>
           </div>
         </div>
