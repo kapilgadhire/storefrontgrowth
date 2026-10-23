@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StorefrontGrowth's proposal for the Quantiphi website: information architecture, design, motion, SEO and brand guidelines across 19 templates and 44+ designs." />
+  <link rel="canonical" href="https://storefrontgrowth.com/quantiphi-website-proposal.html" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <title>Quantiphi Website Proposal | StorefrontGrowth</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZE871RS3W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RZE871RS3W');</script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="StorefrontGrowth" />
+  <meta property="og:title" content="Quantiphi Website Proposal | StorefrontGrowth" />
+  <meta property="og:description" content="StorefrontGrowth's proposal for the Quantiphi website: information architecture, design, motion, SEO and brand guidelines across 19 templates and 44+ designs." />
+  <meta property="og:url" content="https://storefrontgrowth.com/quantiphi-website-proposal.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Quantiphi Website Proposal | StorefrontGrowth" />
+  <meta name="twitter:description" content="StorefrontGrowth's proposal for the Quantiphi website: information architecture, design, motion, SEO and brand guidelines across 19 templates and 44+ designs." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    .ph { display:inline-block; padding:1px 8px; border:1.5px dashed var(--orange); border-radius:8px; background:rgba(237,129,84,0.1); color:#9a3b1c; font-weight:600; font-size:0.92em; }
+    .prop-meta { display:flex; flex-wrap:wrap; gap:10px 28px; margin:0 0 30px; font-size:0.9rem; color:var(--muted); }
+    .prop-meta strong { color:var(--ink); font-family:"Manrope",sans-serif; }
+    .toc { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .toc a { padding:20px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); display:flex; flex-direction:column; gap:6px; transition:0.25s ease; }
+    .toc a:hover, .toc a:focus-visible { background:var(--white); box-shadow:var(--shadow); transform:translateY(-4px); }
+    .toc .n { font:800 0.78rem "Manrope",sans-serif; color:var(--orange); letter-spacing:0.08em; }
+    .toc strong { font-family:"Manrope",sans-serif; font-size:1.05rem; letter-spacing:-0.02em; }
+    .toc small { color:var(--muted); font-size:0.86rem; line-height:1.45; }
+    .sec-head { max-width:720px; margin-bottom:36px; }
+    .sec-head p { font-size:1.08rem; }
+    section[id] { scroll-margin-top:110px; }
+    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); margin-top:36px; }
+    .scope-table { width:100%; min-width:720px; border-collapse:collapse; font-size:0.95rem; }
+    .scope-table th, .scope-table td { padding:14px 18px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+    .scope-table th { font-size:0.74rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--green-dark); background:var(--paper-2); }
+    .scope-table td.num { font-variant-numeric:tabular-nums; font-weight:600; color:var(--ink); }
+    .scope-table tfoot td { font-family:"Manrope",sans-serif; font-weight:800; color:var(--ink); border-bottom:0; background:rgba(219,234,139,0.35); }
+    .tier { display:inline-block; padding:3px 10px; border-radius:999px; background:var(--lime); color:var(--green-dark); font-weight:700; font-size:0.8rem; }
+    .totals { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px; }
+    .totals div { padding:22px; border-radius:var(--radius-md); background:var(--green-dark); color:var(--white); }
+    .totals b { display:block; font:800 2.2rem/1 "Manrope",sans-serif; color:var(--lime); letter-spacing:-0.04em; font-variant-numeric:tabular-nums; }
+    .totals span { font-size:0.88rem; color:#c9d6c4; }
+    .phases { display:grid; gap:12px; max-width:860px; }
+    .phase { display:grid; grid-template-columns:140px 1fr; gap:20px; padding:22px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); }
+    .phase .when { font:700 0.85rem "Manrope",sans-serif; color:var(--green-dark); }
+    .phase h3 { margin-bottom:6px; }
+    .phase p { margin:0; }
+    .price-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .price-card { padding:28px 24px; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); display:flex; flex-direction:column; gap:10px; }
+    .price-card.rec { border:2px solid var(--green); background:var(--white); }
+    .price-card .tag { align-self:flex-start; padding:3px 10px; border-radius:999px; background:var(--lime); color:var(--green-dark); font-size:0.75rem; font-weight:700; }
+    .price-card .amt { font:800 1.6rem "Manrope",sans-serif; letter-spacing:-0.03em; }
+    .price-card ul { margin:6px 0 0; padding-left:18px; color:var(--muted); }
+    .price-card li { margin:5px 0; }
+    .note { margin-top:20px; font-size:0.92rem; }
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .team-card { padding:24px; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); }
+    .team-card .av { width:52px; height:52px; border-radius:50%; display:grid; place-items:center; background:var(--lime); color:var(--green-dark); font:800 1rem "Manrope",sans-serif; margin-bottom:14px; }
+    .team-card strong { display:block; font-family:"Manrope",sans-serif; font-size:1.08rem; letter-spacing:-0.02em; }
+    .team-card .role { font-size:0.88rem; color:var(--green-dark); font-weight:600; margin-bottom:8px; }
+    .team-card p { margin:0; font-size:0.92rem; }
+    .sign-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
+    .btn:focus-visible, .toc a:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
+    @media (max-width:940px) { .toc { grid-template-columns:1fr 1fr; } .price-grid, .team-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Quantiphi website redesign proposal",
+      "serviceType": "Website design and development",
+      "description": "Information architecture, design strategy, wireframes, motion, micro-animations, SEO and brand guidelines for the Quantiphi website.",
+      "url": "https://storefrontgrowth.com/quantiphi-website-proposal.html",
+      "provider": {
+        "@type": "Organization",
+        "name": "StorefrontGrowth",
+        "url": "https://storefrontgrowth.com/",
+        "logo": "https://storefrontgrowth.com/assets/logo.svg"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://storefrontgrowth.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Quantiphi website proposal", "item": "https://storefrontgrowth.com/quantiphi-website-proposal.html" }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <header class="header-wrap">
+    <nav class="nav" id="mainNav" aria-label="Primary navigation">
+      <a class="brand" href="/" aria-label="StorefrontGrowth home">
+        <img src="/assets/logo.svg" alt="StorefrontGrowth" class="brand-logo" width="1380" height="122" />
+      </a>
+      <div class="nav-links">
+        <div class="nav-dd">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dd-menu">
+          <a href="/services/digital-marketing/">Digital Marketing</a>
+          <a href="/services/website-design-development/">Website Design &amp; Development</a>
+          <a href="/services/social-media-marketing/">Social Media Marketing</a>
+          <a href="/services/performance-marketing/">Performance Marketing</a>
+          <a href="/services/seo-aeo/">SEO &amp; AEO</a>
+          <a href="/services/ai-powered-marketing/">AI-Powered Marketing</a>
+          <a href="/services/content-creation/">Content Creation</a>
+          <a href="/services/google-business-profile/">Google Business Profile</a>
+          <a href="/services/online-reputation-management/">Online Reputation Management</a>
+          </div>
+        </div>
+        <a href="/#process">How it works</a>
+        <a href="/#results">Results</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <button class="btn btn-primary js-open-modal" type="button">Book a Free Call <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <div class="nav-mobile" id="mobileMenu" aria-hidden="true">
+    <div class="m-head">Services</div>
+    <div class="m-sub">
+      <a href="/services/digital-marketing/">Digital Marketing</a>
+      <a href="/services/website-design-development/">Website Design &amp; Development</a>
+      <a href="/services/social-media-marketing/">Social Media Marketing</a>
+      <a href="/services/performance-marketing/">Performance Marketing</a>
+      <a href="/services/seo-aeo/">SEO &amp; AEO</a>
+      <a href="/services/ai-powered-marketing/">AI-Powered Marketing</a>
+      <a href="/services/content-creation/">Content Creation</a>
+      <a href="/services/google-business-profile/">Google Business Profile</a>
+      <a href="/services/online-reputation-management/">Online Reputation Management</a>
+    </div>
+    <a href="/#process">How it works</a>
+    <a href="/#results">Results</a>
+    <a href="/#faq">FAQ</a>
+    <button class="btn btn-primary js-open-modal" type="button">Book a Free Call</button>
+  </div>
+
+  <main id="top">
+    <section class="page-hero">
+      <div class="container">
+        <div class="inner reveal">
+          <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; Quantiphi website proposal</div>
+          <h1>Quantiphi Website Proposal</h1>
+          <p class="lede">One team for the full redesign: information architecture, design, motion, SEO and brand guidelines, across every page tier on quantiphi.com.</p>
+          <div class="prop-meta">
+            <span>Prepared for <strong>Quantiphi</strong></span>
+            <span>Prepared by <strong>StorefrontGrowth</strong></span>
+            <span>Date <strong>23 October 2026</strong></span>
+            <span>Valid until <span class="ph">[Validity date]</span></span>
+          </div>
+          <button class="btn btn-accent js-open-modal" type="button">Book a conversation <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sm">
+      <div class="container">
+        <div class="reveal" style="margin-bottom:24px"><div class="eyebrow">In this proposal</div></div>
+        <nav class="toc reveal" aria-label="Proposal contents">
+          <a href="#about"><span class="n">01</span><strong>About us</strong><small>Who we are and how we work</small></a>
+          <a href="#work"><span class="n">02</span><strong>Our work</strong><small>Websites we've designed and built</small></a>
+          <a href="#scope"><span class="n">03</span><strong>Project scope</strong><small>Deliverables and page tiers</small></a>
+          <a href="#timeline"><span class="n">04</span><strong>Timeline</strong><small>Phases from kickoff to handoff</small></a>
+          <a href="#commercials"><span class="n">05</span><strong>Commercials</strong><small>Investment and payment terms</small></a>
+          <a href="#team"><span class="n">06</span><strong>Team</strong><small>The people on your project</small></a>
+          <a href="#sign"><span class="n">07</span><strong>Sign off</strong><small>Approve and start</small></a>
+          <a href="#contact" class="js-open-modal" onclick="return false"><span class="n">08</span><strong>Questions</strong><small>Talk to us before you decide</small></a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="eyebrow">01 · About us</div>
+          <h2>Strategy and execution, under one roof.</h2>
+          <p>StorefrontGrowth is a full-service, AI-powered B2B marketing team. We work with B2B, SaaS and AI companies on strategy, brand, websites, SEO/AEO, content and the analytics that tie them to pipeline.</p>
+          <p>For a site the size of quantiphi.com, that means the people planning the information architecture are the same people designing the pages, writing the SEO framework and updating the brand guidelines. Nothing is handed between agencies.</p>
+        </div>
+        <div class="benefits reveal">
+          <div class="eyebrow" style="color:var(--lime)">Why this matters for Quantiphi</div>
+          <h2>Built for an AI company's buyers</h2>
+          <div class="benefit-grid">
+            <div class="benefit-item"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><span>Structure that helps enterprise buyers find solutions, products and industries quickly</span></div>
+            <div class="benefit-item"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><span>Templates that let 400+ resource pages stay consistent as the library grows</span></div>
+            <div class="benefit-item"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><span>SEO and AEO built into every design, so pages are ready for Google and AI search</span></div>
+            <div class="benefit-item"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><span>Motion and micro-animations that support the story instead of slowing the page</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="eyebrow">02 · Our work</div>
+          <h2>Websites we've designed and built</h2>
+          <p>A selection of relevant projects. Our full website portfolio is live on this site.</p>
+        </div>
+        <div class="covered-grid reveal">
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><strong><span class="ph">[Project 1 name]</span></strong><small><span class="ph">[Client, sector, what we did]</span></small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><strong><span class="ph">[Project 2 name]</span></strong><small><span class="ph">[Client, sector, what we did]</span></small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><strong><span class="ph">[Project 3 name]</span></strong><small><span class="ph">[Client, sector, what we did]</span></small></div>
+        </div>
+        <div class="reveal" style="margin-top:28px">
+          <a class="btn btn-secondary" href="/websiteportfolio/">Explore our website portfolio <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="scope">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="eyebrow">03 · Project scope</div>
+          <h2>Eight deliverables, every page tier</h2>
+          <p>This follows the scope in Quantiphi's brief. Each deliverable applies to all of the pages in the table below.</p>
+        </div>
+        <div class="covered-grid reveal">
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M6 15v-3h12v3M6 15v6M12 9v12M18 15v6"/></svg></span><strong>Information architecture</strong><small>Sitemap, navigation and page hierarchy for L1, L2 and L3.</small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></span><strong>Design strategy and concepts</strong><small>Design directions grounded in Quantiphi's positioning.</small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg></span><strong>Motion graphics</strong><small>Hero and storytelling motion for key pages.</small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><strong>Low- and high-fidelity wireframes</strong><small>Layouts first, then full visual design.</small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><strong>Micro-animations</strong><small>Hover, scroll and state feedback across components.</small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><strong>SEO strategy and compliance</strong><small>SEO and AEO requirements built into every design.</small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5z"/></svg></span><strong>Updated brand guidelines</strong><small>Type, colour, components and motion rules.</small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span><strong>Images, GIFs and videos</strong><small>Visual assets to support each template.</small></div>
+          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></span><strong>Developer handoff</strong><small><span class="ph">[Confirm handoff format, e.g. Figma files and specs]</span></small></div>
+        </div>
+
+        <div class="table-wrap reveal">
+          <table class="scope-table">
+            <thead>
+              <tr><th>Tier</th><th>Pages</th><th>No. of pages</th><th>Unique templates</th><th>Unique sections / page</th><th>Total designs</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="tier">L1</span></td><td>Home, About us, Executive team, AIM, Philabs and awards</td><td class="num">6</td><td class="num">6</td><td class="num">10</td><td class="num">16</td></tr>
+              <tr><td><span class="tier">L2</span></td><td>Solutions, Products, Partnership, Industries, Resources, Career</td><td class="num">40+</td><td class="num">7</td><td class="num">10</td><td class="num">17</td></tr>
+              <tr><td><span class="tier">L3</span></td><td>Blogs, brochures, case studies, videos, whitepapers and similar</td><td class="num">400+</td><td class="num">6</td><td class="num">5</td><td class="num">11</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td colspan="3">Total</td><td class="num">19</td><td class="num">25</td><td class="num">44+</td></tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="totals reveal">
+          <div><b>19</b><span>unique templates</span></div>
+          <div><b>25</b><span>unique sections</span></div>
+          <div><b>44+</b><span>total designs</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="eyebrow">04 · Timeline</div>
+          <h2>From kickoff to handoff</h2>
+          <p>Each phase ends with a review, so Quantiphi signs off before we move to the next tier. Total duration: <span class="ph">[X weeks]</span>.</p>
+        </div>
+        <div class="phases reveal">
+          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>Discovery and information architecture</h3><p>Stakeholder interviews, current-site and SEO audit, sitemap and navigation.</p></div></div>
+          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>Design strategy and concepts</h3><p>Design directions, brand guideline updates and motion principles.</p></div></div>
+          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>L1 pages</h3><p>Low- and high-fidelity designs for the 6 L1 templates, with motion for key heroes.</p></div></div>
+          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>L2 templates</h3><p>The 7 L2 templates and the shared component library.</p></div></div>
+          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>L3 templates and SEO framework</h3><p>The 6 L3 templates, SEO and AEO requirements, and asset production.</p></div></div>
+          <div class="phase"><div class="when"><span class="ph">[Weeks]</span></div><div><h3>Final review and handoff</h3><p>Final files, brand guidelines and specs delivered to Quantiphi's team.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="commercials">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="eyebrow">05 · Commercials</div>
+          <h2>Investment</h2>
+          <p>Pricing covers the full scope above. Final figures are confirmed in the statement of work.</p>
+        </div>
+        <div class="price-grid reveal">
+          <div class="price-card">
+            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem"><span class="ph">[Option A name]</span></strong>
+            <div class="amt"><span class="ph">[Amount]</span></div>
+            <ul><li><span class="ph">[What's included]</span></li></ul>
+          </div>
+          <div class="price-card rec">
+            <span class="tag">Recommended</span>
+            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem"><span class="ph">[Option B name]</span></strong>
+            <div class="amt"><span class="ph">[Amount]</span></div>
+            <ul><li><span class="ph">[What's included]</span></li></ul>
+          </div>
+          <div class="price-card">
+            <strong style="font-family:Manrope,sans-serif;font-size:1.15rem"><span class="ph">[Option C name]</span></strong>
+            <div class="amt"><span class="ph">[Amount]</span></div>
+            <ul><li><span class="ph">[What's included]</span></li></ul>
+          </div>
+        </div>
+        <p class="note reveal">Payment terms: <span class="ph">[e.g. milestone split]</span> · Currency and taxes: <span class="ph">[Currency, GST/VAT]</span> · Revisions included: <span class="ph">[Number of rounds]</span></p>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="eyebrow">06 · Team</div>
+          <h2>The people on your project</h2>
+          <p>One team from first workshop to final file.</p>
+        </div>
+        <div class="team-grid reveal">
+          <div class="team-card"><div class="av">KG</div><strong>Kapil Gadhire</strong><div class="role"><span class="ph">[Role]</span></div><p><span class="ph">[Short bio]</span></p></div>
+          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. UX lead]</span></div><p><span class="ph">[Short bio]</span></p></div>
+          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. Visual designer]</span></div><p><span class="ph">[Short bio]</span></p></div>
+          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. Motion designer]</span></div><p><span class="ph">[Short bio]</span></p></div>
+          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. SEO lead]</span></div><p><span class="ph">[Short bio]</span></p></div>
+          <div class="team-card"><div class="av">?</div><strong><span class="ph">[Name]</span></strong><div class="role"><span class="ph">[Role, e.g. Brand strategist]</span></div><p><span class="ph">[Short bio]</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sign">
+      <div class="container">
+        <div class="without reveal">
+          <div class="eyebrow" style="color:var(--orange)">07 · Sign off</div>
+          <h2>Ready to start?</h2>
+          <p>Approve this proposal through our e-signature link. We'll send the statement of work and schedule kickoff within <span class="ph">[X business days]</span>.</p>
+          <div class="sign-row">
+            <a class="btn btn-accent" href="#sign" data-placeholder="esign-url">Sign the proposal <span class="ph" style="background:#fff">[E-signature URL]</span></a>
+            <a class="btn btn-secondary" href="https://calendly.com/kapil-storefrontgrowth/30min" target="_blank" rel="noopener">Book a conversation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-card reveal">
+          <div class="cta-shape one" aria-hidden="true"></div>
+          <div class="cta-shape two" aria-hidden="true"></div>
+          <h2>Questions before you decide?</h2>
+          <p>Talk to the team that will build the Quantiphi website. Email hello@storefrontgrowth.com or book a call.</p>
+          <button class="btn btn-primary js-open-modal" type="button">Book a Free Call <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/" aria-label="StorefrontGrowth home">
+            <img src="/assets/logo.svg" alt="StorefrontGrowth" class="brand-logo" width="1380" height="122" />
+          </a>
+          <p>Your growth team, without the overhead. Strategy, marketing, content, advertising, AI and automation for small businesses across the United States.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <div class="footer-links"><a href="/services/digital-marketing/">Digital Marketing</a><a href="/services/website-design-development/">Website Design &amp; Development</a><a href="/services/social-media-marketing/">Social Media Marketing</a><a href="/services/performance-marketing/">Performance Marketing</a><a href="/services/seo-aeo/">SEO &amp; AEO</a><a href="/services/ai-powered-marketing/">AI-Powered Marketing</a></div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links"><a href="/#outcomes">About</a><a href="/#process">Our process</a><a href="/#results">Results</a><a href="/#faq">FAQ</a></div>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="footer-links"><a href="mailto:hello@storefrontgrowth.com">hello@storefrontgrowth.com</a><a href="/#services">All services</a><button class="btn btn-secondary js-open-modal" type="button" style="margin-top:8px;min-height:44px;padding:0 14px;">Book a Free Call</button></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> StorefrontGrowth. All rights reserved.</span><span>Helping small businesses grow across the United States.</span></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      <div class="eyebrow">Free consultation</div>
+      <h3 id="modalTitle">Book a free call.</h3>
+      <p>Share a few details and we'll identify the most useful next step for your business.</p>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <label>First name<input name="firstName" type="text" placeholder="Jordan" required></label>
+          <label>Business name<input name="businessName" type="text" placeholder="Your business" required></label>
+        </div>
+        <div class="form-row">
+          <label>Work email<input name="email" type="email" placeholder="you@company.com" required></label>
+          <label>Phone number<input name="phone" type="tel" placeholder="(555) 010-4482" required></label>
+        </div>
+        <div class="form-row">
+          <label>What do you need help with?
+            <select name="service" required>
+              <option value="">Choose a service</option>
+              <option>Digital Marketing</option><option>Website Design &amp; Development</option><option>Social Media Marketing</option><option>Performance Marketing</option><option>SEO &amp; AEO</option><option>AI-Powered Marketing</option><option>Content Creation</option><option>Google Business Profile</option><option>Online Reputation Management</option><option>Not sure yet</option>
+            </select>
+          </label>
+          <label>Approximate monthly budget
+            <select name="budget" required>
+              <option value="">Choose a range</option>
+              <option>Under $1,000</option>
+              <option>$1,000 to $2,500</option>
+              <option>$2,500 to $5,000</option>
+              <option>$5,000+</option>
+            </select>
+          </label>
+        </div>
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:0;height:0;opacity:0" aria-hidden="true">
+        <div class="form-success" id="formSuccess">Thanks! We've got your details and will call you back shortly.</div>
+        <button class="btn btn-primary" type="submit">Book a Free Call</button>
+      </form>
+    </div>
+  </div>
+  <script src="/assets/site.js"></script>
+</body>
+</html>
