@@ -187,7 +187,8 @@
     .btn:focus-visible, .toc a:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
     @media (max-width:940px) { .toc, .totals { grid-template-columns:1fr 1fr; } .price-grid { grid-template-columns:1fr 1fr; } }
     @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
-    .pdf-bar { position:fixed; top:96px; right:20px; z-index:48; display:flex; gap:4px; padding:6px; border:1px solid rgba(255,255,255,0.7); border-radius:999px; background:rgba(255,253,248,0.9); backdrop-filter:blur(14px); box-shadow:0 12px 40px rgba(33,32,26,0.12); }
+    .pdf-bar { position:fixed; top:96px; right:20px; z-index:48; opacity:0; visibility:hidden; transform:translateY(-8px); transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; display:flex; gap:4px; padding:6px; border:1px solid rgba(255,255,255,0.7); border-radius:999px; background:rgba(255,253,248,0.9); backdrop-filter:blur(14px); box-shadow:0 12px 40px rgba(33,32,26,0.12); }
+    .pdf-bar.show { opacity:1; visibility:visible; transform:none; transition:opacity 0.25s ease, transform 0.25s ease; }
     .pdf-bar button { display:inline-flex; align-items:center; gap:7px; padding:8px 12px; border:0; border-radius:999px; background:transparent; font-size:0.82rem; font-weight:600; color:var(--ink); cursor:pointer; transition:background 0.2s ease; }
     .pdf-bar button:hover { background:var(--paper-2); }
     .pdf-bar button:focus-visible { outline:3px solid var(--green); outline-offset:1px; }
@@ -542,10 +543,10 @@
         </div>
 
         <div class="scope-toggle reveal" role="group" aria-label="Scope view">
-          <button type="button" data-view="chart" aria-pressed="true">Chart</button>
-          <button type="button" data-view="table" aria-pressed="false">Table</button>
+          <button type="button" data-view="table" aria-pressed="true">Table</button>
+          <button type="button" data-view="chart" aria-pressed="false">Chart</button>
         </div>
-        <div class="scope-view reveal" id="scope-chart">
+        <div class="scope-view reveal" id="scope-chart" hidden>
           <figure class="fig">
             <figcaption><strong>Pages per tier</strong><span>Number of pages on quantiphi.com in each tier</span></figcaption>
             <div class="axis" aria-hidden="true"><span>0</span><span>100</span><span>200</span><span>300</span><span>400</span></div>
@@ -574,7 +575,7 @@
           </div></div>
           </figure>
         </div>
-        <div class="scope-view table-wrap reveal" id="scope-table" hidden>
+        <div class="scope-view table-wrap reveal" id="scope-table">
           <table class="scope-table">
             <thead>
               <tr><th>Tier</th><th>Pages</th><th>No. of pages</th><th>Unique templates</th><th>Unique sections / page</th><th>Total designs</th></tr>
@@ -795,6 +796,16 @@
     (function () {
       var toast = document.getElementById('toast'), timer;
       function say(msg) { toast.textContent = msg; toast.classList.add('show'); clearTimeout(timer); timer = setTimeout(function () { toast.classList.remove('show'); }, 6000); }
+      var bar = document.querySelector('.pdf-bar'), about = document.getElementById('about');
+      function showBar() { bar.classList.toggle('show', about.getBoundingClientRect().top <= window.innerHeight * 0.6); }
+      window.addEventListener('scroll', showBar, { passive: true });
+      window.addEventListener('resize', showBar);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (en) {
+          var e = en[0]; bar.classList.toggle('show', e.isIntersecting || e.boundingClientRect.top < 0);
+        }, { rootMargin: '0px 0px -40% 0px', threshold: 0 }).observe(about);
+      }
+      showBar();
       document.getElementById('toolPrint').addEventListener('click', function () { window.print(); });
       document.getElementById('toolPdf').addEventListener('click', function () {
         say('In the print dialog, choose "Save as PDF" as the destination, then save.');
