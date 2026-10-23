@@ -51,7 +51,7 @@
     .proposal-body .container { width:100%; }
     .proposal-body .section { padding:64px 0; }
     .proposal-body .section:first-child { padding-top:24px; }
-    .side-index { position:sticky; top:154px; padding:18px 6px 18px 0; border-right:1px solid var(--line); }
+    .side-index { position:sticky; top:170px; padding:18px 6px 18px 0; border-right:1px solid var(--line); }
     .side-index-title { font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--green-dark); margin-bottom:12px; }
     .side-links { display:flex; flex-direction:column; gap:2px; }
     .side-links a { display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:12px; font-size:0.92rem; font-weight:600; color:var(--muted); transition:background 0.2s ease, color 0.2s ease; }
@@ -74,11 +74,11 @@
     }
     .sec-head { max-width:720px; margin-bottom:36px; }
     .sec-head p { font-size:1.08rem; }
-    section[id] { scroll-margin-top:154px; }
+    section[id] { scroll-margin-top:170px; }
     html { scroll-snap-type:y mandatory; }
     .page-hero, main > .section-sm, .proposal-body > section, footer { scroll-snap-align:start; scroll-snap-stop:always; }
-    main > .section-sm, .cta-band, footer { scroll-margin-top:154px; }
-    .proposal-body > section[id] { min-height:calc(100svh - 154px); box-sizing:border-box; }
+    main > .section-sm, .cta-band, footer { scroll-margin-top:170px; }
+    .proposal-body > section[id] { min-height:calc(100svh - 170px); box-sizing:border-box; }
     @media (max-width:940px) { main > .section-sm, .cta-band, footer { scroll-margin-top:150px; } .proposal-body > section[id] { min-height:calc(100svh - 150px); } }
     @media (prefers-reduced-motion:reduce) { html { scroll-snap-type:none; } }
     .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); }
@@ -187,10 +187,12 @@
     .btn:focus-visible, .toc a:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
     @media (max-width:940px) { .toc, .totals { grid-template-columns:1fr 1fr; } .price-grid { grid-template-columns:1fr 1fr; } }
     @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
-    .pdf-bar { position:fixed; top:0; left:0; right:0; z-index:48; display:flex; justify-content:flex-end; gap:6px; padding:92px max(20px, calc((100% - 1180px) / 2)) 6px; background:rgba(246,242,233,0.97); border-bottom:1px solid var(--line); box-shadow:0 10px 30px rgba(33,32,26,0.06); opacity:0; visibility:hidden; transform:translateY(-8px); transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; }
+    .pdf-bar { position:fixed; top:0; left:0; right:0; z-index:48; display:flex; justify-content:flex-end; gap:6px; padding:98px max(20px, calc((100% - 1180px) / 2)) 14px; background:rgba(246,242,233,0.97); border-bottom:1px solid var(--line); box-shadow:0 10px 30px rgba(33,32,26,0.06); opacity:0; visibility:hidden; transform:translateY(-8px); transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; }
     .pdf-bar.show { opacity:1; visibility:visible; transform:none; transition:opacity 0.25s ease, transform 0.25s ease; }
-    .pdf-bar button { display:inline-flex; align-items:center; gap:7px; padding:8px 12px; border:0; border-radius:999px; background:transparent; font-size:0.82rem; font-weight:600; color:var(--ink); cursor:pointer; transition:background 0.2s ease, color 0.2s ease; }
-    .pdf-bar button:hover { background:rgba(255,253,248,0.85); color:var(--green-dark); }
+    .pdf-bar button { position:relative; display:inline-flex; align-items:center; gap:7px; padding:8px 12px; border:0; border-radius:0; background:transparent; font-size:0.82rem; font-weight:600; color:var(--ink); cursor:pointer; transition:color 0.2s ease; }
+    .pdf-bar button::after { content:""; position:absolute; left:12px; right:12px; bottom:2px; height:2px; background:var(--orange); transform:scaleX(0); transform-origin:left; transition:transform 0.25s ease; }
+    .pdf-bar button:hover { color:var(--green-dark); }
+    .pdf-bar button:hover::after { transform:scaleX(1); }
     .pdf-bar button:focus-visible { outline:3px solid var(--green); outline-offset:1px; }
     .pdf-bar svg { width:17px; }
     .pdf-bar .i-exit { display:none; }
@@ -198,7 +200,7 @@
     .pdf-bar button[aria-pressed="true"] .i-exit { display:block; }
     .toast { position:fixed; left:50%; bottom:24px; z-index:60; transform:translate(-50%,16px); max-width:min(92vw,460px); padding:12px 18px; border-radius:14px; background:var(--ink); color:var(--white); font-size:0.88rem; font-weight:500; box-shadow:0 16px 40px rgba(0,0,0,0.25); opacity:0; visibility:hidden; transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; }
     .toast.show { opacity:1; visibility:visible; transform:translate(-50%,0); transition:opacity 0.25s ease, transform 0.25s ease; }
-    @media (max-width:940px) { .pdf-bar { top:auto; bottom:18px; left:auto; right:14px; gap:2px; padding:0; background:transparent; border:0; box-shadow:none; } .pdf-bar span { display:none; } .pdf-bar button { padding:10px; background:rgba(255,253,248,0.9); box-shadow:0 8px 20px rgba(33,32,26,0.14); } .pdf-bar svg { width:19px; } .toast { bottom:78px; } }
+    @media (max-width:940px) { .pdf-bar { top:auto; bottom:18px; left:auto; right:14px; gap:2px; padding:0; background:transparent; border:0; box-shadow:none; } .pdf-bar span { display:none; } .pdf-bar button { padding:10px; border-radius:999px; background:rgba(255,253,248,0.9); box-shadow:0 8px 20px rgba(33,32,26,0.14); } .pdf-bar button::after { display:none; } .pdf-bar svg { width:19px; } .toast { bottom:78px; } }
     .tl-toggle { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:22px; }
     .tl-toggle button { padding:9px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,253,248,0.7); font-weight:600; font-size:0.88rem; color:var(--muted); cursor:pointer; transition:0.2s ease; }
     .tl-toggle button:hover { color:var(--ink); background:var(--white); }
