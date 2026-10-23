@@ -52,6 +52,16 @@
     .totals div { padding:22px; border-radius:var(--radius-md); background:var(--green-dark); color:var(--white); }
     .totals b { display:block; font:800 2.2rem/1 "Manrope",sans-serif; color:var(--lime); letter-spacing:-0.04em; font-variant-numeric:tabular-nums; }
     .totals span { font-size:0.88rem; color:#c9d6c4; }
+    .work-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .work-card { padding:26px 24px; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); display:flex; flex-direction:column; gap:10px; transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; }
+    .work-card:hover, .work-card:focus-visible { transform:translateY(-6px); box-shadow:var(--shadow); background:var(--white); }
+    .work-card:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
+    .work-tag { align-self:flex-start; padding:3px 10px; border-radius:999px; background:var(--lime); color:var(--green-dark); font-size:0.75rem; font-weight:700; }
+    .work-card strong { font-family:"Manrope",sans-serif; font-size:1.3rem; letter-spacing:-0.03em; }
+    .work-card small { color:var(--muted); font-size:0.95rem; line-height:1.55; }
+    .work-link { margin-top:auto; padding-top:6px; display:inline-flex; align-items:center; gap:8px; font-weight:700; color:var(--green-dark); font-size:0.92rem; }
+    .work-link svg { width:16px; color:var(--orange); transition:transform 0.25s ease; }
+    .work-card:hover .work-link svg { transform:translateX(4px); }
     .phases { display:grid; gap:12px; max-width:860px; }
     .phase { display:grid; grid-template-columns:140px 1fr; gap:20px; padding:22px; border:1px solid var(--line); border-radius:var(--radius-md); background:rgba(255,253,248,0.7); }
     .phase .when { font:700 0.85rem "Manrope",sans-serif; color:var(--green-dark); }
@@ -74,7 +84,7 @@
     .sign-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
     .btn:focus-visible, .toc a:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
     @media (max-width:940px) { .toc { grid-template-columns:1fr 1fr; } .price-grid, .team-grid { grid-template-columns:1fr 1fr; } }
-    @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
+    @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals, .work-grid { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
   </style>
   <script type="application/ld+json">
 {
@@ -217,12 +227,33 @@
         <div class="sec-head reveal">
           <div class="eyebrow">02 · Our work</div>
           <h2>Websites we've designed and built</h2>
-          <p>A selection of relevant projects. Our full website portfolio is live on this site.</p>
+          <p>Recent websites for AI and SaaS products. Each one explains a technical product to the people who buy it.</p>
         </div>
-        <div class="covered-grid reveal">
-          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><strong><span class="ph">[Project 1 name]</span></strong><small><span class="ph">[Client, sector, what we did]</span></small></div>
-          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><strong><span class="ph">[Project 2 name]</span></strong><small><span class="ph">[Client, sector, what we did]</span></small></div>
-          <div class="covered-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></span><strong><span class="ph">[Project 3 name]</span></strong><small><span class="ph">[Client, sector, what we did]</span></small></div>
+        <div class="work-grid reveal">
+          <a class="work-card" href="https://claude.ai/artifact/6b7ueqEZZi2PcWJ9QDuNhb" target="_blank" rel="noopener">
+            <span class="work-tag">Website redesign concept</span>
+            <strong>OpenDots</strong>
+            <small>A scroll-led redesign for an AI customer experience platform that answers reviews, comments and DMs for consumer brands. Motion carries the story from public feedback through to resolution, case studies and blog.</small>
+            <span class="work-link">View the concept <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="work-card" href="https://ratl.ai" target="_blank" rel="noopener">
+            <span class="work-tag">AI testing platform</span>
+            <strong>ratl.ai</strong>
+            <small>Website for an AI-agentic testing workspace used by quality engineers, product managers and developers. The page tailors itself to each role and shows prompt-driven tests running in the browser.</small>
+            <span class="work-link">Visit ratl.ai <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="work-card" href="https://opendotscx.com/" target="_blank" rel="noopener">
+            <span class="work-tag">AI customer experience</span>
+            <strong>OpenDots live site</strong>
+            <small>The live OpenDots website. It shows how one platform answers customers across six channels, resolves what it can and turns every conversation into insight.</small>
+            <span class="work-link">Visit opendotscx.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="work-card" href="https://teachvibecoding.app" target="_blank" rel="noopener">
+            <span class="work-tag">AI education platform</span>
+            <strong>Teach Vibe Coding</strong>
+            <small>Website for a controlled vibe coding platform built for faculty. The page is written as a conversation that answers the questions instructors ask, from setup to cost.</small>
+            <span class="work-link">Visit teachvibecoding.app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
         </div>
         <div class="reveal" style="margin-top:28px">
           <a class="btn btn-secondary" href="/websiteportfolio/">Explore our website portfolio <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
