@@ -130,12 +130,12 @@
     .show-arrow.prev { left:-24px; } .show-arrow.next { right:-24px; }
     @media (max-width:940px) { .show-arrow { display:none; } }
     @media (max-width:680px) { .showcase { --frame-w:960px; } .show-frame { aspect-ratio:4/3; } .show-frame iframe { height:calc(var(--frame-w) * 3 / 4); } .show-caption { flex-direction:column; } .show-caption .btn { width:100%; } }
-    .scope-toggle { display:flex; gap:8px; margin:36px 0 16px; }
-    .scope-toggle button { padding:9px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,253,248,0.7); font-weight:600; font-size:0.88rem; color:var(--muted); cursor:pointer; transition:0.2s ease; }
-    .scope-toggle button:hover { color:var(--ink); background:var(--white); }
-    .scope-toggle button[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:var(--white); }
+    .scope-toggle { display:inline-flex; gap:0; margin:36px 0 16px; padding:4px; border:1px solid var(--line); border-radius:999px; background:rgba(255,253,248,0.7); }
+    .scope-toggle button { padding:8px 18px; border:0; border-radius:999px; background:transparent; font-weight:600; font-size:0.88rem; color:var(--muted); cursor:pointer; transition:0.2s ease; }
+    .scope-toggle button:hover { color:var(--ink); }
+    .scope-toggle button[aria-pressed="true"] { background:var(--ink); color:var(--white); }
     .scope-toggle button:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
-    .scope-view[hidden] { display:none; }
+    .scope-view[hidden], #scope-chart[hidden], #scope-table[hidden] { display:none !important; }
     #scope-chart { display:grid; grid-template-columns:1fr 1.35fr; gap:16px; --c-pages:#2e7d46; --c-tpl:#2e7d46; --c-sec:#2f6fb3; --c-des:#d9641f; }
     .fig { margin:0; padding:22px 22px 18px; border:1px solid var(--line); border-radius:var(--radius-lg); background:rgba(255,253,248,0.7); display:flex; flex-direction:column; gap:12px; min-width:0; }
     .fig figcaption { display:flex; flex-direction:column; gap:2px; margin-bottom:4px; }
