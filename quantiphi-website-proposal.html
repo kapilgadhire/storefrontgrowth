@@ -187,10 +187,10 @@
     .btn:focus-visible, .toc a:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
     @media (max-width:940px) { .toc, .totals { grid-template-columns:1fr 1fr; } .price-grid { grid-template-columns:1fr 1fr; } }
     @media (max-width:680px) { .toc, .price-grid, .team-grid, .totals { grid-template-columns:1fr; } .phase { grid-template-columns:1fr; gap:6px; } }
-    .pdf-bar { position:fixed; top:96px; right:20px; z-index:48; opacity:0; visibility:hidden; transform:translateY(-8px); transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; display:flex; gap:4px; padding:6px; border:1px solid rgba(255,255,255,0.7); border-radius:999px; background:rgba(255,253,248,0.9); backdrop-filter:blur(14px); box-shadow:0 12px 40px rgba(33,32,26,0.12); }
+    .pdf-bar { position:fixed; top:96px; right:20px; z-index:48; display:flex; gap:6px; opacity:0; visibility:hidden; transform:translateY(-8px); transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; }
     .pdf-bar.show { opacity:1; visibility:visible; transform:none; transition:opacity 0.25s ease, transform 0.25s ease; }
-    .pdf-bar button { display:inline-flex; align-items:center; gap:7px; padding:8px 12px; border:0; border-radius:999px; background:transparent; font-size:0.82rem; font-weight:600; color:var(--ink); cursor:pointer; transition:background 0.2s ease; }
-    .pdf-bar button:hover { background:var(--paper-2); }
+    .pdf-bar button { display:inline-flex; align-items:center; gap:7px; padding:8px 12px; border:0; border-radius:999px; background:transparent; font-size:0.82rem; font-weight:600; color:var(--ink); cursor:pointer; transition:background 0.2s ease, color 0.2s ease; }
+    .pdf-bar button:hover { background:rgba(255,253,248,0.85); color:var(--green-dark); }
     .pdf-bar button:focus-visible { outline:3px solid var(--green); outline-offset:1px; }
     .pdf-bar svg { width:17px; }
     .pdf-bar .i-exit { display:none; }
@@ -198,7 +198,7 @@
     .pdf-bar button[aria-pressed="true"] .i-exit { display:block; }
     .toast { position:fixed; left:50%; bottom:24px; z-index:60; transform:translate(-50%,16px); max-width:min(92vw,460px); padding:12px 18px; border-radius:14px; background:var(--ink); color:var(--white); font-size:0.88rem; font-weight:500; box-shadow:0 16px 40px rgba(0,0,0,0.25); opacity:0; visibility:hidden; transition:opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; }
     .toast.show { opacity:1; visibility:visible; transform:translate(-50%,0); transition:opacity 0.25s ease, transform 0.25s ease; }
-    @media (max-width:940px) { .pdf-bar { top:auto; bottom:18px; right:14px; } .pdf-bar span { display:none; } .pdf-bar button { padding:10px; } .pdf-bar svg { width:19px; } .toast { bottom:78px; } }
+    @media (max-width:940px) { .pdf-bar { top:auto; bottom:18px; right:14px; gap:2px; } .pdf-bar span { display:none; } .pdf-bar button { padding:10px; background:rgba(255,253,248,0.9); box-shadow:0 8px 20px rgba(33,32,26,0.14); } .pdf-bar svg { width:19px; } .toast { bottom:78px; } }
     .tl-toggle { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:22px; }
     .tl-toggle button { padding:9px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,253,248,0.7); font-weight:600; font-size:0.88rem; color:var(--muted); cursor:pointer; transition:0.2s ease; }
     .tl-toggle button:hover { color:var(--ink); background:var(--white); }
