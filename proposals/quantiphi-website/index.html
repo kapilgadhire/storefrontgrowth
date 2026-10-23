@@ -116,7 +116,7 @@
     .show-frame iframe { position:absolute; left:0; top:0; width:var(--frame-w); height:calc(var(--frame-w) * 9 / 16); border:0; transform:scale(var(--s,0.5)); transform-origin:0 0; }
     .show-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; }
     .show-frame.is-scroll { overflow-y:auto; background:#130b24; }
-    .show-frame.is-scroll img { position:static; display:block; width:min(360px, 90%); height:auto; margin:0 auto; object-fit:unset; image-rendering:auto; }
+    .show-frame.is-scroll img { position:static; display:block; width:100%; height:auto; object-fit:unset; }
     .show-frame::before { content:"Loading live site\2026"; position:absolute; inset:0; display:grid; place-items:center; font-size:0.9rem; font-weight:600; color:var(--muted); background:var(--paper); }
     .show-frame.is-static::before, .show-frame.is-loaded::before { display:none; }
     .show-caption { display:flex; align-items:flex-start; justify-content:space-between; gap:24px; }
@@ -516,16 +516,16 @@
             <article class="show-slide" id="show-panel-5" role="tabpanel" aria-labelledby="show-tab-5" hidden>
               <div class="show-browser">
                 <div class="show-bar" aria-hidden="true"><i></i><i></i><i></i><em>Fynd Academy</em></div>
-                <div class="show-frame is-static is-scroll"><img src="/assets/work/fynd-academy.webp" alt="Fynd Academy website design: home, programmes, hire, about and contact pages" width="158" height="2000" loading="lazy" /></div>
+                <div class="show-frame is-static is-scroll"><img src="/assets/work/fynd-academy.jpg" alt="Fynd Academy website design: home, programmes, hire, about and contact pages" width="1000" height="12689" loading="lazy" /></div>
               </div>
               <div class="show-caption">
-                <div class="show-text" data-url="https://storefrontgrowth.com/assets/work/fynd-academy.webp">
+                <div class="show-text" data-url="https://storefrontgrowth.com/assets/work/fynd-academy.jpg">
                   <span class="work-tag">Education platform</span>
                   <strong>Fynd Academy</strong>
                   <p>Website design for Fynd's training academy: home, programme pages, an AI-powered resume builder, industry-recognised certificates, hiring partners, about and contact, all on one dark space-themed visual system.</p>
-                  <small class="show-note">Full-page capture. Scroll inside the preview to see every page.</small>
+                  <small class="show-note">Full-page design. Scroll inside the preview to see every page.</small>
                 </div>
-                <a class="btn btn-primary" href="/assets/work/fynd-academy.webp" target="_blank" rel="noopener" aria-label="View design in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a class="btn btn-primary" href="/assets/work/fynd-academy.jpg" target="_blank" rel="noopener" aria-label="View design in a new tab">View <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </div>
             </article>
             </div>
